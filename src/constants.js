@@ -155,14 +155,14 @@ export const FPTI_TRANSITION = {
     NATIVE_POPUP_UNLOAD:                    ('native_popup_unload' : 'native_popup_unload'),
     NATIVE_POPUP_BEFORE_UNLOAD:             ('native_popup_beforeunload' : 'native_popup_beforeunload'),
     NATIVE_POPUP_PAGEHIDE:                  ('native_popup_pagehide' : 'native_popup_pagehide'),
-    NATIVE_POPUP_OPENER_DETECT_CLOSE:       ('native_popup_opener_detect_close', 'native_popup_opener_detect_close'),
-    NATIVE_OPT_OUT:                         ('native_opt_out', 'native_opt_out'),
-    NATIVE_FALLBACK:                        ('native_fallback', 'native_fallback'),
+    NATIVE_POPUP_OPENER_DETECT_CLOSE:       ('native_popup_opener_detect_close' : 'native_popup_opener_detect_close'),
+    NATIVE_OPT_OUT:                         ('native_opt_out' : 'native_opt_out'),
+    NATIVE_FALLBACK:                        ('native_fallback' : 'native_fallback'),
     
     QR_SHOWN:                               ('qr_shown' : 'qr_shown'),
     QR_CLOSING:                             ('qr_closing' : 'qr_closing'),
     
-    HONEY_IDENTIFY:                         ('honey_identify')
+    HONEY_IDENTIFY:                         ('honey_identify' : 'honey_identify')
 };
 
 export const FPTI_MENU_OPTION = {
@@ -243,8 +243,6 @@ export const LSAT_UPGRADE_EXCLUDED_MERCHANTS = [
     'AejlsIlg_KjKjmLKqxJqFIAwn3ZP02emx41Z2It4IfirQ-nNgZgzWk1CU-Q1QDbYUXjWoYJZ4dq1S2pK',
     'AQXD7-m_2yMo-5AxJ1fQaPeEWYDE7NZ9XrLzEXeiPLTHDu9vfe_T0foF8BoX8K5cMfXuRDysUEmhw-8Z'
 ];
-
-export const LSAT_UPGRADE_FAILED = '__pp_lsat_upgrade_failure__';
 
 export const ITEM_CATEGORY = {
     DIGITAL:  'DIGITAL',

@@ -5,7 +5,6 @@ import { request } from 'belter/src';
 
 import { GRAPHQL_URI } from '../config';
 import { HEADERS, SMART_PAYMENT_BUTTONS } from '../constants';
-import { getLogger, slashToUnderscore } from '../lib';
 
 type RESTAPIParams<D> = {|
     accessToken : string,
@@ -35,15 +34,11 @@ export function callRestAPI<D, T>({ accessToken, method, url, data, headers } : 
         json:    data
     }).then(({ status, body, headers: responseHeaders }) : T => {
         if (status >= 300) {
-            const hasDetails = body.details && body.details.length;
-            const issue = (hasDetails && body.details[0].issue) ? body.details[0].issue : 'Generic Error';
-            const description = (hasDetails && body.details[0].description) ? body.details[0].description : 'no description';
+            const error = new Error(`${ url } returned status ${ status } (Corr ID: ${ responseHeaders[HEADERS.PAYPAL_DEBUG_ID] }).\n\n${ JSON.stringify(body) }`);
 
-            const error = new Error(`${ issue }: ${ description } (Corr ID: ${ responseHeaders[HEADERS.PAYPAL_DEBUG_ID] }`);
             // $FlowFixMe
-            error.response = { status, headers: responseHeaders };
+            error.response = { status, headers: responseHeaders, body };
 
-            getLogger().warn(`rest_api${ slashToUnderscore(url) }_error`, { err: issue });
             throw error;
         }
 
@@ -82,20 +77,18 @@ export function callSmartAPI({ accessToken, url, method = 'get', headers: reqHea
             if (body.ack === 'contingency') {
                 const err = new Error(body.contingency);
                 // $FlowFixMe
+                err.response = { url, method, headers: reqHeaders, body };
+                // $FlowFixMe
                 err.data = body.data;
-
-                getLogger().warn(`smart_api${ slashToUnderscore(url) }_contingency_error`);
                 throw err;
             }
 
             if (status > 400) {
-                getLogger().warn(`smart_api${ slashToUnderscore(url) }_status_error`);
-                throw new Error(`Api: ${ url } returned status code: ${ status } (Corr ID: ${ headers[HEADERS.PAYPAL_DEBUG_ID] })`);
+                throw new Error(`Api: ${ url } returned status code: ${ status } (Corr ID: ${ headers[HEADERS.PAYPAL_DEBUG_ID] })\n\n${ JSON.stringify(body) }`);
             }
 
             if (body.ack !== 'success') {
-                getLogger().warn(`smart_api${ slashToUnderscore(url) }_ack_error`);
-                throw new Error(`Api: ${ url } returned ack: ${ body.ack } (Corr ID: ${ headers[HEADERS.PAYPAL_DEBUG_ID] })`);
+                throw new Error(`Api: ${ url } returned ack: ${ body.ack } (Corr ID: ${ headers[HEADERS.PAYPAL_DEBUG_ID] })\n\n${ JSON.stringify(body) }`);
             }
 
             return { data: body.data, headers };
@@ -119,16 +112,32 @@ export function callGraphQL<T>({ name, query, variables = {}, headers = {} } : {
 
         if (errors.length) {
             const message = errors[0].message || JSON.stringify(errors[0]);
-
-            getLogger().warn(`graphql_${ name }_error`, { err: message });
             throw new Error(message);
         }
 
         if (status !== 200) {
-            getLogger().warn(`graphql_${ name }_status_${ status }_error`);
-            throw new Error(`${ GRAPHQL_URI } returned status ${ status }`);
+            throw new Error(`${ GRAPHQL_URI } returned status ${ status }\n\n${ JSON.stringify(body) }`);
         }
 
         return body.data;
     });
+}
+
+export type Response = {|
+    data : mixed,
+    headers : {|
+        [string] : string
+    |}
+|};
+
+export function getResponseCorrelationID(res : Response) : ?string {
+    return res.headers[HEADERS.PAYPAL_DEBUG_ID];
+}
+
+export function getErrorResponseCorrelationID(err : mixed) : ?string {
+    // $FlowFixMe
+    const res : Response = err?.response;
+    if (res) {
+        return getResponseCorrelationID(res);
+    }
 }
