@@ -277,7 +277,7 @@ test('should render filled out tagline when config is enabled', async () => {
 });
 
 test('should do a basic button render with post and succeed', async () => {
-    const buttonMiddleware = getButtonMiddleware({ graphQL, getAccessToken, getMerchantID, content: mockContent, cache, logger, tracking, getPersonalizationEnabled, isFundingSourceBranded });
+    const buttonMiddleware = getButtonMiddleware({ graphQL, getAccessToken, getMerchantID, content: mockContent, cache, logger, tracking, getPersonalizationEnabled, isFundingSourceBranded, getInstanceLocationInformation, getSDKLocationInformation });
 
     const req = mockReq({
         method: 'post',
