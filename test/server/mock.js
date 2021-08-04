@@ -242,15 +242,15 @@ export function isFundingSourceBranded() : Promise<boolean> {
 
 export function getInstanceLocationInformation() : InstanceLocationInformation {
     return {
-        cdnHostName:  '',
-        paypalDomain: ''
+        cdnHostName:  'paypal.com',
+        paypalDomain: 'paypal.com'
     };
 }
 
 export function getSDKLocationInformation() : Promise<SDKLocationInformation> {
     return Promise.resolve({
-        sdkActiveTag:   '',
-        sdkCDNRegistry: ''
+        sdkActiveTag:   'abc',
+        sdkCDNRegistry: 'paypal.com'
     });
 }
 

@@ -18,7 +18,10 @@ function getSetupButtonParams(template) : Object {
 
 jest.setTimeout(300000);
 
-afterAll(cancelWatchers);
+afterAll((done) => {
+    cancelWatchers();
+    done();
+});
 
 const cache = {
     // eslint-disable-next-line no-unused-vars
