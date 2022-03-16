@@ -58,9 +58,9 @@ type EnableVaultSetupOptions = {|
     disableFunding : ?$ReadOnlyArray<$Values<typeof FUNDING>>,
     disableCard : ?$ReadOnlyArray<$Values<typeof CARD>>,
     userIDToken : ?string,
-    inline: ?boolean,
-    userExperienceFlow: ?string,
-    buttonSessionID: string
+    inline : ?boolean,
+    userExperienceFlow : ?string,
+    buttonSessionID : string
 |};
 
 
