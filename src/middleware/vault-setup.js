@@ -8,7 +8,6 @@ import { enableVault, getFundingEligibility } from '../api';
 import { getLogger } from '../lib';
 import { type CreateBillingAgreement, type CreateSubscription } from '../props';
 import { INTEGRATION_ARTIFACT, PRODUCT_FLOW, USER_EXPERIENCE_FLOW } from '../constants';
-import { string } from '../config';
 
 
 type VaultAutoSetupEligibleProps = {|
