@@ -57,894 +57,7 @@ window.spb = function(modules) {
     __webpack_require__.p = "";
     return __webpack_require__(__webpack_require__.s = "./src/button/index.js");
 }({
-    "./node_modules/@paypal/sdk-constants/dist/paypal-sdk-constants.js": function(module, exports, __webpack_require__) {
-        "undefined" != typeof self && self, module.exports = function(E) {
-            var N = {};
-            function S(R) {
-                if (N[R]) return N[R].exports;
-                var t = N[R] = {
-                    i: R,
-                    l: !1,
-                    exports: {}
-                };
-                return E[R].call(t.exports, t, t.exports, S), t.l = !0, t.exports;
-            }
-            return S.m = E, S.c = N, S.d = function(E, N, R) {
-                S.o(E, N) || Object.defineProperty(E, N, {
-                    enumerable: !0,
-                    get: R
-                });
-            }, S.r = function(E) {
-                "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(E, Symbol.toStringTag, {
-                    value: "Module"
-                }), Object.defineProperty(E, "__esModule", {
-                    value: !0
-                });
-            }, S.t = function(E, N) {
-                if (1 & N && (E = S(E)), 8 & N) return E;
-                if (4 & N && "object" == typeof E && E && E.__esModule) return E;
-                var R = Object.create(null);
-                if (S.r(R), Object.defineProperty(R, "default", {
-                    enumerable: !0,
-                    value: E
-                }), 2 & N && "string" != typeof E) for (var t in E) S.d(R, t, function(N) {
-                    return E[N];
-                }.bind(null, t));
-                return R;
-            }, S.n = function(E) {
-                var N = E && E.__esModule ? function() {
-                    return E.default;
-                } : function() {
-                    return E;
-                };
-                return S.d(N, "a", N), N;
-            }, S.o = function(E, N) {
-                return {}.hasOwnProperty.call(E, N);
-            }, S.p = "", S(S.s = 0);
-        }([ function(E, N, S) {
-            "use strict";
-            S.r(N), S.d(N, "DEFAULT_COUNTRY", (function() {
-                return C;
-            })), S.d(N, "DEFAULT_CURRENCY", (function() {
-                return a;
-            })), S.d(N, "DEFAULT_INTENT", (function() {
-                return u;
-            })), S.d(N, "DEFAULT_COMMIT", (function() {
-                return L;
-            })), S.d(N, "DEFAULT_SALE_COMMIT", (function() {
-                return d;
-            })), S.d(N, "DEFAULT_NONSALE_COMMIT", (function() {
-                return P;
-            })), S.d(N, "DEFAULT_VAULT", (function() {
-                return c;
-            })), S.d(N, "DEFAULT_COMPONENTS", (function() {
-                return U;
-            })), S.d(N, "DEFAULT_DEBUG", (function() {
-                return G;
-            })), S.d(N, "ENV", (function() {
-                return s;
-            })), S.d(N, "MOBILE_ENV", (function() {
-                return B;
-            })), S.d(N, "ERROR_CODE", (function() {
-                return K;
-            })), S.d(N, "FPTI_KEY", (function() {
-                return p;
-            })), S.d(N, "FPTI_USER_ACTION", (function() {
-                return l;
-            })), S.d(N, "FPTI_DATA_SOURCE", (function() {
-                return f;
-            })), S.d(N, "FPTI_FEED", (function() {
-                return Y;
-            })), S.d(N, "FPTI_SDK_NAME", (function() {
-                return V;
-            })), S.d(N, "FUNDING", (function() {
-                return m;
-            })), S.d(N, "FUNDING_BRAND_LABEL", (function() {
-                return b;
-            })), S.d(N, "CARD", (function() {
-                return y;
-            })), S.d(N, "WALLET_INSTRUMENT", (function() {
-                return W;
-            })), S.d(N, "FUNDING_PRODUCTS", (function() {
-                return J;
-            })), S.d(N, "COUNTRY", (function() {
-                return R;
-            })), S.d(N, "LANG", (function() {
-                return t;
-            })), S.d(N, "COUNTRY_LANGS", (function() {
-                return T;
-            })), S.d(N, "INTENT", (function() {
-                return e;
-            })), S.d(N, "COMMIT", (function() {
-                return n;
-            })), S.d(N, "VAULT", (function() {
-                return A;
-            })), S.d(N, "CURRENCY", (function() {
-                return r;
-            })), S.d(N, "SDK_PATH", (function() {
-                return F;
-            })), S.d(N, "SDK_SETTINGS", (function() {
-                return _;
-            })), S.d(N, "SDK_QUERY_KEYS", (function() {
-                return D;
-            })), S.d(N, "COMPONENTS", (function() {
-                return H;
-            })), S.d(N, "DEBUG", (function() {
-                return I;
-            })), S.d(N, "QUERY_BOOL", (function() {
-                return o;
-            })), S.d(N, "UNKNOWN", (function() {
-                return O;
-            })), S.d(N, "PROTOCOL", (function() {
-                return i;
-            })), S.d(N, "PAGE_TYPES", (function() {
-                return M;
-            })), S.d(N, "MERCHANT_ID_MAX", (function() {
-                return Z;
-            })), S.d(N, "PLATFORM", (function() {
-                return h;
-            })), S.d(N, "TYPES", (function() {
-                return k;
-            }));
-            var R = {
-                AD: "AD",
-                AE: "AE",
-                AG: "AG",
-                AI: "AI",
-                AL: "AL",
-                AM: "AM",
-                AN: "AN",
-                AO: "AO",
-                AR: "AR",
-                AT: "AT",
-                AU: "AU",
-                AW: "AW",
-                AZ: "AZ",
-                BA: "BA",
-                BB: "BB",
-                BE: "BE",
-                BF: "BF",
-                BG: "BG",
-                BH: "BH",
-                BI: "BI",
-                BJ: "BJ",
-                BM: "BM",
-                BN: "BN",
-                BO: "BO",
-                BR: "BR",
-                BS: "BS",
-                BT: "BT",
-                BW: "BW",
-                BY: "BY",
-                BZ: "BZ",
-                CA: "CA",
-                CD: "CD",
-                CG: "CG",
-                CH: "CH",
-                CI: "CI",
-                CK: "CK",
-                CL: "CL",
-                CM: "CM",
-                CN: "CN",
-                CO: "CO",
-                CR: "CR",
-                CV: "CV",
-                CY: "CY",
-                CZ: "CZ",
-                DE: "DE",
-                DJ: "DJ",
-                DK: "DK",
-                DM: "DM",
-                DO: "DO",
-                DZ: "DZ",
-                EC: "EC",
-                EE: "EE",
-                EG: "EG",
-                ER: "ER",
-                ES: "ES",
-                ET: "ET",
-                FI: "FI",
-                FJ: "FJ",
-                FK: "FK",
-                FM: "FM",
-                FO: "FO",
-                FR: "FR",
-                GA: "GA",
-                GB: "GB",
-                GD: "GD",
-                GE: "GE",
-                GF: "GF",
-                GI: "GI",
-                GL: "GL",
-                GM: "GM",
-                GN: "GN",
-                GP: "GP",
-                GR: "GR",
-                GT: "GT",
-                GW: "GW",
-                GY: "GY",
-                HK: "HK",
-                HN: "HN",
-                HR: "HR",
-                HU: "HU",
-                ID: "ID",
-                IE: "IE",
-                IL: "IL",
-                IN: "IN",
-                IS: "IS",
-                IT: "IT",
-                JM: "JM",
-                JO: "JO",
-                JP: "JP",
-                KE: "KE",
-                KG: "KG",
-                KH: "KH",
-                KI: "KI",
-                KM: "KM",
-                KN: "KN",
-                KR: "KR",
-                KW: "KW",
-                KY: "KY",
-                KZ: "KZ",
-                LA: "LA",
-                LC: "LC",
-                LI: "LI",
-                LK: "LK",
-                LS: "LS",
-                LT: "LT",
-                LU: "LU",
-                LV: "LV",
-                MA: "MA",
-                MC: "MC",
-                MD: "MD",
-                ME: "ME",
-                MG: "MG",
-                MH: "MH",
-                MK: "MK",
-                ML: "ML",
-                MN: "MN",
-                MQ: "MQ",
-                MR: "MR",
-                MS: "MS",
-                MT: "MT",
-                MU: "MU",
-                MV: "MV",
-                MW: "MW",
-                MX: "MX",
-                MY: "MY",
-                MZ: "MZ",
-                NA: "NA",
-                NC: "NC",
-                NE: "NE",
-                NF: "NF",
-                NG: "NG",
-                NI: "NI",
-                NL: "NL",
-                NO: "NO",
-                NP: "NP",
-                NR: "NR",
-                NU: "NU",
-                NZ: "NZ",
-                OM: "OM",
-                PA: "PA",
-                PE: "PE",
-                PF: "PF",
-                PG: "PG",
-                PH: "PH",
-                PL: "PL",
-                PM: "PM",
-                PN: "PN",
-                PT: "PT",
-                PW: "PW",
-                PY: "PY",
-                QA: "QA",
-                RE: "RE",
-                RO: "RO",
-                RS: "RS",
-                RU: "RU",
-                RW: "RW",
-                SA: "SA",
-                SB: "SB",
-                SC: "SC",
-                SE: "SE",
-                SG: "SG",
-                SH: "SH",
-                SI: "SI",
-                SJ: "SJ",
-                SK: "SK",
-                SL: "SL",
-                SM: "SM",
-                SN: "SN",
-                SO: "SO",
-                SR: "SR",
-                ST: "ST",
-                SV: "SV",
-                SZ: "SZ",
-                TC: "TC",
-                TD: "TD",
-                TG: "TG",
-                TH: "TH",
-                TJ: "TJ",
-                TM: "TM",
-                TN: "TN",
-                TO: "TO",
-                TR: "TR",
-                TT: "TT",
-                TV: "TV",
-                TW: "TW",
-                TZ: "TZ",
-                UA: "UA",
-                UG: "UG",
-                US: "US",
-                UY: "UY",
-                VA: "VA",
-                VC: "VC",
-                VE: "VE",
-                VG: "VG",
-                VN: "VN",
-                VU: "VU",
-                WF: "WF",
-                WS: "WS",
-                YE: "YE",
-                YT: "YT",
-                ZA: "ZA",
-                ZM: "ZM",
-                ZW: "ZW"
-            }, t = {
-                AR: "ar",
-                BG: "bg",
-                CS: "cs",
-                DA: "da",
-                DE: "de",
-                EL: "el",
-                EN: "en",
-                ES: "es",
-                ET: "et",
-                FI: "fi",
-                FR: "fr",
-                HE: "he",
-                HU: "hu",
-                ID: "id",
-                IT: "it",
-                JA: "ja",
-                KO: "ko",
-                LT: "lt",
-                LV: "lv",
-                MS: "ms",
-                NL: "nl",
-                NO: "no",
-                PL: "pl",
-                PT: "pt",
-                RO: "ro",
-                RU: "ru",
-                SI: "si",
-                SK: "sk",
-                SL: "sl",
-                SQ: "sq",
-                SV: "sv",
-                TH: "th",
-                TL: "tl",
-                TR: "tr",
-                VI: "vi",
-                ZH: "zh",
-                ZH_HANT: "zh_Hant"
-            }, T = {
-                AD: [ t.EN, t.FR, t.ES, t.ZH ],
-                AE: [ t.EN, t.FR, t.ES, t.ZH, t.AR ],
-                AG: [ t.EN, t.FR, t.ES, t.ZH ],
-                AI: [ t.EN, t.FR, t.ES, t.ZH ],
-                AL: [ t.SQ, t.EN ],
-                AM: [ t.EN, t.FR, t.ES, t.ZH ],
-                AN: [ t.EN, t.FR, t.ES, t.ZH ],
-                AO: [ t.EN, t.FR, t.ES, t.ZH ],
-                AR: [ t.ES, t.EN ],
-                AT: [ t.DE, t.EN ],
-                AU: [ t.EN ],
-                AW: [ t.EN, t.FR, t.ES, t.ZH ],
-                AZ: [ t.EN, t.FR, t.ES, t.ZH ],
-                BA: [ t.EN ],
-                BB: [ t.EN, t.FR, t.ES, t.ZH ],
-                BE: [ t.EN, t.NL, t.FR ],
-                BF: [ t.FR, t.EN, t.ES, t.ZH ],
-                BG: [ t.BG, t.EN ],
-                BH: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
-                BI: [ t.FR, t.EN, t.ES, t.ZH ],
-                BJ: [ t.FR, t.EN, t.ES, t.ZH ],
-                BM: [ t.EN, t.FR, t.ES, t.ZH ],
-                BN: [ t.MS, t.EN ],
-                BO: [ t.ES, t.EN, t.FR, t.ZH ],
-                BR: [ t.PT, t.EN ],
-                BS: [ t.EN, t.FR, t.ES, t.ZH ],
-                BT: [ t.EN ],
-                BW: [ t.EN, t.FR, t.ES, t.ZH ],
-                BY: [ t.EN ],
-                BZ: [ t.EN, t.ES, t.FR, t.ZH ],
-                CA: [ t.EN, t.FR ],
-                CD: [ t.FR, t.EN, t.ES, t.ZH ],
-                CG: [ t.EN, t.FR, t.ES, t.ZH ],
-                CH: [ t.DE, t.FR, t.EN ],
-                CI: [ t.FR, t.EN ],
-                CK: [ t.EN, t.FR, t.ES, t.ZH ],
-                CL: [ t.ES, t.EN, t.FR, t.ZH ],
-                CM: [ t.FR, t.EN ],
-                CN: [ t.ZH ],
-                CO: [ t.ES, t.EN, t.FR, t.ZH ],
-                CR: [ t.ES, t.EN, t.FR, t.ZH ],
-                CV: [ t.EN, t.FR, t.ES, t.ZH ],
-                CY: [ t.EN ],
-                CZ: [ t.CS, t.EN ],
-                DE: [ t.DE, t.EN ],
-                DJ: [ t.FR, t.EN, t.ES, t.ZH ],
-                DK: [ t.DA, t.EN ],
-                DM: [ t.EN, t.FR, t.ES, t.ZH ],
-                DO: [ t.ES, t.EN, t.FR, t.ZH ],
-                DZ: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
-                EC: [ t.ES, t.EN, t.FR, t.ZH ],
-                EE: [ t.ET, t.EN, t.RU ],
-                EG: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
-                ER: [ t.EN, t.FR, t.ES, t.ZH ],
-                ES: [ t.ES, t.EN ],
-                ET: [ t.EN, t.FR, t.ES, t.ZH ],
-                FI: [ t.FI, t.EN ],
-                FJ: [ t.EN, t.FR, t.ES, t.ZH ],
-                FK: [ t.EN, t.FR, t.ES, t.ZH ],
-                FM: [ t.EN ],
-                FO: [ t.DA, t.EN, t.FR, t.ES, t.ZH ],
-                FR: [ t.FR, t.EN ],
-                GA: [ t.FR, t.EN, t.ES, t.ZH ],
-                GB: [ t.EN ],
-                GD: [ t.EN, t.FR, t.ES, t.ZH ],
-                GE: [ t.EN, t.FR, t.ES, t.ZH ],
-                GF: [ t.EN, t.FR, t.ES, t.ZH ],
-                GI: [ t.EN, t.FR, t.ES, t.ZH ],
-                GL: [ t.DA, t.EN, t.FR, t.ES, t.ZH ],
-                GM: [ t.EN, t.FR, t.ES, t.ZH ],
-                GN: [ t.FR, t.EN, t.ES, t.ZH ],
-                GP: [ t.EN, t.FR, t.ES, t.ZH ],
-                GR: [ t.EL, t.EN ],
-                GT: [ t.ES, t.EN, t.FR, t.ZH ],
-                GW: [ t.EN, t.FR, t.ES, t.ZH ],
-                GY: [ t.EN, t.FR, t.ES, t.ZH ],
-                HK: [ t.EN, t.ZH_HANT, t.ZH ],
-                HN: [ t.ES, t.EN, t.FR, t.ZH ],
-                HR: [ t.EN ],
-                HU: [ t.HU, t.EN ],
-                ID: [ t.ID, t.EN ],
-                IE: [ t.EN, t.FR, t.ES, t.ZH ],
-                IL: [ t.HE, t.EN ],
-                IN: [ t.EN ],
-                IS: [ t.EN ],
-                IT: [ t.IT, t.EN ],
-                JM: [ t.EN, t.ES, t.FR, t.ZH ],
-                JO: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
-                JP: [ t.JA, t.EN ],
-                KE: [ t.EN, t.FR, t.ES, t.ZH ],
-                KG: [ t.EN, t.FR, t.ES, t.ZH ],
-                KH: [ t.EN ],
-                KI: [ t.EN, t.FR, t.ES, t.ZH ],
-                KM: [ t.FR, t.EN, t.ES, t.ZH ],
-                KN: [ t.EN, t.FR, t.ES, t.ZH ],
-                KR: [ t.KO, t.EN ],
-                KW: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
-                KY: [ t.EN, t.FR, t.ES, t.ZH ],
-                KZ: [ t.EN, t.FR, t.ES, t.ZH ],
-                LA: [ t.EN ],
-                LC: [ t.EN, t.FR, t.ES, t.ZH ],
-                LI: [ t.EN, t.FR, t.ES, t.ZH ],
-                LK: [ t.SI, t.EN ],
-                LS: [ t.EN, t.FR, t.ES, t.ZH ],
-                LT: [ t.LT, t.EN, t.RU, t.ZH ],
-                LU: [ t.EN, t.DE, t.FR, t.ES, t.ZH ],
-                LV: [ t.LV, t.EN, t.RU ],
-                MA: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
-                MC: [ t.FR, t.EN ],
-                MD: [ t.EN ],
-                ME: [ t.EN ],
-                MG: [ t.EN, t.FR, t.ES, t.ZH ],
-                MH: [ t.EN, t.FR, t.ES, t.ZH ],
-                MK: [ t.EN ],
-                ML: [ t.FR, t.EN, t.ES, t.ZH ],
-                MN: [ t.EN ],
-                MQ: [ t.EN, t.FR, t.ES, t.ZH ],
-                MR: [ t.EN, t.FR, t.ES, t.ZH ],
-                MS: [ t.EN, t.FR, t.ES, t.ZH ],
-                MT: [ t.EN ],
-                MU: [ t.EN, t.FR, t.ES, t.ZH ],
-                MV: [ t.EN ],
-                MW: [ t.EN, t.FR, t.ES, t.ZH ],
-                MX: [ t.ES, t.EN ],
-                MY: [ t.MS, t.EN ],
-                MZ: [ t.EN, t.FR, t.ES, t.ZH ],
-                NA: [ t.EN, t.FR, t.ES, t.ZH ],
-                NC: [ t.EN, t.FR, t.ES, t.ZH ],
-                NE: [ t.FR, t.EN, t.ES, t.ZH ],
-                NF: [ t.EN, t.FR, t.ES, t.ZH ],
-                NG: [ t.EN ],
-                NI: [ t.ES, t.EN, t.FR, t.ZH ],
-                NL: [ t.NL, t.EN ],
-                NO: [ t.NO, t.EN ],
-                NP: [ t.EN ],
-                NR: [ t.EN, t.FR, t.ES, t.ZH ],
-                NU: [ t.EN, t.FR, t.ES, t.ZH ],
-                NZ: [ t.EN, t.FR, t.ES, t.ZH ],
-                OM: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
-                PA: [ t.ES, t.EN, t.FR, t.ZH ],
-                PE: [ t.ES, t.EN, t.FR, t.ZH ],
-                PF: [ t.EN, t.FR, t.ES, t.ZH ],
-                PG: [ t.EN, t.FR, t.ES, t.ZH ],
-                PH: [ t.TL, t.EN ],
-                PL: [ t.PL, t.EN ],
-                PM: [ t.EN, t.FR, t.ES, t.ZH ],
-                PN: [ t.EN, t.FR, t.ES, t.ZH ],
-                PT: [ t.PT, t.EN ],
-                PW: [ t.EN, t.FR, t.ES, t.ZH ],
-                PY: [ t.ES, t.EN ],
-                QA: [ t.EN, t.FR, t.ES, t.ZH, t.AR ],
-                RE: [ t.EN, t.FR, t.ES, t.ZH ],
-                RO: [ t.RO, t.EN ],
-                RS: [ t.EN, t.FR, t.ES, t.ZH ],
-                RU: [ t.RU, t.EN ],
-                RW: [ t.FR, t.EN, t.ES, t.ZH ],
-                SA: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
-                SB: [ t.EN, t.FR, t.ES, t.ZH ],
-                SC: [ t.FR, t.EN, t.ES, t.ZH ],
-                SE: [ t.SV, t.EN ],
-                SG: [ t.EN ],
-                SH: [ t.EN, t.FR, t.ES, t.ZH ],
-                SI: [ t.SL, t.EN ],
-                SJ: [ t.EN, t.FR, t.ES, t.ZH ],
-                SK: [ t.SK, t.EN ],
-                SL: [ t.EN, t.FR, t.ES, t.ZH ],
-                SM: [ t.EN, t.FR, t.ES, t.ZH ],
-                SN: [ t.FR, t.EN, t.ES, t.ZH ],
-                SO: [ t.EN, t.FR, t.ES, t.ZH ],
-                SR: [ t.EN, t.FR, t.ES, t.ZH ],
-                ST: [ t.EN, t.FR, t.ES, t.ZH ],
-                SV: [ t.ES, t.EN, t.FR, t.ZH ],
-                SZ: [ t.EN, t.FR, t.ES, t.ZH ],
-                TC: [ t.EN, t.FR, t.ES, t.ZH ],
-                TD: [ t.FR, t.EN, t.ES, t.ZH ],
-                TG: [ t.FR, t.EN, t.ES, t.ZH ],
-                TH: [ t.TH, t.EN ],
-                TJ: [ t.EN, t.FR, t.ES, t.ZH ],
-                TM: [ t.EN, t.FR, t.ES, t.ZH ],
-                TN: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
-                TO: [ t.EN ],
-                TR: [ t.TR, t.EN ],
-                TT: [ t.EN, t.FR, t.ES, t.ZH ],
-                TV: [ t.EN, t.FR, t.ES, t.ZH ],
-                TW: [ t.ZH_HANT, t.ZH, t.EN ],
-                TZ: [ t.EN, t.FR, t.ES, t.ZH ],
-                UA: [ t.EN, t.RU, t.FR, t.ES, t.ZH ],
-                UG: [ t.EN, t.FR, t.ES, t.ZH ],
-                US: [ t.EN, t.FR, t.ES, t.ZH ],
-                UY: [ t.ES, t.EN, t.FR, t.ZH ],
-                VA: [ t.EN, t.FR, t.ES, t.ZH ],
-                VC: [ t.EN, t.FR, t.ES, t.ZH ],
-                VE: [ t.ES, t.EN, t.FR, t.ZH ],
-                VG: [ t.EN, t.FR, t.ES, t.ZH ],
-                VN: [ t.VI, t.EN ],
-                VU: [ t.EN, t.FR, t.ES, t.ZH ],
-                WF: [ t.EN, t.FR, t.ES, t.ZH ],
-                WS: [ t.EN ],
-                YE: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
-                YT: [ t.EN, t.FR, t.ES, t.ZH ],
-                ZA: [ t.EN, t.FR, t.ES, t.ZH ],
-                ZM: [ t.EN, t.FR, t.ES, t.ZH ],
-                ZW: [ t.EN ]
-            }, e = {
-                CAPTURE: "capture",
-                AUTHORIZE: "authorize",
-                ORDER: "order",
-                TOKENIZE: "tokenize",
-                SUBSCRIPTION: "subscription"
-            }, n = {
-                TRUE: !0,
-                FALSE: !1
-            }, A = {
-                TRUE: !0,
-                FALSE: !1
-            }, r = {
-                AED: "AED",
-                ALL: "ALL",
-                ANG: "ANG",
-                AOA: "AOA",
-                AUD: "AUD",
-                AWG: "AWG",
-                BAM: "BAM",
-                BBD: "BBD",
-                BGN: "BGN",
-                BIF: "BIF",
-                BMD: "BMD",
-                BND: "BND",
-                BOB: "BOB",
-                BRL: "BRL",
-                BSD: "BSD",
-                BTN: "BTN",
-                CAD: "CAD",
-                CDF: "CDF",
-                CHF: "CHF",
-                CLP: "CLP",
-                COP: "COP",
-                CRC: "CRC",
-                CVE: "CVE",
-                CZK: "CZK",
-                DJF: "DJF",
-                DKK: "DKK",
-                DOP: "DOP",
-                DZD: "DZD",
-                EGP: "EGP",
-                ETB: "ETB",
-                EUR: "EUR",
-                FJD: "FJD",
-                FKP: "FKP",
-                GBP: "GBP",
-                GIP: "GIP",
-                GMD: "GMD",
-                GNF: "GNF",
-                GTQ: "GTQ",
-                GYD: "GYD",
-                HKD: "HKD",
-                HNL: "HNL",
-                HRK: "HRK",
-                HUF: "HUF",
-                IDR: "IDR",
-                ILS: "ILS",
-                INR: "INR",
-                ISK: "ISK",
-                JMD: "JMD",
-                JPY: "JPY",
-                KES: "KES",
-                KMF: "KMF",
-                KRW: "KRW",
-                KYD: "KYD",
-                LAK: "LAK",
-                LKR: "LKR",
-                MDL: "MDL",
-                MGA: "MGA",
-                MKD: "MKD",
-                MNT: "MNT",
-                MRO: "MRO",
-                MUR: "MUR",
-                MVR: "MVR",
-                MXN: "MXN",
-                MYR: "MYR",
-                NAD: "NAD",
-                NIO: "NIO",
-                NOK: "NOK",
-                NPR: "NPR",
-                NZD: "NZD",
-                PEN: "PEN",
-                PGK: "PGK",
-                PHP: "PHP",
-                PLN: "PLN",
-                PYG: "PYG",
-                QAR: "QAR",
-                RON: "RON",
-                RSD: "RSD",
-                RUB: "RUB",
-                SAR: "SAR",
-                SBD: "SBD",
-                SCR: "SCR",
-                SEK: "SEK",
-                SGD: "SGD",
-                SHP: "SHP",
-                SLL: "SLL",
-                SOS: "SOS",
-                SRD: "SRD",
-                SZL: "SZL",
-                THB: "THB",
-                TJS: "TJS",
-                TOP: "TOP",
-                TTD: "TTD",
-                TWD: "TWD",
-                TZS: "TZS",
-                USD: "USD",
-                UYU: "UYU",
-                VND: "VND",
-                VUV: "VUV",
-                WST: "WST",
-                XAF: "XAF",
-                XCD: "XCD",
-                YER: "YER"
-            }, F = "/sdk/js", _ = {
-                NAMESPACE: "data-namespace",
-                CLIENT_TOKEN: "data-client-token",
-                MERCHANT_ID: "data-merchant-id",
-                PARTNER_ATTRIBUTION_ID: "data-partner-attribution-id",
-                STAGE_HOST: "data-stage-host",
-                API_STAGE_HOST: "data-api-stage-host",
-                CSP_NONCE: "data-csp-nonce",
-                ENABLE_3DS: "data-enable-3ds",
-                SDK_INTEGRATION_SOURCE: "data-sdk-integration-source",
-                USER_ID_TOKEN: "data-user-id-token",
-                AMOUNT: "data-amount",
-                CLIENT_METADATA_ID: "data-client-metadata-id",
-                PAGE_TYPE: "data-page-type",
-                USER_EXPERIENCE_FLOW: "data-user-experience-flow",
-                POPUPS_DISABLED: "data-popups-disabled"
-            }, D = {
-                COMPONENTS: "components",
-                ENV: "env",
-                DEBUG: "debug",
-                CACHEBUST: "cachebust",
-                CLIENT_ID: "client-id",
-                MERCHANT_ID: "merchant-id",
-                LOCALE: "locale",
-                CURRENCY: "currency",
-                INTENT: "intent",
-                COMMIT: "commit",
-                VAULT: "vault",
-                BUYER_COUNTRY: "buyer-country",
-                ENABLE_FUNDING: "enable-funding",
-                DISABLE_FUNDING: "disable-funding",
-                DISABLE_CARD: "disable-card",
-                INTEGRATION_DATE: "integration-date",
-                STAGE_HOST: "stage-host",
-                STAGE_ALIAS: "stage-alias",
-                CDN_REGISTRY: "cdn-registry",
-                VERSION: "version"
-            }, H = {
-                BUTTONS: "buttons",
-                HOSTED_FIELDS: "hosted-fields"
-            }, I = {
-                TRUE: !0,
-                FALSE: !1
-            }, o = {
-                TRUE: "true",
-                FALSE: "false"
-            }, O = "unknown", i = {
-                HTTP: "http",
-                HTTPS: "https"
-            }, M = {
-                HOME: "home",
-                PRODUCT: "product",
-                CART: "cart",
-                CHECKOUT: "checkout",
-                PRODUCT_LISTING: "product-listing",
-                SEARCH_RESULTS: "search-results",
-                PRODUCT_DETAILS: "product-details",
-                MINI_CART: "mini-cart"
-            }, Z = 10, C = R.US, a = r.USD, u = e.CAPTURE, L = n.TRUE, d = n.TRUE, P = n.TRUE, c = A.FALSE, U = H.BUTTONS, G = I.FALSE, s = {
-                LOCAL: "local",
-                STAGE: "stage",
-                SANDBOX: "sandbox",
-                PRODUCTION: "production",
-                TEST: "test"
-            }, B = {
-                ANDROID: "android",
-                IOS: "iOS"
-            }, K = {
-                VALIDATION_ERROR: "validation_error"
-            }, p = {
-                FEED: "feed_name",
-                STATE: "state_name",
-                TRANSITION: "transition_name",
-                BUTTON_TYPE: "button_type",
-                SESSION_UID: "page_session_id",
-                BUTTON_SESSION_UID: "button_session_id",
-                TOKEN: "token",
-                CONTEXT_ID: "context_id",
-                CONTEXT_TYPE: "context_type",
-                REFERER: "referer_url",
-                MERCHANT_DOMAIN: "merchant_domain",
-                PAY_ID: "pay_id",
-                SELLER_ID: "seller_id",
-                CLIENT_ID: "client_id",
-                DATA_SOURCE: "serverside_data_source",
-                BUTTON_SOURCE: "button_source",
-                ERROR_CODE: "ext_error_code",
-                ERROR_DESC: "ext_error_desc",
-                PAGE_LOAD_TIME: "page_load_time",
-                EXPERIMENT_NAME: "pxp_exp_id",
-                TREATMENT_NAME: "pxp_trtmnt_id",
-                TRANSITION_TIME: "transition_time",
-                FUNDING_LIST: "eligible_payment_methods",
-                FUNDING_COUNT: "eligible_payment_count",
-                CHOSEN_FUNDING: "selected_payment_method",
-                BUTTON_LAYOUT: "button_layout",
-                VERSION: "checkoutjs_version",
-                LOCALE: "locale",
-                BUYER_COUNTRY: "buyer_cntry",
-                INTEGRATION_IDENTIFIER: "integration_identifier",
-                PARTNER_ATTRIBUTION_ID: "bn_code",
-                PAGE_TYPE: "pp_placement",
-                SDK_NAME: "sdk_name",
-                SDK_VERSION: "sdk_version",
-                SDK_ENVIRONMENT: "sdk_environment",
-                MOBILE_APP_VERSION: "mobile_app_version",
-                MOBILE_BUNDLE_IDENTIFIER: "mapv",
-                USER_AGENT: "user_agent",
-                USER_ACTION: "user_action",
-                CONTEXT_CORRID: "context_correlation_id",
-                SDK_CACHE: "sdk_cache",
-                SDK_LOAD_TIME: "sdk_load_time",
-                IS_VAULT: "is_vault",
-                DISABLE_FUNDING: "disable_funding",
-                DISABLE_CARD: "disable_card",
-                RESPONSE_DURATION: "response_duration",
-                SDK_INTEGRATION_SOURCE: "sdk_integration_source",
-                PAYMENT_FLOW: "payment_flow",
-                BUTTON_VERSION: "button_version",
-                FI_LIST: "fi_list",
-                CHOSEN_FI_TYPE: "chosen_fi_type",
-                SELECTED_FI: "merchant_selected_funding_source",
-                POTENTIAL_PAYMENT_METHODS: "potential_payment_methods",
-                PAY_NOW: "pay_now",
-                STICKINESS_ID: "stickiness_id",
-                TIMESTAMP: "t",
-                OPTION_SELECTED: "optsel",
-                USER_IDENTITY_METHOD: "user_identity_method",
-                FIELDS_COMPONENT_SESSION_ID: "fields_component_session_id"
-            }, l = {
-                COMMIT: "commit",
-                CONTINUE: "continue"
-            }, f = {
-                PAYMENTS_SDK: "checkout"
-            }, Y = {
-                PAYMENTS_SDK: "payments_sdk"
-            }, V = {
-                PAYMENTS_SDK: "payments_sdk"
-            }, m = {
-                PAYPAL: "paypal",
-                VENMO: "venmo",
-                APPLEPAY: "applepay",
-                ITAU: "itau",
-                CREDIT: "credit",
-                PAYLATER: "paylater",
-                CARD: "card",
-                IDEAL: "ideal",
-                SEPA: "sepa",
-                BANCONTACT: "bancontact",
-                GIROPAY: "giropay",
-                SOFORT: "sofort",
-                EPS: "eps",
-                MYBANK: "mybank",
-                P24: "p24",
-                VERKKOPANKKI: "verkkopankki",
-                PAYU: "payu",
-                BLIK: "blik",
-                TRUSTLY: "trustly",
-                ZIMPLER: "zimpler",
-                MAXIMA: "maxima",
-                OXXO: "oxxo",
-                BOLETO: "boleto",
-                WECHATPAY: "wechatpay",
-                MERCADOPAGO: "mercadopago",
-                MULTIBLANCO: "multiblanco",
-                MULTIBANCO: "multibanco"
-            }, b = {
-                PAYPAL: "PayPal",
-                CREDIT: "PayPal Credit"
-            }, y = {
-                VISA: "visa",
-                MASTERCARD: "mastercard",
-                AMEX: "amex",
-                DISCOVER: "discover",
-                HIPER: "hiper",
-                ELO: "elo",
-                JCB: "jcb",
-                CUP: "cup"
-            }, W = {
-                BALANCE: "balance",
-                CARD: "card",
-                BANK: "bank",
-                CREDIT: "credit"
-            }, J = {
-                PAY_IN_3: "payIn3",
-                PAY_IN_4: "payIn4",
-                PAYLATER: "paylater",
-                CREDIT: "credit"
-            }, h = {
-                DESKTOP: "desktop",
-                MOBILE: "mobile"
-            }, k = !0;
-        } ]);
-    },
-    "./node_modules/@paypal/sdk-constants/index.js": function(module, exports, __webpack_require__) {
-        module.exports = __webpack_require__("./node_modules/@paypal/sdk-constants/dist/paypal-sdk-constants.js");
-    },
-    "./node_modules/belter/dist/belter.js": function(module, exports, __webpack_require__) {
+    "./node_modules/@krakenjs/belter/dist/belter.js": function(module, exports, __webpack_require__) {
         "undefined" != typeof self && self, module.exports = function(modules) {
             var installedModules = {};
             function __webpack_require__(moduleId) {
@@ -4269,8 +3382,898 @@ window.spb = function(modules) {
             }
         } ]);
     },
-    "./node_modules/belter/index.js": function(module, exports, __webpack_require__) {
-        module.exports = __webpack_require__("./node_modules/belter/dist/belter.js");
+    "./node_modules/@krakenjs/belter/index.js": function(module, exports, __webpack_require__) {
+        module.exports = __webpack_require__("./node_modules/@krakenjs/belter/dist/belter.js");
+    },
+    "./node_modules/@paypal/sdk-constants/dist/paypal-sdk-constants.js": function(module, exports, __webpack_require__) {
+        "undefined" != typeof self && self, module.exports = function(E) {
+            var N = {};
+            function S(R) {
+                if (N[R]) return N[R].exports;
+                var t = N[R] = {
+                    i: R,
+                    l: !1,
+                    exports: {}
+                };
+                return E[R].call(t.exports, t, t.exports, S), t.l = !0, t.exports;
+            }
+            return S.m = E, S.c = N, S.d = function(E, N, R) {
+                S.o(E, N) || Object.defineProperty(E, N, {
+                    enumerable: !0,
+                    get: R
+                });
+            }, S.r = function(E) {
+                "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(E, Symbol.toStringTag, {
+                    value: "Module"
+                }), Object.defineProperty(E, "__esModule", {
+                    value: !0
+                });
+            }, S.t = function(E, N) {
+                if (1 & N && (E = S(E)), 8 & N) return E;
+                if (4 & N && "object" == typeof E && E && E.__esModule) return E;
+                var R = Object.create(null);
+                if (S.r(R), Object.defineProperty(R, "default", {
+                    enumerable: !0,
+                    value: E
+                }), 2 & N && "string" != typeof E) for (var t in E) S.d(R, t, function(N) {
+                    return E[N];
+                }.bind(null, t));
+                return R;
+            }, S.n = function(E) {
+                var N = E && E.__esModule ? function() {
+                    return E.default;
+                } : function() {
+                    return E;
+                };
+                return S.d(N, "a", N), N;
+            }, S.o = function(E, N) {
+                return {}.hasOwnProperty.call(E, N);
+            }, S.p = "", S(S.s = 0);
+        }([ function(E, N, S) {
+            "use strict";
+            S.r(N), S.d(N, "DEFAULT_COUNTRY", (function() {
+                return Z;
+            })), S.d(N, "DEFAULT_CURRENCY", (function() {
+                return a;
+            })), S.d(N, "DEFAULT_INTENT", (function() {
+                return u;
+            })), S.d(N, "DEFAULT_COMMIT", (function() {
+                return L;
+            })), S.d(N, "DEFAULT_SALE_COMMIT", (function() {
+                return P;
+            })), S.d(N, "DEFAULT_NONSALE_COMMIT", (function() {
+                return d;
+            })), S.d(N, "DEFAULT_VAULT", (function() {
+                return c;
+            })), S.d(N, "DEFAULT_COMPONENTS", (function() {
+                return U;
+            })), S.d(N, "DEFAULT_DEBUG", (function() {
+                return s;
+            })), S.d(N, "ENV", (function() {
+                return G;
+            })), S.d(N, "MOBILE_ENV", (function() {
+                return B;
+            })), S.d(N, "ERROR_CODE", (function() {
+                return K;
+            })), S.d(N, "FPTI_KEY", (function() {
+                return p;
+            })), S.d(N, "FPTI_USER_ACTION", (function() {
+                return l;
+            })), S.d(N, "FPTI_DATA_SOURCE", (function() {
+                return f;
+            })), S.d(N, "FPTI_FEED", (function() {
+                return Y;
+            })), S.d(N, "FPTI_SDK_NAME", (function() {
+                return V;
+            })), S.d(N, "FUNDING", (function() {
+                return m;
+            })), S.d(N, "FUNDING_BRAND_LABEL", (function() {
+                return y;
+            })), S.d(N, "CARD", (function() {
+                return b;
+            })), S.d(N, "WALLET_INSTRUMENT", (function() {
+                return W;
+            })), S.d(N, "FUNDING_PRODUCTS", (function() {
+                return J;
+            })), S.d(N, "COUNTRY", (function() {
+                return R;
+            })), S.d(N, "LANG", (function() {
+                return t;
+            })), S.d(N, "COUNTRY_LANGS", (function() {
+                return e;
+            })), S.d(N, "INTENT", (function() {
+                return T;
+            })), S.d(N, "COMMIT", (function() {
+                return n;
+            })), S.d(N, "VAULT", (function() {
+                return A;
+            })), S.d(N, "CURRENCY", (function() {
+                return r;
+            })), S.d(N, "SDK_PATH", (function() {
+                return _;
+            })), S.d(N, "SDK_SETTINGS", (function() {
+                return F;
+            })), S.d(N, "SDK_QUERY_KEYS", (function() {
+                return D;
+            })), S.d(N, "COMPONENTS", (function() {
+                return H;
+            })), S.d(N, "DEBUG", (function() {
+                return I;
+            })), S.d(N, "QUERY_BOOL", (function() {
+                return o;
+            })), S.d(N, "UNKNOWN", (function() {
+                return i;
+            })), S.d(N, "PROTOCOL", (function() {
+                return O;
+            })), S.d(N, "PAGE_TYPES", (function() {
+                return M;
+            })), S.d(N, "MERCHANT_ID_MAX", (function() {
+                return C;
+            })), S.d(N, "PLATFORM", (function() {
+                return h;
+            })), S.d(N, "TYPES", (function() {
+                return k;
+            }));
+            var R = {
+                AD: "AD",
+                AE: "AE",
+                AG: "AG",
+                AI: "AI",
+                AL: "AL",
+                AM: "AM",
+                AN: "AN",
+                AO: "AO",
+                AR: "AR",
+                AT: "AT",
+                AU: "AU",
+                AW: "AW",
+                AZ: "AZ",
+                BA: "BA",
+                BB: "BB",
+                BE: "BE",
+                BF: "BF",
+                BG: "BG",
+                BH: "BH",
+                BI: "BI",
+                BJ: "BJ",
+                BM: "BM",
+                BN: "BN",
+                BO: "BO",
+                BR: "BR",
+                BS: "BS",
+                BT: "BT",
+                BW: "BW",
+                BY: "BY",
+                BZ: "BZ",
+                CA: "CA",
+                CD: "CD",
+                CG: "CG",
+                CH: "CH",
+                CI: "CI",
+                CK: "CK",
+                CL: "CL",
+                CM: "CM",
+                CN: "CN",
+                CO: "CO",
+                CR: "CR",
+                CV: "CV",
+                CY: "CY",
+                CZ: "CZ",
+                DE: "DE",
+                DJ: "DJ",
+                DK: "DK",
+                DM: "DM",
+                DO: "DO",
+                DZ: "DZ",
+                EC: "EC",
+                EE: "EE",
+                EG: "EG",
+                ER: "ER",
+                ES: "ES",
+                ET: "ET",
+                FI: "FI",
+                FJ: "FJ",
+                FK: "FK",
+                FM: "FM",
+                FO: "FO",
+                FR: "FR",
+                GA: "GA",
+                GB: "GB",
+                GD: "GD",
+                GE: "GE",
+                GF: "GF",
+                GI: "GI",
+                GL: "GL",
+                GM: "GM",
+                GN: "GN",
+                GP: "GP",
+                GR: "GR",
+                GT: "GT",
+                GW: "GW",
+                GY: "GY",
+                HK: "HK",
+                HN: "HN",
+                HR: "HR",
+                HU: "HU",
+                ID: "ID",
+                IE: "IE",
+                IL: "IL",
+                IN: "IN",
+                IS: "IS",
+                IT: "IT",
+                JM: "JM",
+                JO: "JO",
+                JP: "JP",
+                KE: "KE",
+                KG: "KG",
+                KH: "KH",
+                KI: "KI",
+                KM: "KM",
+                KN: "KN",
+                KR: "KR",
+                KW: "KW",
+                KY: "KY",
+                KZ: "KZ",
+                LA: "LA",
+                LC: "LC",
+                LI: "LI",
+                LK: "LK",
+                LS: "LS",
+                LT: "LT",
+                LU: "LU",
+                LV: "LV",
+                MA: "MA",
+                MC: "MC",
+                MD: "MD",
+                ME: "ME",
+                MG: "MG",
+                MH: "MH",
+                MK: "MK",
+                ML: "ML",
+                MN: "MN",
+                MQ: "MQ",
+                MR: "MR",
+                MS: "MS",
+                MT: "MT",
+                MU: "MU",
+                MV: "MV",
+                MW: "MW",
+                MX: "MX",
+                MY: "MY",
+                MZ: "MZ",
+                NA: "NA",
+                NC: "NC",
+                NE: "NE",
+                NF: "NF",
+                NG: "NG",
+                NI: "NI",
+                NL: "NL",
+                NO: "NO",
+                NP: "NP",
+                NR: "NR",
+                NU: "NU",
+                NZ: "NZ",
+                OM: "OM",
+                PA: "PA",
+                PE: "PE",
+                PF: "PF",
+                PG: "PG",
+                PH: "PH",
+                PL: "PL",
+                PM: "PM",
+                PN: "PN",
+                PT: "PT",
+                PW: "PW",
+                PY: "PY",
+                QA: "QA",
+                RE: "RE",
+                RO: "RO",
+                RS: "RS",
+                RU: "RU",
+                RW: "RW",
+                SA: "SA",
+                SB: "SB",
+                SC: "SC",
+                SE: "SE",
+                SG: "SG",
+                SH: "SH",
+                SI: "SI",
+                SJ: "SJ",
+                SK: "SK",
+                SL: "SL",
+                SM: "SM",
+                SN: "SN",
+                SO: "SO",
+                SR: "SR",
+                ST: "ST",
+                SV: "SV",
+                SZ: "SZ",
+                TC: "TC",
+                TD: "TD",
+                TG: "TG",
+                TH: "TH",
+                TJ: "TJ",
+                TM: "TM",
+                TN: "TN",
+                TO: "TO",
+                TR: "TR",
+                TT: "TT",
+                TV: "TV",
+                TW: "TW",
+                TZ: "TZ",
+                UA: "UA",
+                UG: "UG",
+                US: "US",
+                UY: "UY",
+                VA: "VA",
+                VC: "VC",
+                VE: "VE",
+                VG: "VG",
+                VN: "VN",
+                VU: "VU",
+                WF: "WF",
+                WS: "WS",
+                YE: "YE",
+                YT: "YT",
+                ZA: "ZA",
+                ZM: "ZM",
+                ZW: "ZW"
+            }, t = {
+                AR: "ar",
+                BG: "bg",
+                CS: "cs",
+                DA: "da",
+                DE: "de",
+                EL: "el",
+                EN: "en",
+                ES: "es",
+                ET: "et",
+                FI: "fi",
+                FR: "fr",
+                HE: "he",
+                HU: "hu",
+                ID: "id",
+                IT: "it",
+                JA: "ja",
+                KO: "ko",
+                LT: "lt",
+                LV: "lv",
+                MS: "ms",
+                NL: "nl",
+                NO: "no",
+                PL: "pl",
+                PT: "pt",
+                RO: "ro",
+                RU: "ru",
+                SI: "si",
+                SK: "sk",
+                SL: "sl",
+                SQ: "sq",
+                SV: "sv",
+                TH: "th",
+                TL: "tl",
+                TR: "tr",
+                VI: "vi",
+                ZH: "zh",
+                ZH_HANT: "zh_Hant"
+            }, e = {
+                AD: [ t.EN, t.FR, t.ES, t.ZH ],
+                AE: [ t.EN, t.FR, t.ES, t.ZH, t.AR ],
+                AG: [ t.EN, t.FR, t.ES, t.ZH ],
+                AI: [ t.EN, t.FR, t.ES, t.ZH ],
+                AL: [ t.SQ, t.EN ],
+                AM: [ t.EN, t.FR, t.ES, t.ZH ],
+                AN: [ t.EN, t.FR, t.ES, t.ZH ],
+                AO: [ t.EN, t.FR, t.ES, t.ZH ],
+                AR: [ t.ES, t.EN ],
+                AT: [ t.DE, t.EN ],
+                AU: [ t.EN ],
+                AW: [ t.EN, t.FR, t.ES, t.ZH ],
+                AZ: [ t.EN, t.FR, t.ES, t.ZH ],
+                BA: [ t.EN ],
+                BB: [ t.EN, t.FR, t.ES, t.ZH ],
+                BE: [ t.EN, t.NL, t.FR ],
+                BF: [ t.FR, t.EN, t.ES, t.ZH ],
+                BG: [ t.BG, t.EN ],
+                BH: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
+                BI: [ t.FR, t.EN, t.ES, t.ZH ],
+                BJ: [ t.FR, t.EN, t.ES, t.ZH ],
+                BM: [ t.EN, t.FR, t.ES, t.ZH ],
+                BN: [ t.MS, t.EN ],
+                BO: [ t.ES, t.EN, t.FR, t.ZH ],
+                BR: [ t.PT, t.EN ],
+                BS: [ t.EN, t.FR, t.ES, t.ZH ],
+                BT: [ t.EN ],
+                BW: [ t.EN, t.FR, t.ES, t.ZH ],
+                BY: [ t.EN ],
+                BZ: [ t.EN, t.ES, t.FR, t.ZH ],
+                CA: [ t.EN, t.FR ],
+                CD: [ t.FR, t.EN, t.ES, t.ZH ],
+                CG: [ t.EN, t.FR, t.ES, t.ZH ],
+                CH: [ t.DE, t.FR, t.EN ],
+                CI: [ t.FR, t.EN ],
+                CK: [ t.EN, t.FR, t.ES, t.ZH ],
+                CL: [ t.ES, t.EN, t.FR, t.ZH ],
+                CM: [ t.FR, t.EN ],
+                CN: [ t.ZH ],
+                CO: [ t.ES, t.EN, t.FR, t.ZH ],
+                CR: [ t.ES, t.EN, t.FR, t.ZH ],
+                CV: [ t.EN, t.FR, t.ES, t.ZH ],
+                CY: [ t.EN ],
+                CZ: [ t.CS, t.EN ],
+                DE: [ t.DE, t.EN ],
+                DJ: [ t.FR, t.EN, t.ES, t.ZH ],
+                DK: [ t.DA, t.EN ],
+                DM: [ t.EN, t.FR, t.ES, t.ZH ],
+                DO: [ t.ES, t.EN, t.FR, t.ZH ],
+                DZ: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
+                EC: [ t.ES, t.EN, t.FR, t.ZH ],
+                EE: [ t.ET, t.EN, t.RU ],
+                EG: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
+                ER: [ t.EN, t.FR, t.ES, t.ZH ],
+                ES: [ t.ES, t.EN ],
+                ET: [ t.EN, t.FR, t.ES, t.ZH ],
+                FI: [ t.FI, t.EN ],
+                FJ: [ t.EN, t.FR, t.ES, t.ZH ],
+                FK: [ t.EN, t.FR, t.ES, t.ZH ],
+                FM: [ t.EN ],
+                FO: [ t.DA, t.EN, t.FR, t.ES, t.ZH ],
+                FR: [ t.FR, t.EN ],
+                GA: [ t.FR, t.EN, t.ES, t.ZH ],
+                GB: [ t.EN ],
+                GD: [ t.EN, t.FR, t.ES, t.ZH ],
+                GE: [ t.EN, t.FR, t.ES, t.ZH ],
+                GF: [ t.EN, t.FR, t.ES, t.ZH ],
+                GI: [ t.EN, t.FR, t.ES, t.ZH ],
+                GL: [ t.DA, t.EN, t.FR, t.ES, t.ZH ],
+                GM: [ t.EN, t.FR, t.ES, t.ZH ],
+                GN: [ t.FR, t.EN, t.ES, t.ZH ],
+                GP: [ t.EN, t.FR, t.ES, t.ZH ],
+                GR: [ t.EL, t.EN ],
+                GT: [ t.ES, t.EN, t.FR, t.ZH ],
+                GW: [ t.EN, t.FR, t.ES, t.ZH ],
+                GY: [ t.EN, t.FR, t.ES, t.ZH ],
+                HK: [ t.EN, t.ZH_HANT, t.ZH ],
+                HN: [ t.ES, t.EN, t.FR, t.ZH ],
+                HR: [ t.EN ],
+                HU: [ t.HU, t.EN ],
+                ID: [ t.ID, t.EN ],
+                IE: [ t.EN, t.FR, t.ES, t.ZH ],
+                IL: [ t.HE, t.EN ],
+                IN: [ t.EN ],
+                IS: [ t.EN ],
+                IT: [ t.IT, t.EN ],
+                JM: [ t.EN, t.ES, t.FR, t.ZH ],
+                JO: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
+                JP: [ t.JA, t.EN ],
+                KE: [ t.EN, t.FR, t.ES, t.ZH ],
+                KG: [ t.EN, t.FR, t.ES, t.ZH ],
+                KH: [ t.EN ],
+                KI: [ t.EN, t.FR, t.ES, t.ZH ],
+                KM: [ t.FR, t.EN, t.ES, t.ZH ],
+                KN: [ t.EN, t.FR, t.ES, t.ZH ],
+                KR: [ t.KO, t.EN ],
+                KW: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
+                KY: [ t.EN, t.FR, t.ES, t.ZH ],
+                KZ: [ t.EN, t.FR, t.ES, t.ZH ],
+                LA: [ t.EN ],
+                LC: [ t.EN, t.FR, t.ES, t.ZH ],
+                LI: [ t.EN, t.FR, t.ES, t.ZH ],
+                LK: [ t.SI, t.EN ],
+                LS: [ t.EN, t.FR, t.ES, t.ZH ],
+                LT: [ t.LT, t.EN, t.RU, t.ZH ],
+                LU: [ t.EN, t.DE, t.FR, t.ES, t.ZH ],
+                LV: [ t.LV, t.EN, t.RU ],
+                MA: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
+                MC: [ t.FR, t.EN ],
+                MD: [ t.EN ],
+                ME: [ t.EN ],
+                MG: [ t.EN, t.FR, t.ES, t.ZH ],
+                MH: [ t.EN, t.FR, t.ES, t.ZH ],
+                MK: [ t.EN ],
+                ML: [ t.FR, t.EN, t.ES, t.ZH ],
+                MN: [ t.EN ],
+                MQ: [ t.EN, t.FR, t.ES, t.ZH ],
+                MR: [ t.EN, t.FR, t.ES, t.ZH ],
+                MS: [ t.EN, t.FR, t.ES, t.ZH ],
+                MT: [ t.EN ],
+                MU: [ t.EN, t.FR, t.ES, t.ZH ],
+                MV: [ t.EN ],
+                MW: [ t.EN, t.FR, t.ES, t.ZH ],
+                MX: [ t.ES, t.EN ],
+                MY: [ t.MS, t.EN ],
+                MZ: [ t.EN, t.FR, t.ES, t.ZH ],
+                NA: [ t.EN, t.FR, t.ES, t.ZH ],
+                NC: [ t.EN, t.FR, t.ES, t.ZH ],
+                NE: [ t.FR, t.EN, t.ES, t.ZH ],
+                NF: [ t.EN, t.FR, t.ES, t.ZH ],
+                NG: [ t.EN ],
+                NI: [ t.ES, t.EN, t.FR, t.ZH ],
+                NL: [ t.NL, t.EN ],
+                NO: [ t.NO, t.EN ],
+                NP: [ t.EN ],
+                NR: [ t.EN, t.FR, t.ES, t.ZH ],
+                NU: [ t.EN, t.FR, t.ES, t.ZH ],
+                NZ: [ t.EN, t.FR, t.ES, t.ZH ],
+                OM: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
+                PA: [ t.ES, t.EN, t.FR, t.ZH ],
+                PE: [ t.ES, t.EN, t.FR, t.ZH ],
+                PF: [ t.EN, t.FR, t.ES, t.ZH ],
+                PG: [ t.EN, t.FR, t.ES, t.ZH ],
+                PH: [ t.TL, t.EN ],
+                PL: [ t.PL, t.EN ],
+                PM: [ t.EN, t.FR, t.ES, t.ZH ],
+                PN: [ t.EN, t.FR, t.ES, t.ZH ],
+                PT: [ t.PT, t.EN ],
+                PW: [ t.EN, t.FR, t.ES, t.ZH ],
+                PY: [ t.ES, t.EN ],
+                QA: [ t.EN, t.FR, t.ES, t.ZH, t.AR ],
+                RE: [ t.EN, t.FR, t.ES, t.ZH ],
+                RO: [ t.RO, t.EN ],
+                RS: [ t.EN, t.FR, t.ES, t.ZH ],
+                RU: [ t.RU, t.EN ],
+                RW: [ t.FR, t.EN, t.ES, t.ZH ],
+                SA: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
+                SB: [ t.EN, t.FR, t.ES, t.ZH ],
+                SC: [ t.FR, t.EN, t.ES, t.ZH ],
+                SE: [ t.SV, t.EN ],
+                SG: [ t.EN ],
+                SH: [ t.EN, t.FR, t.ES, t.ZH ],
+                SI: [ t.SL, t.EN ],
+                SJ: [ t.EN, t.FR, t.ES, t.ZH ],
+                SK: [ t.SK, t.EN ],
+                SL: [ t.EN, t.FR, t.ES, t.ZH ],
+                SM: [ t.EN, t.FR, t.ES, t.ZH ],
+                SN: [ t.FR, t.EN, t.ES, t.ZH ],
+                SO: [ t.EN, t.FR, t.ES, t.ZH ],
+                SR: [ t.EN, t.FR, t.ES, t.ZH ],
+                ST: [ t.EN, t.FR, t.ES, t.ZH ],
+                SV: [ t.ES, t.EN, t.FR, t.ZH ],
+                SZ: [ t.EN, t.FR, t.ES, t.ZH ],
+                TC: [ t.EN, t.FR, t.ES, t.ZH ],
+                TD: [ t.FR, t.EN, t.ES, t.ZH ],
+                TG: [ t.FR, t.EN, t.ES, t.ZH ],
+                TH: [ t.TH, t.EN ],
+                TJ: [ t.EN, t.FR, t.ES, t.ZH ],
+                TM: [ t.EN, t.FR, t.ES, t.ZH ],
+                TN: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
+                TO: [ t.EN ],
+                TR: [ t.TR, t.EN ],
+                TT: [ t.EN, t.FR, t.ES, t.ZH ],
+                TV: [ t.EN, t.FR, t.ES, t.ZH ],
+                TW: [ t.ZH_HANT, t.ZH, t.EN ],
+                TZ: [ t.EN, t.FR, t.ES, t.ZH ],
+                UA: [ t.EN, t.RU, t.FR, t.ES, t.ZH ],
+                UG: [ t.EN, t.FR, t.ES, t.ZH ],
+                US: [ t.EN, t.FR, t.ES, t.ZH ],
+                UY: [ t.ES, t.EN, t.FR, t.ZH ],
+                VA: [ t.EN, t.FR, t.ES, t.ZH ],
+                VC: [ t.EN, t.FR, t.ES, t.ZH ],
+                VE: [ t.ES, t.EN, t.FR, t.ZH ],
+                VG: [ t.EN, t.FR, t.ES, t.ZH ],
+                VN: [ t.VI, t.EN ],
+                VU: [ t.EN, t.FR, t.ES, t.ZH ],
+                WF: [ t.EN, t.FR, t.ES, t.ZH ],
+                WS: [ t.EN ],
+                YE: [ t.AR, t.EN, t.FR, t.ES, t.ZH ],
+                YT: [ t.EN, t.FR, t.ES, t.ZH ],
+                ZA: [ t.EN, t.FR, t.ES, t.ZH ],
+                ZM: [ t.EN, t.FR, t.ES, t.ZH ],
+                ZW: [ t.EN ]
+            }, T = {
+                CAPTURE: "capture",
+                AUTHORIZE: "authorize",
+                ORDER: "order",
+                TOKENIZE: "tokenize",
+                SUBSCRIPTION: "subscription"
+            }, n = {
+                TRUE: !0,
+                FALSE: !1
+            }, A = {
+                TRUE: !0,
+                FALSE: !1
+            }, r = {
+                AED: "AED",
+                ALL: "ALL",
+                ANG: "ANG",
+                AOA: "AOA",
+                AUD: "AUD",
+                AWG: "AWG",
+                BAM: "BAM",
+                BBD: "BBD",
+                BGN: "BGN",
+                BIF: "BIF",
+                BMD: "BMD",
+                BND: "BND",
+                BOB: "BOB",
+                BRL: "BRL",
+                BSD: "BSD",
+                BTN: "BTN",
+                CAD: "CAD",
+                CDF: "CDF",
+                CHF: "CHF",
+                CLP: "CLP",
+                COP: "COP",
+                CRC: "CRC",
+                CVE: "CVE",
+                CZK: "CZK",
+                DJF: "DJF",
+                DKK: "DKK",
+                DOP: "DOP",
+                DZD: "DZD",
+                EGP: "EGP",
+                ETB: "ETB",
+                EUR: "EUR",
+                FJD: "FJD",
+                FKP: "FKP",
+                GBP: "GBP",
+                GIP: "GIP",
+                GMD: "GMD",
+                GNF: "GNF",
+                GTQ: "GTQ",
+                GYD: "GYD",
+                HKD: "HKD",
+                HNL: "HNL",
+                HRK: "HRK",
+                HUF: "HUF",
+                IDR: "IDR",
+                ILS: "ILS",
+                INR: "INR",
+                ISK: "ISK",
+                JMD: "JMD",
+                JPY: "JPY",
+                KES: "KES",
+                KMF: "KMF",
+                KRW: "KRW",
+                KYD: "KYD",
+                LAK: "LAK",
+                LKR: "LKR",
+                MDL: "MDL",
+                MGA: "MGA",
+                MKD: "MKD",
+                MNT: "MNT",
+                MRO: "MRO",
+                MUR: "MUR",
+                MVR: "MVR",
+                MXN: "MXN",
+                MYR: "MYR",
+                NAD: "NAD",
+                NIO: "NIO",
+                NOK: "NOK",
+                NPR: "NPR",
+                NZD: "NZD",
+                PEN: "PEN",
+                PGK: "PGK",
+                PHP: "PHP",
+                PLN: "PLN",
+                PYG: "PYG",
+                QAR: "QAR",
+                RON: "RON",
+                RSD: "RSD",
+                RUB: "RUB",
+                SAR: "SAR",
+                SBD: "SBD",
+                SCR: "SCR",
+                SEK: "SEK",
+                SGD: "SGD",
+                SHP: "SHP",
+                SLL: "SLL",
+                SOS: "SOS",
+                SRD: "SRD",
+                SZL: "SZL",
+                THB: "THB",
+                TJS: "TJS",
+                TOP: "TOP",
+                TTD: "TTD",
+                TWD: "TWD",
+                TZS: "TZS",
+                USD: "USD",
+                UYU: "UYU",
+                VND: "VND",
+                VUV: "VUV",
+                WST: "WST",
+                XAF: "XAF",
+                XCD: "XCD",
+                YER: "YER"
+            }, _ = "/sdk/js", F = {
+                NAMESPACE: "data-namespace",
+                CLIENT_TOKEN: "data-client-token",
+                MERCHANT_ID: "data-merchant-id",
+                PARTNER_ATTRIBUTION_ID: "data-partner-attribution-id",
+                STAGE_HOST: "data-stage-host",
+                API_STAGE_HOST: "data-api-stage-host",
+                CSP_NONCE: "data-csp-nonce",
+                ENABLE_3DS: "data-enable-3ds",
+                SDK_INTEGRATION_SOURCE: "data-sdk-integration-source",
+                USER_ID_TOKEN: "data-user-id-token",
+                AMOUNT: "data-amount",
+                CLIENT_METADATA_ID: "data-client-metadata-id",
+                PAGE_TYPE: "data-page-type",
+                USER_EXPERIENCE_FLOW: "data-user-experience-flow",
+                POPUPS_DISABLED: "data-popups-disabled"
+            }, D = {
+                COMPONENTS: "components",
+                ENV: "env",
+                DEBUG: "debug",
+                CACHEBUST: "cachebust",
+                CLIENT_ID: "client-id",
+                MERCHANT_ID: "merchant-id",
+                LOCALE: "locale",
+                CURRENCY: "currency",
+                INTENT: "intent",
+                COMMIT: "commit",
+                VAULT: "vault",
+                BUYER_COUNTRY: "buyer-country",
+                ENABLE_FUNDING: "enable-funding",
+                DISABLE_FUNDING: "disable-funding",
+                DISABLE_CARD: "disable-card",
+                INTEGRATION_DATE: "integration-date",
+                STAGE_HOST: "stage-host",
+                STAGE_ALIAS: "stage-alias",
+                CDN_REGISTRY: "cdn-registry",
+                VERSION: "version"
+            }, H = {
+                BUTTONS: "buttons",
+                HOSTED_FIELDS: "hosted-fields"
+            }, I = {
+                TRUE: !0,
+                FALSE: !1
+            }, o = {
+                TRUE: "true",
+                FALSE: "false"
+            }, i = "unknown", O = {
+                HTTP: "http",
+                HTTPS: "https"
+            }, M = {
+                HOME: "home",
+                PRODUCT: "product",
+                CART: "cart",
+                CHECKOUT: "checkout",
+                PRODUCT_LISTING: "product-listing",
+                SEARCH_RESULTS: "search-results",
+                PRODUCT_DETAILS: "product-details",
+                MINI_CART: "mini-cart"
+            }, C = 10, Z = R.US, a = r.USD, u = T.CAPTURE, L = n.TRUE, P = n.TRUE, d = n.TRUE, c = A.FALSE, U = H.BUTTONS, s = I.FALSE, G = {
+                LOCAL: "local",
+                STAGE: "stage",
+                SANDBOX: "sandbox",
+                PRODUCTION: "production",
+                TEST: "test"
+            }, B = {
+                ANDROID: "android",
+                IOS: "iOS"
+            }, K = {
+                VALIDATION_ERROR: "validation_error"
+            }, p = {
+                FEED: "feed_name",
+                STATE: "state_name",
+                TRANSITION: "transition_name",
+                PAGE: "page_name",
+                BUTTON_TYPE: "button_type",
+                SESSION_UID: "page_session_id",
+                BUTTON_SESSION_UID: "button_session_id",
+                TOKEN: "token",
+                CONTEXT_ID: "context_id",
+                CONTEXT_TYPE: "context_type",
+                REFERER: "referer_url",
+                MERCHANT_DOMAIN: "merchant_domain",
+                PAY_ID: "pay_id",
+                SELLER_ID: "seller_id",
+                CLIENT_ID: "client_id",
+                DATA_SOURCE: "serverside_data_source",
+                BUTTON_SOURCE: "button_source",
+                ERROR_CODE: "ext_error_code",
+                ERROR_DESC: "ext_error_desc",
+                PAGE_LOAD_TIME: "page_load_time",
+                EXPERIMENT_NAME: "pxp_exp_id",
+                TREATMENT_NAME: "pxp_trtmnt_id",
+                TRANSITION_TIME: "transition_time",
+                FUNDING_LIST: "eligible_payment_methods",
+                FUNDING_COUNT: "eligible_payment_count",
+                CHOSEN_FUNDING: "selected_payment_method",
+                BUTTON_LAYOUT: "button_layout",
+                VERSION: "checkoutjs_version",
+                LOCALE: "locale",
+                BUYER_COUNTRY: "buyer_cntry",
+                INTEGRATION_IDENTIFIER: "integration_identifier",
+                PARTNER_ATTRIBUTION_ID: "bn_code",
+                PAGE_TYPE: "pp_placement",
+                SDK_NAME: "sdk_name",
+                SDK_VERSION: "sdk_version",
+                SDK_ENVIRONMENT: "sdk_environment",
+                MOBILE_APP_VERSION: "mobile_app_version",
+                MOBILE_BUNDLE_IDENTIFIER: "mapv",
+                USER_AGENT: "user_agent",
+                USER_ACTION: "user_action",
+                CONTEXT_CORRID: "context_correlation_id",
+                SDK_CACHE: "sdk_cache",
+                SDK_LOAD_TIME: "sdk_load_time",
+                IS_VAULT: "is_vault",
+                DISABLE_FUNDING: "disable_funding",
+                DISABLE_CARD: "disable_card",
+                RESPONSE_DURATION: "response_duration",
+                SDK_INTEGRATION_SOURCE: "sdk_integration_source",
+                PAYMENT_FLOW: "payment_flow",
+                BUTTON_VERSION: "button_version",
+                FI_LIST: "fi_list",
+                CHOSEN_FI_TYPE: "chosen_fi_type",
+                SELECTED_FI: "merchant_selected_funding_source",
+                POTENTIAL_PAYMENT_METHODS: "potential_payment_methods",
+                PAY_NOW: "pay_now",
+                STICKINESS_ID: "stickiness_id",
+                TIMESTAMP: "t",
+                OPTION_SELECTED: "optsel",
+                USER_IDENTITY_METHOD: "user_identity_method",
+                FIELDS_COMPONENT_SESSION_ID: "fields_component_session_id",
+                CPL_COMP_METRICS: "cpl_comp_metrics",
+                CPL_CHUNK_METRICS: "cpl_chunk_metrics",
+                CPL_QUERY_METRICS: "cpl_query_metrics"
+            }, l = {
+                COMMIT: "commit",
+                CONTINUE: "continue"
+            }, f = {
+                PAYMENTS_SDK: "checkout"
+            }, Y = {
+                PAYMENTS_SDK: "payments_sdk"
+            }, V = {
+                PAYMENTS_SDK: "payments_sdk"
+            }, m = {
+                PAYPAL: "paypal",
+                VENMO: "venmo",
+                APPLEPAY: "applepay",
+                ITAU: "itau",
+                CREDIT: "credit",
+                PAYLATER: "paylater",
+                CARD: "card",
+                IDEAL: "ideal",
+                SEPA: "sepa",
+                BANCONTACT: "bancontact",
+                GIROPAY: "giropay",
+                SOFORT: "sofort",
+                EPS: "eps",
+                MYBANK: "mybank",
+                P24: "p24",
+                VERKKOPANKKI: "verkkopankki",
+                PAYU: "payu",
+                BLIK: "blik",
+                TRUSTLY: "trustly",
+                ZIMPLER: "zimpler",
+                MAXIMA: "maxima",
+                OXXO: "oxxo",
+                BOLETO: "boleto",
+                WECHATPAY: "wechatpay",
+                MERCADOPAGO: "mercadopago",
+                MULTIBANCO: "multibanco"
+            }, y = {
+                PAYPAL: "PayPal",
+                CREDIT: "PayPal Credit"
+            }, b = {
+                VISA: "visa",
+                MASTERCARD: "mastercard",
+                AMEX: "amex",
+                DISCOVER: "discover",
+                HIPER: "hiper",
+                ELO: "elo",
+                JCB: "jcb",
+                CUP: "cup"
+            }, W = {
+                BALANCE: "balance",
+                CARD: "card",
+                BANK: "bank",
+                CREDIT: "credit"
+            }, J = {
+                PAY_IN_3: "payIn3",
+                PAY_IN_4: "payIn4",
+                PAYLATER: "paylater",
+                CREDIT: "credit"
+            }, h = {
+                DESKTOP: "desktop",
+                MOBILE: "mobile"
+            }, k = !0;
+        } ]);
+    },
+    "./node_modules/@paypal/sdk-constants/index.js": function(module, exports, __webpack_require__) {
+        module.exports = __webpack_require__("./node_modules/@paypal/sdk-constants/dist/paypal-sdk-constants.js");
     },
     "./node_modules/card-validator/dist/card-number.js": function(module, exports, __webpack_require__) {
         "use strict";
@@ -6520,7 +6523,7 @@ window.spb = function(modules) {
             FALSE: !1
         };
         var LSAT_UPGRADE_EXCLUDED_MERCHANTS = [ "AQipcJ1uXz50maKgYx49lKUB8MlSOXP573M6cpsFpHqDZOqnopsJpfYY7bQC_9CtQJsEhGlk8HLs2oZz", "Aco-yrRKihknb5vDBbDOdtYywjYMEPaM7mQg6kev8VDAz01lLA88J4oAUnF4UV9F_InqkqX7K62_jOjx", "AeAiB9K2rRsTXsFKZt4FMAQ8a6VEu4hijducis3a8NcIjV2J_c5I2H2PYhT3qCOwxT8P4l17skqgBlmg", "AXKrWRqEvxiDoUIZQaD1tFi2QhtmhWve3yTDBi58bxWjieYJ9j73My-yJmM7hP00JvOXu4YD6L2eaI5O", "AfRTnXv_QcuVyalbUxThtgk1xTygygsdevlBUTz36dDgD6XZNHp3Ym99a-mjMaokXyTTiI8VJ9mRgaFB", "AejlsIlg_KjKjmLKqxJqFIAwn3ZP02emx41Z2It4IfirQ-nNgZgzWk1CU-Q1QDbYUXjWoYJZ4dq1S2pK", "AQXD7-m_2yMo-5AxJ1fQaPeEWYDE7NZ9XrLzEXeiPLTHDu9vfe_T0foF8BoX8K5cMfXuRDysUEmhw-8Z" ];
-        var APM_LIST = [ "ideal", "bancontact", "giropay", "sofort", "eps", "mybank", "p24", "payu", "blik", "trustly", "zimpler", "maxima", "oxxo", "boleto", "wechatpay", "mercadopago" ];
+        var APM_LIST = [ "ideal", "bancontact", "giropay", "sofort", "eps", "mybank", "p24", "payu", "blik", "trustly", "zimpler", "maxima", "oxxo", "boleto", "wechatpay", "mercadopago", "multibanco" ];
         var AUTO_FLUSH_LEVEL = [ "warn", "error" ];
         var LOG_LEVEL_PRIORITY = [ "error", "warn", "info", "debug" ];
         var sendBeacon = function(_ref2) {
@@ -6850,7 +6853,8 @@ window.spb = function(modules) {
         }
         function getSDKStorage() {
             return getStorage({
-                name: "paypal"
+                name: "paypal",
+                lifetime: 36e5
             });
         }
         function getStorageState(handler) {
@@ -7089,8 +7093,8 @@ window.spb = function(modules) {
             })));
         }
         function isUnprocessableEntityError(err) {
-            var _err$response2, _err$response2$body, _err$response2$body$d, _err$response2$body$d2;
-            return Boolean(null == err || null == (_err$response2 = err.response) || null == (_err$response2$body = _err$response2.body) || null == (_err$response2$body$d = _err$response2$body.data) || null == (_err$response2$body$d2 = _err$response2$body$d.details) ? void 0 : _err$response2$body$d2.some((function(detail) {
+            var _err$response2, _err$response2$body, _err$response2$body$d;
+            return Boolean(null == err || null == (_err$response2 = err.response) || null == (_err$response2$body = _err$response2.body) || null == (_err$response2$body$d = _err$response2$body.details) ? void 0 : _err$response2$body$d.some((function(detail) {
                 return "DUPLICATE_INVOICE_ID" === detail.issue;
             })));
         }
@@ -7172,7 +7176,7 @@ window.spb = function(modules) {
             logger_getLogger().info("rest_api_create_order_token");
             var headers = ((_headers15 = {}).authorization = "Bearer " + accessToken, _headers15["paypal-partner-attribution-id"] = partnerAttributionID, 
             _headers15["paypal-client-metadata-id"] = clientMetadataID, _headers15["x-app-name"] = "smart-payment-buttons", 
-            _headers15["x-app-version"] = "5.0.88", _headers15);
+            _headers15["x-app-version"] = "5.0.96", _headers15);
             var paymentSource = {
                 token: {
                     id: paymentMethodID,
@@ -7250,7 +7254,7 @@ window.spb = function(modules) {
             var _headers22;
             return callGraphQL({
                 name: "GetCheckoutDetails",
-                query: "\n            query GetCheckoutDetails($orderID: String!, $country: CountryCodes!) {\n                checkoutSession(token: $orderID) {\n                    allowedCardIssuers(country: $country)\n                    cart {\n                        amounts {\n                            shippingAndHandling {\n                                currencyValue\n                                currencySymbol\n                                currencyFormat\n                            }\n                            tax {\n                                currencyValue\n                                currencySymbol\n                                currencyFormat\n                            }\n                            subtotal {\n                                currencyValue\n                                currencySymbol\n                                currencyFormat\n                            }\n                            total {\n                                currencyValue\n                                currencyCode\n                                currencyFormatSymbolISOCurrency\n                            }\n                        }\n                        shippingAddress {\n                            firstName\n                            lastName\n                            line1\n                            line2\n                            city\n                            state\n                            postalCode\n                            country\n                        }\n                        shippingMethods {\n                            amount {\n                                currencyCode\n                                currencyValue\n                            }\n                            label\n                            selected\n                            type\n                        }\n                    }\n                }\n            }\n        ",
+                query: "\n            query GetCheckoutDetails($orderID: String!, $country: CountryCodes!) {\n                checkoutSession(token: $orderID) {\n                    flags{\n                        isShippingAddressRequired,\n                        isDigitalGoodsIntegration,\n                        isChangeShippingAddressAllowed\n                    }\n                    allowedCardIssuers(country: $country)\n                    cart {\n                        amounts {\n                            shippingAndHandling {\n                                currencyValue\n                                currencySymbol\n                                currencyFormat\n                            }\n                            tax {\n                                currencyValue\n                                currencySymbol\n                                currencyFormat\n                            }\n                            subtotal {\n                                currencyValue\n                                currencySymbol\n                                currencyFormat\n                            }\n                            total {\n                                currencyValue\n                                currencyCode\n                                currencyFormatSymbolISOCurrency\n                            }\n                        }\n                        shippingAddress {\n                            firstName\n                            lastName\n                            line1\n                            line2\n                            city\n                            state\n                            postalCode\n                            country\n                        }\n                        shippingMethods {\n                            amount {\n                                currencyCode\n                                currencyValue\n                            }\n                            label\n                            selected\n                            type\n                        }\n                    }\n                }\n            }\n        ",
                 variables: {
                     orderID: orderID,
                     country: country
@@ -7416,14 +7420,16 @@ window.spb = function(modules) {
                 return gqlResult.mobileSDKEligibility;
             }));
         }
-        function getCreateOrder(_ref4, _ref5) {
-            var createOrder = _ref4.createOrder, currency = _ref4.currency;
-            var createBillingAgreement = _ref5.createBillingAgreement, createSubscription = _ref5.createSubscription;
-            var data = {};
-            var actions = function(_ref3) {
-                var facilitatorAccessToken = _ref3.facilitatorAccessToken, intent = _ref3.intent, currency = _ref3.currency, merchantID = _ref3.merchantID, partnerAttributionID = _ref3.partnerAttributionID;
-                var order = function(_ref) {
-                    var facilitatorAccessToken = _ref.facilitatorAccessToken, intent = _ref.intent, currency = _ref.currency, merchantID = _ref.merchantID, partnerAttributionID = _ref.partnerAttributionID;
+        function getCreateOrder(_ref5, _ref6) {
+            var createOrder = _ref5.createOrder, currency = _ref5.currency;
+            var createBillingAgreement = _ref6.createBillingAgreement, createSubscription = _ref6.createSubscription;
+            var data = {
+                paymentSource: _ref5.paymentSource
+            };
+            var actions = function(_ref4) {
+                var facilitatorAccessToken = _ref4.facilitatorAccessToken, intent = _ref4.intent, currency = _ref4.currency, merchantID = _ref4.merchantID, partnerAttributionID = _ref4.partnerAttributionID;
+                var order = function(_ref2) {
+                    var facilitatorAccessToken = _ref2.facilitatorAccessToken, intent = _ref2.intent, currency = _ref2.currency, merchantID = _ref2.merchantID, partnerAttributionID = _ref2.partnerAttributionID;
                     return {
                         create: function(data) {
                             var order = _extends({}, data);
@@ -7484,8 +7490,8 @@ window.spb = function(modules) {
                     merchantID: merchantID,
                     partnerAttributionID: partnerAttributionID
                 });
-                !function(_ref2) {
-                    var facilitatorAccessToken = _ref2.facilitatorAccessToken, intent = _ref2.intent, currency = _ref2.currency, merchantID = _ref2.merchantID, partnerAttributionID = _ref2.partnerAttributionID;
+                !function(_ref3) {
+                    var facilitatorAccessToken = _ref3.facilitatorAccessToken, intent = _ref3.intent, currency = _ref3.currency, merchantID = _ref3.merchantID, partnerAttributionID = _ref3.partnerAttributionID;
                 }({
                     facilitatorAccessToken: facilitatorAccessToken,
                     intent: intent,
@@ -7498,11 +7504,11 @@ window.spb = function(modules) {
                     payment: null
                 };
             }({
-                facilitatorAccessToken: _ref5.facilitatorAccessToken,
-                intent: _ref4.intent,
+                facilitatorAccessToken: _ref6.facilitatorAccessToken,
+                intent: _ref5.intent,
                 currency: currency,
-                merchantID: _ref4.merchantID,
-                partnerAttributionID: _ref4.partnerAttributionID
+                merchantID: _ref5.merchantID,
+                partnerAttributionID: _ref5.partnerAttributionID
             });
             return memoize((function() {
                 var queryOrderID = parseQuery(window.location.search.slice(1)).orderID;
@@ -7532,9 +7538,9 @@ window.spb = function(modules) {
                             token: orderID
                         };
                     })).addTrackingBuilder((function() {
-                        var _ref6;
-                        return (_ref6 = {}).context_type = "EC-Token", _ref6.context_id = orderID, _ref6.token = orderID, 
-                        _ref6;
+                        var _ref7;
+                        return (_ref7 = {}).context_type = "EC-Token", _ref7.context_id = orderID, _ref7.token = orderID, 
+                        _ref7;
                     })).track((_getLogger$addPayload = {}, _getLogger$addPayload.state_name = "smart_button", 
                     _getLogger$addPayload.transition_name = "process_receive_order", _getLogger$addPayload.context_type = "EC-Token", 
                     _getLogger$addPayload.context_id = orderID, _getLogger$addPayload.token = orderID, 
@@ -7557,15 +7563,31 @@ window.spb = function(modules) {
             return dom_redirect(url, window.top);
         };
         var onApprove_handleProcessorError = function(err, restart, onError) {
-            if (isUnprocessableEntityError(err)) return onError(err).then(unresolvedPromise);
+            if (isUnprocessableEntityError(err)) {
+                err && err.response && (err.message = JSON.stringify(err.response) || err.message);
+                return onError(err).then(unresolvedPromise);
+            }
             if (isProcessorDeclineError(err)) return restart().then(unresolvedPromise);
             throw err;
         };
+        var onComplete_redirect = function(url) {
+            if (!url) throw new Error("Expected redirect url");
+            if (-1 === url.indexOf("://")) {
+                logger_getLogger().warn("redir_url_non_scheme", {
+                    url: url
+                }).flush();
+                throw new Error("Invalid redirect url: " + url + " - must be fully qualified url");
+            }
+            url.match(/^https?:\/\//) || logger_getLogger().warn("redir_url_non_http", {
+                url: url
+            }).flush();
+            return dom_redirect(url, window.top);
+        };
         var _excluded = [ "buyerAccessToken", "forceRestAPI" ];
         function getProps(_ref) {
-            var facilitatorAccessToken = _ref.facilitatorAccessToken, branded = _ref.branded;
+            var facilitatorAccessToken = _ref.facilitatorAccessToken, branded = _ref.branded, paymentSource = _ref.paymentSource;
             var xprops = window.xprops;
-            var uid = xprops.uid, env = xprops.env, _xprops$vault = xprops.vault, vault = void 0 !== _xprops$vault && _xprops$vault, commit = xprops.commit, locale = xprops.locale, platform = xprops.platform, sessionID = xprops.sessionID, clientID = xprops.clientID, partnerAttributionID = xprops.partnerAttributionID, merchantRequestedPopupsDisabled = xprops.merchantRequestedPopupsDisabled, clientMetadataID = xprops.clientMetadataID, sdkCorrelationID = xprops.sdkCorrelationID, getParentDomain = xprops.getParentDomain, clientAccessToken = xprops.clientAccessToken, getPopupBridge = xprops.getPopupBridge, getPrerenderDetails = xprops.getPrerenderDetails, getPageUrl = xprops.getPageUrl, enableThreeDomainSecure = xprops.enableThreeDomainSecure, enableVaultInstallments = xprops.enableVaultInstallments, _xprops$enableNativeC = xprops.enableNativeCheckout, enableNativeCheckout = void 0 !== _xprops$enableNativeC && _xprops$enableNativeC, rememberFunding = xprops.remember, stageHost = xprops.stageHost, apiStageHost = xprops.apiStageHost, getParent = xprops.getParent, fundingSource = xprops.fundingSource, currency = xprops.currency, connect = xprops.connect, intent = xprops.intent, merchantID = xprops.merchantID, amount = xprops.amount, userIDToken = xprops.userIDToken, enableFunding = xprops.enableFunding, disableFunding = xprops.disableFunding, disableCard = xprops.disableCard, disableAutocomplete = xprops.disableAutocomplete, wallet = xprops.wallet, _xprops$paymentMethod = xprops.paymentMethodToken, paymentMethodToken = void 0 === _xprops$paymentMethod ? xprops.paymentMethodNonce : _xprops$paymentMethod, _xprops$getQueriedEli = xprops.getQueriedEligibleFunding, getQueriedEligibleFunding = void 0 === _xprops$getQueriedEli ? function() {
+            var uid = xprops.uid, env = xprops.env, _xprops$vault = xprops.vault, vault = void 0 !== _xprops$vault && _xprops$vault, commit = xprops.commit, locale = xprops.locale, platform = xprops.platform, sessionID = xprops.sessionID, clientID = xprops.clientID, partnerAttributionID = xprops.partnerAttributionID, merchantRequestedPopupsDisabled = xprops.merchantRequestedPopupsDisabled, clientMetadataID = xprops.clientMetadataID, sdkCorrelationID = xprops.sdkCorrelationID, getParentDomain = xprops.getParentDomain, clientAccessToken = xprops.clientAccessToken, getPopupBridge = xprops.getPopupBridge, getPrerenderDetails = xprops.getPrerenderDetails, getPageUrl = xprops.getPageUrl, enableThreeDomainSecure = xprops.enableThreeDomainSecure, enableVaultInstallments = xprops.enableVaultInstallments, _xprops$enableNativeC = xprops.enableNativeCheckout, enableNativeCheckout = void 0 !== _xprops$enableNativeC && _xprops$enableNativeC, _xprops$experience = xprops.experience, experience = void 0 === _xprops$experience ? "" : _xprops$experience, rememberFunding = xprops.remember, stageHost = xprops.stageHost, apiStageHost = xprops.apiStageHost, getParent = xprops.getParent, fundingSource = xprops.fundingSource, currency = xprops.currency, connect = xprops.connect, intent = xprops.intent, merchantID = xprops.merchantID, amount = xprops.amount, userIDToken = xprops.userIDToken, enableFunding = xprops.enableFunding, disableFunding = xprops.disableFunding, disableCard = xprops.disableCard, disableAutocomplete = xprops.disableAutocomplete, wallet = xprops.wallet, _xprops$paymentMethod = xprops.paymentMethodToken, paymentMethodToken = void 0 === _xprops$paymentMethod ? xprops.paymentMethodNonce : _xprops$paymentMethod, _xprops$getQueriedEli = xprops.getQueriedEligibleFunding, getQueriedEligibleFunding = void 0 === _xprops$getQueriedEli ? function() {
                 return promise_ZalgoPromise.resolve([]);
             } : _xprops$getQueriedEli, storageID = xprops.storageID, applePay = xprops.applePay, userExperienceFlow = xprops.userExperienceFlow, allowBillingPayments = xprops.allowBillingPayments;
             var onInit = function(_ref) {
@@ -7628,20 +7650,26 @@ window.spb = function(modules) {
                 onClick: xprops.onClick
             });
             var stickinessID = storageID && isStorageStateFresh() ? storageID : getStorageID();
-            var createBillingAgreement = function(_ref) {
-                var createBillingAgreement = _ref.createBillingAgreement;
+            var createBillingAgreement = function(_ref2) {
+                var createBillingAgreement = _ref2.createBillingAgreement, paymentSource = _ref2.paymentSource;
                 if (createBillingAgreement) return function() {
-                    return createBillingAgreement({}, {}).then((function(billingToken) {
+                    return createBillingAgreement((_ref = {
+                        paymentSource: paymentSource
+                    }, {
+                        paymentSource: _ref.paymentSource
+                    }), {}).then((function(billingToken) {
                         if (!billingToken || "string" != typeof billingToken) throw new Error("Expected a billing token to be passed to createBillingAgreement");
                         return billingToken;
                     }));
+                    var _ref;
                 };
             }({
-                createBillingAgreement: xprops.createBillingAgreement
+                createBillingAgreement: xprops.createBillingAgreement,
+                paymentSource: paymentSource
             });
-            var createSubscription = function(_ref2, _ref3) {
-                var createSubscription = _ref2.createSubscription, partnerAttributionID = _ref2.partnerAttributionID, merchantID = _ref2.merchantID, clientID = _ref2.clientID;
-                var facilitatorAccessToken = _ref3.facilitatorAccessToken;
+            var createSubscription = function(_ref3, _ref4) {
+                var createSubscription = _ref3.createSubscription, partnerAttributionID = _ref3.partnerAttributionID, merchantID = _ref3.merchantID, clientID = _ref3.clientID, paymentSource = _ref3.paymentSource;
+                var facilitatorAccessToken = _ref4.facilitatorAccessToken;
                 if (createSubscription) {
                     if (merchantID && merchantID[0]) {
                         logger_getLogger().info("src_props_subscriptions_recreate_access_token_cache");
@@ -7650,8 +7678,12 @@ window.spb = function(modules) {
                         });
                     }
                     return function() {
-                        return createSubscription({}, function(_ref) {
-                            var facilitatorAccessToken = _ref.facilitatorAccessToken, partnerAttributionID = _ref.partnerAttributionID, merchantID = _ref.merchantID, clientID = _ref.clientID;
+                        return createSubscription((_ref = {
+                            paymentSource: paymentSource
+                        }, {
+                            paymentSource: _ref.paymentSource
+                        }), function(_ref2) {
+                            var facilitatorAccessToken = _ref2.facilitatorAccessToken, partnerAttributionID = _ref2.partnerAttributionID, merchantID = _ref2.merchantID, clientID = _ref2.clientID;
                             return {
                                 subscription: {
                                     create: function(data) {
@@ -7708,13 +7740,15 @@ window.spb = function(modules) {
                             if (!subscriptionID || "string" != typeof subscriptionID) throw new Error("Expected an subscription id to be passed to createSubscription");
                             return subscriptionID;
                         }));
+                        var _ref;
                     };
                 }
             }({
                 createSubscription: xprops.createSubscription,
                 partnerAttributionID: partnerAttributionID,
                 merchantID: merchantID,
-                clientID: clientID
+                clientID: clientID,
+                paymentSource: paymentSource
             }, {
                 facilitatorAccessToken: facilitatorAccessToken
             });
@@ -7723,7 +7757,8 @@ window.spb = function(modules) {
                 currency: currency,
                 intent: intent,
                 merchantID: merchantID,
-                partnerAttributionID: partnerAttributionID
+                partnerAttributionID: partnerAttributionID,
+                paymentSource: paymentSource
             }, {
                 facilitatorAccessToken: facilitatorAccessToken,
                 createBillingAgreement: createBillingAgreement,
@@ -7752,11 +7787,11 @@ window.spb = function(modules) {
                 onError: xprops.onError
             });
             var onApprove = function(_ref19) {
-                var intent = _ref19.intent, createSubscription = _ref19.createSubscription, onApprove = _ref19.onApprove, partnerAttributionID = _ref19.partnerAttributionID, onError = _ref19.onError, clientAccessToken = _ref19.clientAccessToken, vault = _ref19.vault, clientID = _ref19.clientID, facilitatorAccessToken = _ref19.facilitatorAccessToken, branded = _ref19.branded, createOrder = _ref19.createOrder;
+                var intent = _ref19.intent, createSubscription = _ref19.createSubscription, onApprove = _ref19.onApprove, partnerAttributionID = _ref19.partnerAttributionID, onError = _ref19.onError, clientAccessToken = _ref19.clientAccessToken, vault = _ref19.vault, clientID = _ref19.clientID, facilitatorAccessToken = _ref19.facilitatorAccessToken, branded = _ref19.branded, createOrder = _ref19.createOrder, paymentSource = _ref19.paymentSource;
                 if (_ref19.createBillingAgreement) return function(_ref10) {
                     var _ref10$onApprove = _ref10.onApprove, onApprove = void 0 === _ref10$onApprove ? function() {
                         throw new Error("Expected onApprove");
-                    } : _ref10$onApprove, onError = _ref10.onError, facilitatorAccessToken = _ref10.facilitatorAccessToken, createOrder = _ref10.createOrder;
+                    } : _ref10$onApprove, onError = _ref10.onError, facilitatorAccessToken = _ref10.facilitatorAccessToken, createOrder = _ref10.createOrder, paymentSource = _ref10.paymentSource;
                     if (!onApprove) throw new Error("Expected onApprove");
                     return memoize((function(_ref11, _ref12) {
                         var payerID = _ref11.payerID, paymentID = _ref11.paymentID, billingToken = _ref11.billingToken;
@@ -7772,7 +7807,8 @@ window.spb = function(modules) {
                                     payerID: payerID,
                                     paymentID: paymentID = paymentID || supplementalData && supplementalData.checkoutSession && supplementalData.checkoutSession.cart && supplementalData.checkoutSession.cart.paymentId,
                                     billingToken: billingToken = billingToken || supplementalData && supplementalData.checkoutSession && supplementalData.checkoutSession.cart && supplementalData.checkoutSession.cart.billingToken,
-                                    facilitatorAccessToken: facilitatorAccessToken
+                                    facilitatorAccessToken: facilitatorAccessToken,
+                                    paymentSource: paymentSource
                                 }, {
                                     restart: restart,
                                     redirect: onApprove_redirect
@@ -7790,12 +7826,13 @@ window.spb = function(modules) {
                     onApprove: onApprove,
                     onError: onError,
                     facilitatorAccessToken: facilitatorAccessToken,
-                    createOrder: createOrder
+                    createOrder: createOrder,
+                    paymentSource: paymentSource
                 });
                 if ("subscription" === intent || createSubscription) return function(_ref16) {
                     var _ref16$onApprove = _ref16.onApprove, onApprove = void 0 === _ref16$onApprove ? function() {
                         throw new Error("Expected onApprove");
-                    } : _ref16$onApprove, onError = _ref16.onError, facilitatorAccessToken = _ref16.facilitatorAccessToken, createOrder = _ref16.createOrder;
+                    } : _ref16$onApprove, onError = _ref16.onError, facilitatorAccessToken = _ref16.facilitatorAccessToken, createOrder = _ref16.createOrder, paymentSource = _ref16.paymentSource;
                     if (!onApprove) throw new Error("Expected onApprove");
                     return memoize((function(_ref17, _ref18) {
                         var payerID = _ref17.payerID, subscriptionID = _ref17.subscriptionID, buyerAccessToken = _ref17.buyerAccessToken;
@@ -7810,7 +7847,8 @@ window.spb = function(modules) {
                                 orderID: orderID,
                                 payerID: payerID,
                                 subscriptionID: subscriptionID,
-                                facilitatorAccessToken: facilitatorAccessToken
+                                facilitatorAccessToken: facilitatorAccessToken,
+                                paymentSource: paymentSource
                             };
                             var actions = function(_ref6) {
                                 var restart = _ref6.restart, subscriptionID = _ref6.subscriptionID, buyerAccessToken = _ref6.buyerAccessToken;
@@ -7868,7 +7906,8 @@ window.spb = function(modules) {
                     onApprove: onApprove,
                     onError: onError,
                     facilitatorAccessToken: facilitatorAccessToken,
-                    createOrder: createOrder
+                    createOrder: createOrder,
+                    paymentSource: paymentSource
                 });
                 if ("capture" === intent || "authorize" === intent || "order" === intent) return function(_ref7) {
                     var intent = _ref7.intent, _ref7$onApprove = _ref7.onApprove, onApprove = void 0 === _ref7$onApprove ? function(intent) {
@@ -7877,7 +7916,7 @@ window.spb = function(modules) {
                             if ("authorize" === intent) return actions.order.authorize().then(src_util_noop);
                             throw new Error("Unsupported intent for auto-capture: " + intent);
                         };
-                    }(intent) : _ref7$onApprove, partnerAttributionID = _ref7.partnerAttributionID, onError = _ref7.onError, clientAccessToken = _ref7.clientAccessToken, vault = _ref7.vault, clientID = _ref7.clientID, facilitatorAccessToken = _ref7.facilitatorAccessToken, branded = _ref7.branded, createOrder = _ref7.createOrder;
+                    }(intent) : _ref7$onApprove, partnerAttributionID = _ref7.partnerAttributionID, onError = _ref7.onError, clientAccessToken = _ref7.clientAccessToken, vault = _ref7.vault, clientID = _ref7.clientID, facilitatorAccessToken = _ref7.facilitatorAccessToken, branded = _ref7.branded, createOrder = _ref7.createOrder, paymentSource = _ref7.paymentSource;
                     if (!onApprove) throw new Error("Expected onApprove");
                     var upgradeLSAT = -1 === LSAT_UPGRADE_EXCLUDED_MERCHANTS.indexOf(clientID);
                     return memoize((function(_ref8, _ref9) {
@@ -7898,7 +7937,8 @@ window.spb = function(modules) {
                                     paymentID: paymentID = paymentID || supplementalData && supplementalData.checkoutSession && supplementalData.checkoutSession.cart && supplementalData.checkoutSession.cart.paymentId,
                                     billingToken: billingToken = billingToken || supplementalData && supplementalData.checkoutSession && supplementalData.checkoutSession.cart && supplementalData.checkoutSession.cart.billingToken,
                                     facilitatorAccessToken: facilitatorAccessToken,
-                                    authCode: authCode
+                                    authCode: authCode,
+                                    paymentSource: paymentSource
                                 };
                                 var actions = function(_ref3) {
                                     var intent = _ref3.intent, orderID = _ref3.orderID, paymentID = _ref3.paymentID, payerID = _ref3.payerID, restart = _ref3.restart, facilitatorAccessToken = _ref3.facilitatorAccessToken, buyerAccessToken = _ref3.buyerAccessToken, partnerAttributionID = _ref3.partnerAttributionID, forceRestAPI = _ref3.forceRestAPI, onError = _ref3.onError;
@@ -8234,12 +8274,13 @@ window.spb = function(modules) {
                     clientID: clientID,
                     facilitatorAccessToken: facilitatorAccessToken,
                     branded: branded,
-                    createOrder: createOrder
+                    createOrder: createOrder,
+                    paymentSource: paymentSource
                 });
                 if ("tokenize" === intent) return function(_ref13) {
                     var _ref13$onApprove = _ref13.onApprove, onApprove = void 0 === _ref13$onApprove ? function() {
                         throw new Error("Expected onApprove");
-                    } : _ref13$onApprove, onError = _ref13.onError, facilitatorAccessToken = _ref13.facilitatorAccessToken;
+                    } : _ref13$onApprove, onError = _ref13.onError, facilitatorAccessToken = _ref13.facilitatorAccessToken, paymentSource = _ref13.paymentSource;
                     if (!onApprove) throw new Error("Expected onApprove");
                     return memoize((function(_ref14, _ref15) {
                         var _getLogger$info$track3;
@@ -8250,7 +8291,8 @@ window.spb = function(modules) {
                         _getLogger$info$track3)).flush();
                         return onApprove({
                             facilitatorAccessToken: facilitatorAccessToken,
-                            paymentMethodToken: paymentMethodToken
+                            paymentMethodToken: paymentMethodToken,
+                            paymentSource: paymentSource
                         }, {
                             restart: restart,
                             redirect: onApprove_redirect
@@ -8265,7 +8307,8 @@ window.spb = function(modules) {
                 }({
                     onApprove: onApprove,
                     onError: onError,
-                    facilitatorAccessToken: facilitatorAccessToken
+                    facilitatorAccessToken: facilitatorAccessToken,
+                    paymentSource: paymentSource
                 });
                 throw new Error("Unsupported intent: " + intent);
             }({
@@ -8280,7 +8323,34 @@ window.spb = function(modules) {
                 clientID: clientID,
                 facilitatorAccessToken: facilitatorAccessToken,
                 branded: branded,
-                createOrder: createOrder
+                createOrder: createOrder,
+                paymentSource: paymentSource
+            });
+            var onComplete = function(_ref) {
+                var createOrder = _ref.createOrder, onComplete = _ref.onComplete, onError = _ref.onError;
+                return onComplete ? memoize((function() {
+                    return createOrder().then((function(orderID) {
+                        var _getLogger$info$track;
+                        logger_getLogger().info("button_complete").track((_getLogger$info$track = {}, _getLogger$info$track.transition_name = "process_checkout_complete", 
+                        _getLogger$info$track.context_type = "EC-Token", _getLogger$info$track.token = orderID, 
+                        _getLogger$info$track.context_id = orderID, _getLogger$info$track)).flush();
+                        return onComplete({
+                            orderID: orderID
+                        }, {
+                            redirect: onComplete_redirect
+                        }).catch((function(err) {
+                            return promise_ZalgoPromise.try((function() {
+                                return onError(err);
+                            })).then((function() {
+                                throw err;
+                            }));
+                        }));
+                    }));
+                })) : promiseNoop;
+            }({
+                createOrder: createOrder,
+                onComplete: xprops.onComplete,
+                onError: xprops.onError
             });
             var onCancel = function(_ref2, _ref3) {
                 var _ref2$onCancel = _ref2.onCancel, onCancel = void 0 === _ref2$onCancel ? promiseNoop : _ref2$onCancel, onError = _ref2.onError;
@@ -8444,6 +8514,7 @@ window.spb = function(modules) {
                 enableThreeDomainSecure: enableThreeDomainSecure,
                 enableNativeCheckout: enableNativeCheckout,
                 enableVaultInstallments: enableVaultInstallments,
+                experience: experience,
                 onClick: onClick,
                 onInit: onInit,
                 onError: onError,
@@ -8453,6 +8524,7 @@ window.spb = function(modules) {
                 createBillingAgreement: createBillingAgreement,
                 createSubscription: createSubscription,
                 onApprove: onApprove,
+                onComplete: onComplete,
                 onCancel: onCancel,
                 onShippingChange: onShippingChange,
                 onAuth: onAuth,
@@ -8468,9 +8540,9 @@ window.spb = function(modules) {
         var button_props_TYPES = !0;
         function getButtonProps(_ref) {
             var _branded;
-            var facilitatorAccessToken = _ref.facilitatorAccessToken;
+            var facilitatorAccessToken = _ref.facilitatorAccessToken, paymentSource = _ref.paymentSource;
             var xprops = window.xprops;
-            var buttonSessionID = xprops.buttonSessionID, style = xprops.style, branded = xprops.branded, intent = xprops.intent;
+            var buttonSessionID = xprops.buttonSessionID, style = xprops.style, branded = xprops.branded, experience = xprops.experience, intent = xprops.intent;
             branded = null != (_branded = branded) ? _branded : _ref.brandedDefault;
             if (xprops.createBillingAgreement) {
                 if (xprops.createOrder) throw new Error("Do not pass both createBillingAgreement and createOrder");
@@ -8491,11 +8563,13 @@ window.spb = function(modules) {
             }
             return _extends({}, getProps({
                 facilitatorAccessToken: facilitatorAccessToken,
-                branded: branded
+                branded: branded,
+                paymentSource: paymentSource
             }), {
                 style: style,
                 buttonSessionID: buttonSessionID,
-                branded: branded
+                branded: branded,
+                inlinexo: "inline" === experience
             });
         }
         function getComponents() {
@@ -8544,15 +8618,9 @@ window.spb = function(modules) {
         function disableLoadingSpinner(button) {
             button.classList.remove("paypal-button-loading");
         }
-        var validNetworks = {
-            discover: "discover",
-            visa: "visa",
-            mastercard: "masterCard",
-            amex: "amex",
-            cb_nationale: "cartesBancaires",
-            maestro: "maestro",
-            jcb: "jcb"
-        };
+        function isZeroAmount(value) {
+            return "0.00" === parseFloat(value).toFixed(2);
+        }
         var applepay_clean;
         var applepay = {
             name: "applepay",
@@ -8606,17 +8674,18 @@ window.spb = function(modules) {
                     }));
                 }
                 function updateNewLineItems(_ref4) {
-                    var subtotal = _ref4.subtotal, tax = _ref4.tax, shipping = _ref4.shipping, shippingLabel = _ref4.shippingLabel;
+                    var subtotal = _ref4.subtotal, tax = _ref4.tax, shipping = _ref4.shipping, shippingLabel = _ref4.shippingLabel, shippingIdentifier = _ref4.shippingIdentifier;
                     var newLineItems = [];
-                    subtotal && "0.00" !== parseFloat(subtotal).toFixed(2) && newLineItems.push({
+                    subtotal && !isZeroAmount(subtotal) && newLineItems.push({
                         label: "Subtotal",
                         amount: subtotal
                     });
-                    tax && "0.00" !== parseFloat(tax).toFixed(2) && newLineItems.push({
+                    tax && !isZeroAmount(tax) && newLineItems.push({
                         label: "Sales Tax",
                         amount: tax
                     });
-                    shipping && "0.00" !== parseFloat(shipping).toFixed(2) && newLineItems.push({
+                    var isPickup = "PICKUP" === shippingIdentifier;
+                    (shipping && !isZeroAmount(shipping) || isPickup) && newLineItems.push({
                         label: shippingLabel || "Shipping",
                         amount: shipping
                     });
@@ -8628,7 +8697,7 @@ window.spb = function(modules) {
                             return onShippingChangeCallback = function(_ref5) {
                                 var orderID = _ref5.orderID, shippingContact = _ref5.shippingContact, _ref5$shippingMethod = _ref5.shippingMethod, shippingMethod = void 0 === _ref5$shippingMethod ? null : _ref5$shippingMethod;
                                 if (!onShippingChange) {
-                                    var _currentShippingMetho;
+                                    var _currentShippingMetho, _currentShippingMetho2;
                                     var update = {
                                         newTotal: {
                                             label: "Total",
@@ -8640,7 +8709,8 @@ window.spb = function(modules) {
                                         shipping: currentShippingAmount,
                                         subtotal: currentSubtotalAmount,
                                         tax: currentTaxAmount,
-                                        shippingLabel: null == (_currentShippingMetho = currentShippingMethod) ? void 0 : _currentShippingMetho.label
+                                        shippingLabel: null == (_currentShippingMetho = currentShippingMethod) ? void 0 : _currentShippingMetho.label,
+                                        shippingIdentifier: null == (_currentShippingMetho2 = currentShippingMethod) ? void 0 : _currentShippingMetho2.identifier
                                     });
                                     return promise_ZalgoPromise.resolve(update);
                                 }
@@ -8678,7 +8748,7 @@ window.spb = function(modules) {
                                     };
                                 }(shippingContact), errors = _validateShippingCont.errors, shipping_address = _validateShippingCont.shipping_address;
                                 if (errors && errors.length) {
-                                    var _currentShippingMetho2;
+                                    var _currentShippingMetho3, _currentShippingMetho4;
                                     var _update = {
                                         errors: errors,
                                         newTotal: {
@@ -8691,7 +8761,8 @@ window.spb = function(modules) {
                                         shipping: currentShippingAmount,
                                         subtotal: currentSubtotalAmount,
                                         tax: currentTaxAmount,
-                                        shippingLabel: null == (_currentShippingMetho2 = currentShippingMethod) ? void 0 : _currentShippingMetho2.label
+                                        shippingLabel: null == (_currentShippingMetho3 = currentShippingMethod) ? void 0 : _currentShippingMetho3.label,
+                                        shippingIdentifier: null == (_currentShippingMetho4 = currentShippingMethod) ? void 0 : _currentShippingMetho4.identifier
                                     });
                                     return promise_ZalgoPromise.resolve(_update);
                                 }
@@ -8704,9 +8775,9 @@ window.spb = function(modules) {
                                     shipping_address: shipping_address
                                 };
                                 if (shippingMethod) {
-                                    var _currentShippingMetho3;
+                                    var _currentShippingMetho5;
                                     data.selected_shipping_option = {
-                                        label: shippingMethod.label || (null == (_currentShippingMetho3 = currentShippingMethod) ? void 0 : _currentShippingMetho3.label) || "Shipping",
+                                        label: shippingMethod.label || (null == (_currentShippingMetho5 = currentShippingMethod) ? void 0 : _currentShippingMetho5.label) || "Shipping",
                                         type: shippingMethod.identifier,
                                         amount: {
                                             currency_code: currency,
@@ -8714,10 +8785,10 @@ window.spb = function(modules) {
                                         }
                                     };
                                 } else {
-                                    var _currentShippingMetho4;
+                                    var _currentShippingMetho6;
                                     data.selected_shipping_option = {
                                         label: "Shipping",
-                                        type: null == (_currentShippingMetho4 = currentShippingMethod) ? void 0 : _currentShippingMetho4.identifier,
+                                        type: null == (_currentShippingMetho6 = currentShippingMethod) ? void 0 : _currentShippingMetho6.identifier,
                                         amount: {
                                             currency_code: currency,
                                             value: currentShippingAmount
@@ -8740,9 +8811,9 @@ window.spb = function(modules) {
                                     currentShippingContact = shippingContact;
                                     shippingMethod && (currentShippingMethod = shippingMethod);
                                     return order_getDetailedOrderInfo(orderID, locale.country).then((function(updatedOrder) {
-                                        var _currentShippingMetho5, _currentShippingMetho6;
+                                        var _currentShippingMetho7, _currentShippingMetho8, _currentShippingMetho9;
                                         var _updatedOrder$checkou = updatedOrder.checkoutSession.cart.amounts, updatedTaxValue = _updatedOrder$checkou.tax.currencyValue, updatedSubtotalValue = _updatedOrder$checkou.subtotal.currencyValue, updatedTotalValue = _updatedOrder$checkou.total.currencyValue;
-                                        currentShippingAmount = (null == (_currentShippingMetho5 = currentShippingMethod) ? void 0 : _currentShippingMetho5.amount) || currentShippingAmount || "0.00";
+                                        currentShippingAmount = (null == (_currentShippingMetho7 = currentShippingMethod) ? void 0 : _currentShippingMetho7.amount) || currentShippingAmount || "0.00";
                                         currentTotalAmount = updatedTotalValue;
                                         var update = {
                                             newTotal: {
@@ -8755,7 +8826,8 @@ window.spb = function(modules) {
                                             shipping: currentShippingAmount,
                                             subtotal: currentSubtotalAmount = "0.00" === updatedSubtotalValue ? currentSubtotalAmount : updatedSubtotalValue,
                                             tax: currentTaxAmount = "0.00" === updatedTaxValue ? currentTaxAmount : updatedTaxValue,
-                                            shippingLabel: null == (_currentShippingMetho6 = currentShippingMethod) ? void 0 : _currentShippingMetho6.label
+                                            shippingLabel: null == (_currentShippingMetho8 = currentShippingMethod) ? void 0 : _currentShippingMetho8.label,
+                                            shippingIdentifier: null == (_currentShippingMetho9 = currentShippingMethod) ? void 0 : _currentShippingMetho9.identifier
                                         });
                                         return promise_ZalgoPromise.resolve(update);
                                     }));
@@ -8775,67 +8847,80 @@ window.spb = function(modules) {
                                     var country = locale.country;
                                     return order_getDetailedOrderInfo(orderID, country).then((function(order) {
                                         var applePayRequest = function(countryCode, order) {
-                                            var _order$checkoutSessio = order.checkoutSession, _order$checkoutSessio2 = _order$checkoutSessio.cart, _order$checkoutSessio3 = _order$checkoutSessio2.amounts, shippingValue = _order$checkoutSessio3.shippingAndHandling.currencyValue, taxValue = _order$checkoutSessio3.tax.currencyValue, subtotalValue = _order$checkoutSessio3.subtotal.currencyValue, _order$checkoutSessio4 = _order$checkoutSessio3.total, currencyCode = _order$checkoutSessio4.currencyCode, totalValue = _order$checkoutSessio4.currencyValue, shippingAddress = _order$checkoutSessio2.shippingAddress, shippingMethods = _order$checkoutSessio2.shippingMethods;
+                                            var _order$checkoutSessio = order.checkoutSession, isShippingAddressRequired = _order$checkoutSessio.flags.isShippingAddressRequired, _order$checkoutSessio2 = _order$checkoutSessio.cart, _order$checkoutSessio3 = _order$checkoutSessio2.amounts, shippingValue = _order$checkoutSessio3.shippingAndHandling.currencyValue, taxValue = _order$checkoutSessio3.tax.currencyValue, subtotalValue = _order$checkoutSessio3.subtotal.currencyValue, _order$checkoutSessio4 = _order$checkoutSessio3.total, currencyCode = _order$checkoutSessio4.currencyCode, totalValue = _order$checkoutSessio4.currencyValue, shippingAddress = _order$checkoutSessio2.shippingAddress, shippingMethods = _order$checkoutSessio2.shippingMethods;
                                             var supportedNetworks = function(issuers) {
-                                                if (!issuers || issuers && 0 === issuers.length) return [];
+                                                void 0 === issuers && (issuers = []);
+                                                var validNetworks = {
+                                                    discover: "discover",
+                                                    visa: "visa",
+                                                    mastercard: "masterCard",
+                                                    amex: "amex",
+                                                    cb_nationale: "cartesBancaires",
+                                                    maestro: "maestro",
+                                                    jcb: "jcb"
+                                                };
                                                 var validIssuers = [];
                                                 issuers.forEach((function(issuer) {
                                                     var network = issuer.toLowerCase().replace(/_/g, "");
-                                                    -1 !== Object.keys(validNetworks).indexOf(network) && validIssuers.push(validNetworks[network]);
+                                                    Object.keys(validNetworks).includes(network) && validIssuers.push(validNetworks[network]);
                                                 }));
                                                 return validIssuers;
                                             }(_order$checkoutSessio.allowedCardIssuers);
                                             var shippingContact = function(shippingAddress) {
-                                                return shippingAddress ? {
-                                                    givenName: shippingAddress.firstName,
-                                                    familyName: shippingAddress.lastName,
-                                                    addressLines: [ shippingAddress.line1, shippingAddress.line2 ],
-                                                    locality: shippingAddress.city,
-                                                    administrativeArea: shippingAddress.state,
-                                                    postalCode: shippingAddress.postalCode,
-                                                    country: shippingAddress.country
-                                                } : {
+                                                if (!shippingAddress) return {
                                                     givenName: "",
                                                     familyName: "",
                                                     addressLines: [],
                                                     locality: "",
                                                     administrativeArea: "",
                                                     postalCode: "",
-                                                    country: ""
+                                                    country: "",
+                                                    countryCode: ""
+                                                };
+                                                var country = shippingAddress.country;
+                                                return {
+                                                    givenName: shippingAddress.firstName,
+                                                    familyName: shippingAddress.lastName,
+                                                    addressLines: [ shippingAddress.line1, shippingAddress.line2 ],
+                                                    locality: shippingAddress.city,
+                                                    administrativeArea: shippingAddress.state,
+                                                    postalCode: shippingAddress.postalCode,
+                                                    country: country,
+                                                    countryCode: country
                                                 };
                                             }(shippingAddress);
                                             var applePayShippingMethods = function(shippingMethods) {
-                                                return shippingMethods && 0 !== shippingMethods.length ? [].concat(shippingMethods).sort((function(method) {
+                                                void 0 === shippingMethods && (shippingMethods = []);
+                                                return [].concat(shippingMethods).sort((function(method) {
                                                     return method.selected ? -1 : 0;
                                                 })).map((function(method) {
+                                                    var _method$amount;
                                                     return {
-                                                        amount: method.amount && method.amount.currencyValue ? method.amount.currencyValue : "0.00",
+                                                        amount: (null == method || null == (_method$amount = method.amount) ? void 0 : _method$amount.currencyValue) || "0.00",
                                                         detail: "",
                                                         identifier: method.type,
                                                         label: method.label
                                                     };
-                                                })) : [];
+                                                }));
                                             }(shippingMethods);
                                             var merchantCapabilities = function(supportedNetworks) {
-                                                var merchantCapabilities = [];
-                                                merchantCapabilities.push("supports3DS");
-                                                merchantCapabilities.push("supportsCredit");
-                                                merchantCapabilities.push("supportsDebit");
-                                                supportedNetworks && -1 !== supportedNetworks.indexOf("chinaUnionPay") && merchantCapabilities.push("supportsEMV");
+                                                void 0 === supportedNetworks && (supportedNetworks = []);
+                                                var merchantCapabilities = [ "supports3DS", "supportsCredit", "supportsDebit" ];
+                                                supportedNetworks.includes("chinaUnionPay") && merchantCapabilities.push("supportsEMV");
                                                 return merchantCapabilities;
                                             }(supportedNetworks);
-                                            var selectedShippingMethod = shippingMethods && shippingMethods.length ? shippingMethods.filter((function(method) {
+                                            var selectedShippingMethod = (shippingMethods || []).find((function(method) {
                                                 return method.selected;
-                                            }))[0] : null;
+                                            }));
                                             var result = {
                                                 countryCode: countryCode,
                                                 currencyCode: currencyCode,
                                                 merchantCapabilities: merchantCapabilities,
                                                 supportedNetworks: supportedNetworks,
                                                 requiredBillingContactFields: [ "postalAddress", "name", "phone" ],
-                                                requiredShippingContactFields: [ "postalAddress", "name", "phone", "email" ],
-                                                shippingContact: shippingContact && shippingContact.givenName ? shippingContact : {},
-                                                shippingMethods: applePayShippingMethods && applePayShippingMethods.length ? applePayShippingMethods : [],
+                                                requiredShippingContactFields: isShippingAddressRequired ? [ "postalAddress", "name", "phone", "email" ] : [],
+                                                shippingContact: null != shippingContact && shippingContact.givenName ? shippingContact : {},
+                                                shippingMethods: applePayShippingMethods || [],
                                                 lineItems: [],
                                                 total: {
                                                     label: "Total",
@@ -8843,19 +8928,19 @@ window.spb = function(modules) {
                                                     type: "final"
                                                 }
                                             };
-                                            subtotalValue && "0.00" !== parseFloat(subtotalValue).toFixed(2) && result.lineItems.push({
+                                            subtotalValue && !isZeroAmount(subtotalValue) && result.lineItems.push({
                                                 label: "Subtotal",
                                                 amount: subtotalValue
                                             });
-                                            taxValue && "0.00" !== parseFloat(taxValue).toFixed(2) && result.lineItems.push({
+                                            taxValue && !isZeroAmount(taxValue) && result.lineItems.push({
                                                 label: "Sales Tax",
                                                 amount: taxValue
                                             });
-                                            shippingValue && "0.00" !== parseFloat(shippingValue).toFixed(2) && result.lineItems.push({
+                                            var isPickup = "PICKUP" === (null == selectedShippingMethod ? void 0 : selectedShippingMethod.type);
+                                            !shippingValue || isZeroAmount(shippingValue) && !isPickup || result.lineItems.push({
                                                 label: "Shipping",
                                                 amount: shippingValue
                                             });
-                                            (!selectedShippingMethod || selectedShippingMethod && "PICKUP" === selectedShippingMethod.type) && (result.requiredShippingContactFields = []);
                                             return result;
                                         }(country, order);
                                         var _order$checkoutSessio = order.checkoutSession.cart.amounts;
@@ -8902,7 +8987,7 @@ window.spb = function(modules) {
                                                     handleApplePayError("applepay_merchant_validation_error", err);
                                                 }));
                                             })), addEventListener("paymentmethodselected", (function(_ref7) {
-                                                var _currentShippingMetho7;
+                                                var _currentShippingMetho10, _currentShippingMetho11;
                                                 logApplePayEvent("paymentmethodselected", _ref7.paymentMethod);
                                                 var update = {
                                                     newTotal: {
@@ -8915,7 +9000,8 @@ window.spb = function(modules) {
                                                     shipping: currentShippingAmount,
                                                     subtotal: currentSubtotalAmount,
                                                     tax: currentTaxAmount,
-                                                    shippingLabel: null == (_currentShippingMetho7 = currentShippingMethod) ? void 0 : _currentShippingMetho7.label
+                                                    shippingLabel: null == (_currentShippingMetho10 = currentShippingMethod) ? void 0 : _currentShippingMetho10.label,
+                                                    shippingIdentifier: null == (_currentShippingMetho11 = currentShippingMethod) ? void 0 : _currentShippingMetho11.identifier
                                                 });
                                                 completePaymentMethodSelection(update);
                                             })), addEventListener("shippingmethodselected", (function(_ref8) {
@@ -8929,6 +9015,7 @@ window.spb = function(modules) {
                                                     currentShippingMethod = shippingMethod;
                                                     completeShippingMethodSelection(update);
                                                 })).catch((function() {
+                                                    var _currentShippingMetho12;
                                                     var update = {
                                                         newTotal: {
                                                             label: "Total",
@@ -8940,7 +9027,8 @@ window.spb = function(modules) {
                                                         shipping: currentShippingAmount,
                                                         subtotal: currentSubtotalAmount,
                                                         tax: currentTaxAmount,
-                                                        shippingLabel: null == shippingMethod ? void 0 : shippingMethod.label
+                                                        shippingLabel: null == shippingMethod ? void 0 : shippingMethod.label,
+                                                        shippingIdentifier: null == (_currentShippingMetho12 = currentShippingMethod) ? void 0 : _currentShippingMetho12.identifier
                                                     });
                                                     completeShippingMethodSelection(update);
                                                 }));
@@ -9260,6 +9348,7 @@ window.spb = function(modules) {
             }), children));
         }
         var canRenderTop = !1;
+        var checkout_inline = !1;
         function getDimensions(fundingSource) {
             if (-1 !== APM_LIST.indexOf(fundingSource)) {
                 logger_getLogger().info("popup_dimensions_value_" + fundingSource).flush();
@@ -9294,10 +9383,11 @@ window.spb = function(modules) {
             init: function initCheckout(_ref5) {
                 var props = _ref5.props, components = _ref5.components, serviceData = _ref5.serviceData, payment = _ref5.payment, config = _ref5.config, fullRestart = _ref5.restart;
                 var Checkout = components.Checkout;
-                var sessionID = props.sessionID, buttonSessionID = props.buttonSessionID, _createOrder = props.createOrder, _onApprove = props.onApprove, _onCancel = props.onCancel, onShippingChange = props.onShippingChange, locale = props.locale, commit = props.commit, _onError = props.onError, vault = props.vault, clientAccessToken = props.clientAccessToken, createBillingAgreement = props.createBillingAgreement, createSubscription = props.createSubscription, onClick = props.onClick, amount = props.amount, clientID = props.clientID, connect = props.connect, cmid = props.clientMetadataID, _onAuth = props.onAuth, userIDToken = props.userIDToken, env = props.env, currency = props.currency, enableFunding = props.enableFunding, stickinessID = props.stickinessID, standaloneFundingSource = props.standaloneFundingSource, branded = props.branded, paymentMethodToken = props.paymentMethodToken, allowBillingPayments = props.allowBillingPayments, merchantRequestedPopupsDisabled = props.merchantRequestedPopupsDisabled;
+                var sessionID = props.sessionID, buttonSessionID = props.buttonSessionID, _createOrder = props.createOrder, _onApprove = props.onApprove, _onComplete = props.onComplete, _onCancel = props.onCancel, onShippingChange = props.onShippingChange, locale = props.locale, commit = props.commit, _onError = props.onError, vault = props.vault, clientAccessToken = props.clientAccessToken, createBillingAgreement = props.createBillingAgreement, createSubscription = props.createSubscription, onClick = props.onClick, amount = props.amount, clientID = props.clientID, connect = props.connect, cmid = props.clientMetadataID, _onAuth = props.onAuth, userIDToken = props.userIDToken, env = props.env, currency = props.currency, enableFunding = props.enableFunding, stickinessID = props.stickinessID, standaloneFundingSource = props.standaloneFundingSource, branded = props.branded, paymentMethodToken = props.paymentMethodToken, allowBillingPayments = props.allowBillingPayments, merchantRequestedPopupsDisabled = props.merchantRequestedPopupsDisabled;
                 var button = payment.button, win = payment.win, fundingSource = payment.fundingSource, card = payment.card, _payment$buyerAccessT = payment.buyerAccessToken, buyerAccessToken = void 0 === _payment$buyerAccessT ? serviceData.buyerAccessToken : _payment$buyerAccessT, venmoPayloadID = payment.venmoPayloadID, buyerIntent = payment.buyerIntent;
                 var buyerCountry = serviceData.buyerCountry, sdkMeta = serviceData.sdkMeta, merchantID = serviceData.merchantID;
                 var cspNonce = config.cspNonce;
+                checkout_inline = props.inlinexo && "card" === fundingSource;
                 var context = function(_ref4) {
                     var win = _ref4.win, isClick = _ref4.isClick, merchantRequestedPopupsDisabled = _ref4.merchantRequestedPopupsDisabled;
                     var popupSupported = supportsPopups();
@@ -9342,6 +9432,7 @@ window.spb = function(modules) {
                         stickinessID: stickinessID,
                         clientAccessToken: clientAccessToken,
                         venmoPayloadID: venmoPayloadID,
+                        inlinexo: checkout_inline,
                         createAuthCode: function() {
                             return promise_ZalgoPromise.try((function() {
                                 var fundingSkipLogin = FUNDING_SKIP_LOGIN[fundingSource];
@@ -9461,6 +9552,11 @@ window.spb = function(modules) {
                             }
                             doApproveOnClose = !0;
                         },
+                        onComplete: function() {
+                            return _onComplete().finally((function() {
+                                return close().then(src_util_noop);
+                            })).catch(src_util_noop);
+                        },
                         onAuth: function(_ref8) {
                             return _onAuth({
                                 accessToken: _ref8.accessToken || buyerAccessToken
@@ -9535,7 +9631,7 @@ window.spb = function(modules) {
                 return {
                     click: function() {
                         return promise_ZalgoPromise.try((function() {
-                            if (!merchantRequestedPopupsDisabled && !win && supportsPopups()) try {
+                            if (checkout_inline) context = "iframe"; else if (!merchantRequestedPopupsDisabled && !win && supportsPopups()) try {
                                 var _getDimensions = getDimensions(fundingSource);
                                 win = function(_ref) {
                                     var _ref$closeOnUnload = _ref.closeOnUnload;
@@ -9589,7 +9685,7 @@ window.spb = function(modules) {
                     var updateClientConfigPromise = updateButtonClientConfig({
                         fundingSource: payment.fundingSource,
                         orderID: orderID,
-                        inline: !1,
+                        inline: checkout_inline,
                         userExperienceFlow: userExperienceFlow
                     });
                     if ("pay_with_different_funding_shipping" === buyerIntent) return updateClientConfigPromise;
@@ -9619,7 +9715,7 @@ window.spb = function(modules) {
             setup: function() {},
             isEligible: function(_ref) {
                 var props = _ref.props;
-                return !props.vault && !props.onShippingChange && _ref.serviceData.eligibility.cardForm;
+                return "inline" !== props.experience && !props.vault && !props.onShippingChange && _ref.serviceData.eligibility.cardForm;
             },
             isPaymentEligible: function(_ref2) {
                 var _ref3 = _ref2.payment || {}, fundingSource = _ref3.fundingSource;
@@ -9777,7 +9873,7 @@ window.spb = function(modules) {
         _VALIDATOR_TO_TYPE_MA[dist.types.VISA] = "VISA", _VALIDATOR_TO_TYPE_MA["cb-nationale"] = "CB_NATIONALE", 
         _VALIDATOR_TO_TYPE_MA.cetelem = "CETELEM", _VALIDATOR_TO_TYPE_MA.cofidis = "COFIDIS", 
         _VALIDATOR_TO_TYPE_MA.cofinoga = "COFINOGA";
-        __webpack_require__("./node_modules/belter/index.js");
+        __webpack_require__("./node_modules/@krakenjs/belter/index.js");
         __webpack_require__("./node_modules/card-validator/src/luhn-10.js");
         __webpack_require__("./node_modules/card-validator/dist/index.js");
         dist_default.a.addCard({
@@ -9881,10 +9977,11 @@ window.spb = function(modules) {
                                 var _fundingEligibility$c, _fundingEligibility$c2;
                                 var facilitatorAccessToken = _ref.facilitatorAccessToken;
                                 var xprops = window.xprops;
-                                var type = xprops.type, cardSessionID = xprops.cardSessionID, style = xprops.style, placeholder = xprops.placeholder, fundingEligibility = xprops.fundingEligibility, onChange = xprops.onChange, _xprops$branded = xprops.branded, branded = void 0 === _xprops$branded ? null == (_fundingEligibility$c = null == fundingEligibility || null == (_fundingEligibility$c2 = fundingEligibility.card) ? void 0 : _fundingEligibility$c2.branded) || _fundingEligibility$c : _xprops$branded, parent = xprops.parent, xport = xprops.export;
+                                var type = xprops.type, cardSessionID = xprops.cardSessionID, style = xprops.style, placeholder = xprops.placeholder, fundingEligibility = xprops.fundingEligibility, onChange = xprops.onChange, _xprops$branded = xprops.branded, branded = void 0 === _xprops$branded ? null == (_fundingEligibility$c = null == fundingEligibility || null == (_fundingEligibility$c2 = fundingEligibility.card) ? void 0 : _fundingEligibility$c2.branded) || _fundingEligibility$c : _xprops$branded, parent = xprops.parent, experience = xprops.experience, xport = xprops.export;
                                 return _extends({}, getProps({
                                     facilitatorAccessToken: facilitatorAccessToken,
-                                    branded: branded
+                                    branded: branded,
+                                    paymentSource: null
                                 }), {
                                     type: type,
                                     branded: branded,
@@ -9893,6 +9990,7 @@ window.spb = function(modules) {
                                     cardSessionID: cardSessionID,
                                     fundingEligibility: fundingEligibility,
                                     onChange: onChange,
+                                    inlinexo: "inline" === experience,
                                     export: parent ? parent.export : xport,
                                     facilitatorAccessToken: facilitatorAccessToken
                                 });
@@ -12462,7 +12560,7 @@ window.spb = function(modules) {
             return promise_ZalgoPromise.try((function() {
                 var _getLogger$addPayload;
                 var merchantID = serviceData.merchantID, fundingEligibility = serviceData.fundingEligibility, buyerCountry = serviceData.buyerCountry;
-                var clientID = props.clientID, onClick = props.onClick, createOrder = props.createOrder, env = props.env, vault = props.vault, partnerAttributionID = props.partnerAttributionID, userExperienceFlow = props.userExperienceFlow, buttonSessionID = props.buttonSessionID, intent = props.intent, currency = props.currency, clientAccessToken = props.clientAccessToken, createBillingAgreement = props.createBillingAgreement, createSubscription = props.createSubscription, commit = props.commit, disableFunding = props.disableFunding, disableCard = props.disableCard, userIDToken = props.userIDToken, enableNativeCheckout = props.enableNativeCheckout;
+                var clientID = props.clientID, onClick = props.onClick, createOrder = props.createOrder, env = props.env, vault = props.vault, partnerAttributionID = props.partnerAttributionID, userExperienceFlow = props.userExperienceFlow, buttonSessionID = props.buttonSessionID, intent = props.intent, currency = props.currency, clientAccessToken = props.clientAccessToken, createBillingAgreement = props.createBillingAgreement, createSubscription = props.createSubscription, commit = props.commit, disableFunding = props.disableFunding, disableCard = props.disableCard, userIDToken = props.userIDToken, enableNativeCheckout = props.enableNativeCheckout, experience = props.experience;
                 !function(personalization) {
                     personalization && personalization.tagline && personalization.tagline.tracking && util_sendBeacon(personalization.tagline.tracking.click);
                     personalization && personalization.buttonText && personalization.buttonText.tracking && util_sendBeacon(personalization.buttonText.tracking.click);
@@ -12502,7 +12600,16 @@ window.spb = function(modules) {
                 })).track((_getLogger$addPayload = {}, _getLogger$addPayload.transition_name = "process_button_click", 
                 _getLogger$addPayload.chosen_fi_type = instrumentType, _getLogger$addPayload.payment_flow = name, 
                 _getLogger$addPayload.is_vault = instrumentType ? "1" : "0", _getLogger$addPayload.info_msg = enableNativeCheckout ? "tester" : "", 
-                _getLogger$addPayload)).flush();
+                _getLogger$addPayload.experience = experience || "", _getLogger$addPayload)).flush();
+                var loggingPromise = promise_ZalgoPromise.try((function() {
+                    return window.xprops.sessionState.get("__confirm_" + fundingSource + "_payload__").then((function(confirmPayload) {
+                        var fieldsSessionID = confirmPayload ? confirmPayload.payment_source[fundingSource].metadata.fieldsSessionID : "";
+                        logger_getLogger().addTrackingBuilder((function() {
+                            var _ref6;
+                            return (_ref6 = {}).fields_component_session_id = fieldsSessionID, _ref6;
+                        }));
+                    }));
+                }));
                 var clickPromise = click ? promise_ZalgoPromise.try(click) : promise_ZalgoPromise.resolve();
                 clickPromise.catch(src_util_noop);
                 return promise_ZalgoPromise.try((function() {
@@ -12905,7 +13012,7 @@ window.spb = function(modules) {
                                 });
                             }));
                         }));
-                        return promise_ZalgoPromise.all([ updateClientConfigPromise, clickPromise, vaultPromise, validateOrderPromise, startPromise, confirmOrderPromise ]).catch((function(err) {
+                        return promise_ZalgoPromise.all([ loggingPromise, updateClientConfigPromise, clickPromise, vaultPromise, validateOrderPromise, startPromise, confirmOrderPromise ]).catch((function(err) {
                             return promise_ZalgoPromise.try(close).then((function() {
                                 throw err;
                             }));
@@ -12944,7 +13051,8 @@ window.spb = function(modules) {
             var merchantID = serviceData.merchantID, buyerCountry = serviceData.buyerCountry;
             var props = getButtonProps({
                 facilitatorAccessToken: facilitatorAccessToken,
-                brandedDefault: brandedDefault
+                brandedDefault: brandedDefault,
+                paymentSource: null
             });
             var env = props.env, sessionID = props.sessionID, partnerAttributionID = props.partnerAttributionID, commit = props.commit, sdkCorrelationID = props.sdkCorrelationID, locale = props.locale, onShippingChange = props.onShippingChange, buttonSessionID = props.buttonSessionID, merchantDomain = props.merchantDomain, onInit = props.onInit, getPrerenderDetails = props.getPrerenderDetails, rememberFunding = props.rememberFunding, getQueriedEligibleFunding = props.getQueriedEligibleFunding, style = props.style, fundingSource = props.fundingSource, intent = props.intent, createBillingAgreement = props.createBillingAgreement, createSubscription = props.createSubscription, stickinessID = props.stickinessID;
             var config = getConfig({
@@ -13020,11 +13128,11 @@ window.spb = function(modules) {
                         instrumentID: instrumentID,
                         instrumentType: instrumentType
                     };
-                }(button);
+                }(button), paymentFundingSource = _getSelectedFunding.fundingSource;
                 var payment = {
                     button: button,
                     menuToggle: menuToggle,
-                    fundingSource: _getSelectedFunding.fundingSource,
+                    fundingSource: paymentFundingSource,
                     card: _getSelectedFunding.card,
                     paymentMethodID: _getSelectedFunding.paymentMethodID,
                     instrumentID: _getSelectedFunding.instrumentID,
@@ -13049,7 +13157,8 @@ window.spb = function(modules) {
                     event.stopPropagation();
                     var paymentProps = getButtonProps({
                         facilitatorAccessToken: facilitatorAccessToken,
-                        brandedDefault: brandedDefault
+                        brandedDefault: brandedDefault,
+                        paymentSource: paymentFundingSource
                     });
                     var payPromise = initiatePayment({
                         payment: payment,
@@ -13083,8 +13192,8 @@ window.spb = function(modules) {
                         var menuPromise = function(_ref2) {
                             var payment = _ref2.payment;
                             return promise_ZalgoPromise.try((function() {
-                                if (!paymentProcessing) return isEnabled() ? function(_ref6) {
-                                    var payment = _ref6.payment, serviceData = _ref6.serviceData, config = _ref6.config, components = _ref6.components, props = _ref6.props;
+                                if (!paymentProcessing) return isEnabled() ? function(_ref7) {
+                                    var payment = _ref7.payment, serviceData = _ref7.serviceData, config = _ref7.config, components = _ref7.components, props = _ref7.props;
                                     return promise_ZalgoPromise.try((function() {
                                         var _getLogger$info$info$;
                                         var fundingSource = payment.fundingSource, button = payment.button;
@@ -13105,9 +13214,9 @@ window.spb = function(modules) {
                                             serviceData: serviceData,
                                             components: components,
                                             config: config,
-                                            restart: function(_ref7) {
+                                            restart: function(_ref8) {
                                                 return initiatePaymentFlow({
-                                                    payment: _ref7.payment,
+                                                    payment: _ref8.payment,
                                                     serviceData: serviceData,
                                                     config: config,
                                                     components: components,
@@ -13210,7 +13319,8 @@ window.spb = function(modules) {
                         if (!button) throw new Error("Can not find button element");
                         var paymentProps = getButtonProps({
                             facilitatorAccessToken: facilitatorAccessToken,
-                            brandedDefault: brandedDefault
+                            brandedDefault: brandedDefault,
+                            paymentSource: paymentFundingSource
                         });
                         var payPromise = initiatePayment({
                             payment: {
@@ -13297,7 +13407,7 @@ window.spb = function(modules) {
                 logger.addTrackingBuilder((function() {
                     var _ref3;
                     return (_ref3 = {}).state_name = "smart_button", _ref3.context_type = "button_session_id", 
-                    _ref3.context_id = buttonSessionID, _ref3.button_session_id = buttonSessionID, _ref3.button_version = "5.0.88", 
+                    _ref3.context_id = buttonSessionID, _ref3.button_session_id = buttonSessionID, _ref3.button_version = "5.0.96", 
                     _ref3.button_correlation_id = buttonCorrelationID, _ref3.stickiness_id = isAndroidChrome() ? stickinessID : null, 
                     _ref3.bn_code = partnerAttributionID, _ref3.user_action = commit ? "commit" : "continue", 
                     _ref3.seller_id = merchantID[0], _ref3.merchant_domain = merchantDomain, _ref3.t = Date.now().toString(), 

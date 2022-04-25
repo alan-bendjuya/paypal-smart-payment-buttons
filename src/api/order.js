@@ -1,9 +1,9 @@
 /* @flow */
 /* eslint max-lines: 0 */
 
-import { ZalgoPromise } from 'zalgo-promise/src';
+import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
 import { CURRENCY, FPTI_KEY, FUNDING, WALLET_INSTRUMENT, INTENT } from '@paypal/sdk-constants/src';
-import { request, noop, memoize, uniqueID, stringifyError } from 'belter/src';
+import { request, noop, memoize, uniqueID, stringifyError } from '@krakenjs/belter/src';
 
 import { SMART_API_URI, ORDERS_API_URL, VALIDATE_PAYMENT_METHOD_API } from '../config';
 import { getLogger, setBuyerAccessToken } from '../lib';
@@ -126,10 +126,9 @@ export function isProcessorDeclineError(err : mixed) : boolean {
     }));
 }
 
-
 export function isUnprocessableEntityError(err : mixed) : boolean {
     // $FlowFixMe
-    return Boolean(err?.response?.body?.data?.details?.some(detail => {
+    return Boolean(err?.response?.body?.details?.some(detail => {
         return detail.issue === ORDER_API_ERROR.DUPLICATE_INVOICE_ID;
     }));
 }
@@ -693,25 +692,30 @@ export const getSupplementalOrderInfo : GetSupplementalOrderInfo = memoize(order
 
 export type DetailedOrderInfo = {|
     checkoutSession : {|
+        flags : {|
+            isShippingAddressRequired : boolean,
+            isDigitalGoodsIntegration : boolean,
+            isChangeShippingAddressAllowed : boolean
+        |},
         allowedCardIssuers : $ReadOnlyArray<string>,
         cart : {|
             amounts : {|
                 shippingAndHandling : {|
-                    currencyFormatSymbolISOCurrency : string,
                     currencyValue : string,
-                    currencyCode : $Values<typeof CURRENCY>
+                    currencySymbol : string,
+                    currencyFormat : string
                 |},
 
                 tax : {|
-                    currencyFormatSymbolISOCurrency : string,
                     currencyValue : string,
-                    currencyCode : $Values<typeof CURRENCY>
+                    currencySymbol : string,
+                    currencyFormat : string
                 |},
 
                 subtotal : {|
-                    currencyFormatSymbolISOCurrency : string,
                     currencyValue : string,
-                    currencyCode : $Values<typeof CURRENCY>
+                    currencySymbol : string,
+                    currencyFormat : string
                 |},
 
                 total : {|
@@ -734,6 +738,11 @@ export const getDetailedOrderInfo : GetDetailedOrderInfo = (orderID, country) =>
         query: `
             query GetCheckoutDetails($orderID: String!, $country: CountryCodes!) {
                 checkoutSession(token: $orderID) {
+                    flags{
+                        isShippingAddressRequired,
+                        isDigitalGoodsIntegration,
+                        isChangeShippingAddressAllowed
+                    }
                     allowedCardIssuers(country: $country)
                     cart {
                         amounts {

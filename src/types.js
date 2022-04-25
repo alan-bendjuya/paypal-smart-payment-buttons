@@ -1,9 +1,9 @@
 /* @flow */
 
-import type { CrossDomainWindowType } from 'cross-domain-utils/src';
-import type { ZalgoPromise } from 'zalgo-promise/src';
+import type { CrossDomainWindowType } from '@krakenjs/cross-domain-utils/src';
+import type { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
 import { COUNTRY, LANG, CARD, WALLET_INSTRUMENT, FUNDING } from '@paypal/sdk-constants/src';
-import type { ProxyWindow as _ProxyWindow } from 'post-robot/src';
+import type { ProxyWindow as _ProxyWindow } from '@krakenjs/post-robot/src';
 
 import { CONTEXT, QRCODE_STATE } from './constants';
 
@@ -44,6 +44,7 @@ export type CheckoutProps = {|
     getConnectURL? : ?({| payerID : string |}) => ZalgoPromise<string>,
     createOrder : () => ZalgoPromise<string>,
     onApprove : ({| payerID : string, paymentID : ?string, billingToken : ?string, subscriptionID : ?string, authCode : ?string |}) => ZalgoPromise<void> | void,
+    onComplete : () => ZalgoPromise<void> | void,
     onAuth : ({| accessToken : string |}) => ZalgoPromise<void> | void,
     onCancel : () => ZalgoPromise<void> | void,
     onShippingChange : ?({| |}, {| resolve : () => ZalgoPromise<void>, reject : () => ZalgoPromise<void> |}) => ZalgoPromise<void> | void,
@@ -65,7 +66,8 @@ export type CheckoutProps = {|
     dimensions : {|
         width : number,
         height : number
-    |}
+    |},
+    inlinexo : boolean | void
 |};
 
 export type CheckoutFlowType = ZoidComponent<CheckoutProps>;

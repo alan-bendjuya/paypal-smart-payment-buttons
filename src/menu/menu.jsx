@@ -1,10 +1,12 @@
 /* @flow */
 /** @jsx h */
 
-import type { CrossDomainWindowType } from 'cross-domain-utils/src';
+import type { CrossDomainWindowType } from '@krakenjs/cross-domain-utils/src';
 import { h, Fragment } from 'preact';
+import { stringifyError } from '@krakenjs/belter/src';
 
 import { openPopup } from '../ui';
+import { getLogger } from '../lib';
 
 import { useAutoFocus } from './hooks';
 
@@ -32,10 +34,14 @@ export function Menu({ choices, onBlur, cspNonce, verticalOffset, onFocus, onFoc
         let win;
 
         if (choice.popup) {
-            win = openPopup({
-                width:  choice.popup.width,
-                height: choice.popup.height
-            });
+            try {
+                win = openPopup({
+                    width:  choice.popup.width,
+                    height: choice.popup.height
+                });
+            } catch (err) {
+                getLogger().warn('menu_popup_open_error', { err: stringifyError(err) });
+            }
         }
 
         return choice.onSelect({ win });
@@ -59,17 +65,17 @@ export function Menu({ choices, onBlur, cspNonce, verticalOffset, onFocus, onFoc
                         margin-top: ${ verticalOffset }px;
                         overflow: hidden;
                     }
-                    
+
                     .menu-item {
                         border-top: 2px solid rgba(230, 230, 230, 0.5);;
                         color: #0070ba;
                         cursor: pointer;
                     }
-                    
+
                     .menu-item:first-child {
                         border-top: none;
                     }
-                    
+
                     .menu-item:hover {
                         background: #fcfcfc;
                         text-decoration: underline;

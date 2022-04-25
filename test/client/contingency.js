@@ -1,8 +1,8 @@
 /* @flow */
 /* eslint require-await: off, max-lines: off, max-nested-callbacks: off */
 
-import { wrapPromise } from 'belter/src';
-import { ZalgoPromise } from 'zalgo-promise/src';
+import { wrapPromise } from '@krakenjs/belter/src';
+import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
 import { FUNDING, INTENT } from '@paypal/sdk-constants/src';
 
 import { mockSetupButton, generateOrderID, mockAsyncProp, createButtonHTML, getRestfulCaptureOrderApiMock,
@@ -125,14 +125,12 @@ describe('contingency cases', () => {
                 const captureOrderMock = getRestfulCaptureOrderApiMock({
                     status: 422,
                     data:   {
-                        name: 'UNPROCESSABLE_ENTITY',
-                        data: {
-                            details: [
-                                {
-                                    issue: 'DUPLICATE_INVOICE_ID'
-                                }
-                            ]
-                        }
+                        name:    'UNPROCESSABLE_ENTITY',
+                        details: [
+                            {
+                                issue: 'DUPLICATE_INVOICE_ID'
+                            }
+                        ]
                     }
                 });
 
@@ -142,7 +140,7 @@ describe('contingency cases', () => {
             });
             
             const onError = (err) => {
-                if (err.response.body.data.details[0].issue !== 'DUPLICATE_INVOICE_ID') {
+                if (err.response.body.details[0].issue !== 'DUPLICATE_INVOICE_ID') {
                     throw new Error(`Expected errors to match, got ${ err.data.details[0].issue } expected to be: DUPLICATE_INVOICE_ID`);
                 }
             };

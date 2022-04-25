@@ -5,6 +5,10 @@ import { COUNTRY } from '@paypal/sdk-constants/src';
 import { type DetailedOrderInfo } from '../../api';
 import type { ApplePayError, ApplePayPaymentContact, ApplePayMerchantCapabilities, ApplePayPaymentRequest, ApplePaySupportedNetworks, ApplePayShippingMethod, ShippingAddress, ShippingMethod, Shipping_Address } from '../types';
 
+export function isZeroAmount(value : string) : boolean {
+    return parseFloat(value).toFixed(2) === '0.00';
+}
+
 type ValidNetworks = {|
     discover : ApplePaySupportedNetworks,
     visa : ApplePaySupportedNetworks,
@@ -15,25 +19,23 @@ type ValidNetworks = {|
     jcb : ApplePaySupportedNetworks
 |};
 
-const validNetworks : ValidNetworks = {
-    discover:       'discover',
-    visa:           'visa',
-    mastercard:     'masterCard',
-    amex:           'amex',
-    cb_nationale:   'cartesBancaires',
-    maestro:        'maestro',
-    jcb:            'jcb'
-};
-
-function getSupportedNetworksFromIssuers(issuers : $ReadOnlyArray<string>) : $ReadOnlyArray<ApplePaySupportedNetworks> {
-    if (!issuers || (issuers && issuers.length === 0)) {
-        return [];
-    }
+export function getSupportedNetworksFromIssuers(issuers : $ReadOnlyArray<string> = []) : $ReadOnlyArray<ApplePaySupportedNetworks> {
+    const validNetworks : ValidNetworks = {
+        discover:       'discover',
+        visa:           'visa',
+        mastercard:     'masterCard',
+        amex:           'amex',
+        cb_nationale:   'cartesBancaires',
+        maestro:        'maestro',
+        jcb:            'jcb'
+    };
 
     const validIssuers = [];
+
     function validateIssuers(issuer : string) : ?ApplePaySupportedNetworks {
         const network = issuer.toLowerCase().replace(/_/g, '');
-        if (Object.keys(validNetworks).indexOf(network) !== -1) {
+
+        if (Object.keys(validNetworks).includes(network)) {
             validIssuers.push(validNetworks[network]);
         }
     }
@@ -51,7 +53,8 @@ function getShippingContactFromAddress(shippingAddress : ?ShippingAddress) : App
             locality:           '',
             administrativeArea: '',
             postalCode:         '',
-            country:            ''
+            country:            '',
+            countryCode:        ''
         };
     }
 
@@ -67,36 +70,29 @@ function getShippingContactFromAddress(shippingAddress : ?ShippingAddress) : App
         locality:           city,
         administrativeArea: state,
         postalCode,
-        country
+        country,
+        countryCode:        country
     };
 }
 
-function getApplePayShippingMethods(shippingMethods : ?$ReadOnlyArray<ShippingMethod>) : $ReadOnlyArray<ApplePayShippingMethod> {
-    if (!shippingMethods || shippingMethods.length === 0) {
-        return [];
-    }
-
-    const result = [ ...shippingMethods ].sort(method => {
+export function getApplePayShippingMethods(shippingMethods : $ReadOnlyArray<ShippingMethod> = []) : $ReadOnlyArray<ApplePayShippingMethod> {
+    return [ ...shippingMethods ].sort(method => {
         return method.selected ? -1 : 0;
     }).map(method => {
         return {
-            amount:     method.amount && method.amount.currencyValue ? method.amount.currencyValue : '0.00',
+            amount:     method?.amount?.currencyValue || '0.00',
             detail:     '',
             identifier: method.type,
             label:      method.label
         };
     });
-
-    return result;
 }
 
-function getMerchantCapabilities(supportedNetworks : $ReadOnlyArray<ApplePaySupportedNetworks>) : $ReadOnlyArray<ApplePayMerchantCapabilities> {
-    const merchantCapabilities : Array<ApplePayMerchantCapabilities> = [];
-    merchantCapabilities.push('supports3DS');
-    merchantCapabilities.push('supportsCredit');
-    merchantCapabilities.push('supportsDebit');
+export function getMerchantCapabilities(supportedNetworks : $ReadOnlyArray<ApplePaySupportedNetworks> = []) : $ReadOnlyArray<ApplePayMerchantCapabilities> {
+    // eslint-disable-next-line flowtype/no-mutable-array
+    const merchantCapabilities : Array<ApplePayMerchantCapabilities> = [ 'supports3DS', 'supportsCredit', 'supportsDebit' ];
 
-    if (supportedNetworks && supportedNetworks.indexOf('chinaUnionPay') !== -1) {
+    if (supportedNetworks.includes('chinaUnionPay')) {
         merchantCapabilities.push('supportsEMV');
     }
 
@@ -105,6 +101,9 @@ function getMerchantCapabilities(supportedNetworks : $ReadOnlyArray<ApplePaySupp
 
 export function createApplePayRequest(countryCode : $Values<typeof COUNTRY>, order : DetailedOrderInfo) : ApplePayPaymentRequest {
     const {
+        flags: {
+            isShippingAddressRequired
+        },
         allowedCardIssuers,
         cart: {
             amounts: {
@@ -132,7 +131,7 @@ export function createApplePayRequest(countryCode : $Values<typeof COUNTRY>, ord
     const applePayShippingMethods = getApplePayShippingMethods(shippingMethods);
     const merchantCapabilities = getMerchantCapabilities(supportedNetworks);
 
-    const selectedShippingMethod = shippingMethods && shippingMethods.length ? shippingMethods.filter(method => method.selected)[0] : null;
+    const selectedShippingMethod = (shippingMethods || []).find(method => method.selected);
 
     const result = {
         countryCode,
@@ -144,14 +143,14 @@ export function createApplePayRequest(countryCode : $Values<typeof COUNTRY>, ord
             'name',
             'phone'
         ],
-        requiredShippingContactFields: [
+        requiredShippingContactFields: isShippingAddressRequired ? [
             'postalAddress',
             'name',
             'phone',
             'email'
-        ],
-        shippingContact: shippingContact && shippingContact.givenName ? shippingContact : {},
-        shippingMethods: applePayShippingMethods && applePayShippingMethods.length ? applePayShippingMethods : [],
+        ] : [],
+        shippingContact: shippingContact?.givenName ? shippingContact : {},
+        shippingMethods: applePayShippingMethods || [],
         lineItems:       [],
         total:           {
             label:  'Total',
@@ -160,29 +159,27 @@ export function createApplePayRequest(countryCode : $Values<typeof COUNTRY>, ord
         }
     };
 
-    if (subtotalValue && parseFloat(subtotalValue).toFixed(2) !== '0.00') {
+    if (subtotalValue && !isZeroAmount(subtotalValue)) {
         result.lineItems.push({
             label:  'Subtotal',
             amount: subtotalValue
         });
     }
 
-    if (taxValue && parseFloat(taxValue).toFixed(2) !== '0.00') {
+    if (taxValue && !isZeroAmount(taxValue)) {
         result.lineItems.push({
             label:  'Sales Tax',
             amount: taxValue
         });
     }
 
-    if (shippingValue && parseFloat(shippingValue).toFixed(2) !== '0.00') {
+    const isPickup = selectedShippingMethod?.type === 'PICKUP';
+
+    if (shippingValue && (!isZeroAmount(shippingValue) || isPickup)) {
         result.lineItems.push({
             label:  'Shipping',
             amount: shippingValue
         });
-    }
-
-    if (!selectedShippingMethod || (selectedShippingMethod && selectedShippingMethod.type === 'PICKUP')) {
-        result.requiredShippingContactFields = [];
     }
 
     return result;

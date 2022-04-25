@@ -1,8 +1,8 @@
 /* @flow */
 /* eslint require-await: off, max-lines: off, max-nested-callbacks: off */
 
-import { wrapPromise } from 'belter/src';
-import { ZalgoPromise } from 'zalgo-promise/src';
+import { wrapPromise } from '@krakenjs/belter/src';
+import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
 import { FUNDING, PLATFORM } from '@paypal/sdk-constants/src';
 
 import { promiseNoop } from '../../src/lib';
@@ -58,6 +58,11 @@ describe('Apple Pay Flow', () => {
                     return {
                         data: {
                             checkoutSession: {
+                                flags: {
+                                    isShippingAddressRequired:      true,
+                                    isDigitalGoodsIntegration:      false,
+                                    isChangeShippingAddressAllowed: false
+                                },
                                 allowedCardIssuers: [
                                     'MASTER_CARD',
                                     'VISA',
@@ -168,6 +173,11 @@ describe('Apple Pay Flow', () => {
                     return {
                         data: {
                             checkoutSession: {
+                                flags: {
+                                    isShippingAddressRequired:      false,
+                                    isDigitalGoodsIntegration:      false,
+                                    isChangeShippingAddressAllowed: false
+                                },
                                 allowedCardIssuers: [
                                     'MASTER_CARD',
                                     'VISA',

@@ -1,7 +1,8 @@
 /* @flow */
 
-import type { ZalgoPromise } from 'zalgo-promise/src';
+import type { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
 import { FUNDING, CARD, type FundingEligibilityType } from '@paypal/sdk-constants/src';
+import { EXPERIENCE } from '@paypal/checkout-components/src/constants/button';
 
 import type { ProxyWindow } from '../types';
 import { getProps, type XProps, type Props } from '../props/props';
@@ -51,6 +52,7 @@ export type CardProps = {|
     style : CardStyle,
     placeholder : CardPlaceholder,
     cardSessionID : string,
+    inlinexo : boolean,
     fundingEligibility : FundingEligibilityType,
     export : CardExport,
     onChange : OnChange,
@@ -74,10 +76,11 @@ export function getCardProps({ facilitatorAccessToken } : GetCardPropsOptions) :
         onChange,
         branded = fundingEligibility?.card?.branded ?? true,
         parent,
+        experience,
         export: xport
     } = xprops;
 
-    const props = getProps({ facilitatorAccessToken, branded });
+    const props = getProps({ facilitatorAccessToken, branded, paymentSource: null });
 
     return {
         ...props,
@@ -88,7 +91,8 @@ export function getCardProps({ facilitatorAccessToken } : GetCardPropsOptions) :
         cardSessionID,
         fundingEligibility,
         onChange,
-        export: parent ? parent.export : xport,
+        inlinexo: experience === EXPERIENCE.INLINE,
+        export:   parent ? parent.export : xport,
         facilitatorAccessToken
     };
 }

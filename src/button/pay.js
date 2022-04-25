@@ -1,7 +1,7 @@
 /* @flow */
 
-import { noop, stringifyError } from 'belter/src';
-import { ZalgoPromise } from 'zalgo-promise/src';
+import { noop, stringifyError } from '@krakenjs/belter/src';
+import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
 import { FPTI_KEY } from '@paypal/sdk-constants/src';
 
 import { applepay, checkout, cardField, cardForm, native, vaultCapture, walletCapture, popupBridge, type Payment, type PaymentFlow } from '../payment-flows';
@@ -73,7 +73,7 @@ export function initiatePaymentFlow({ payment, serviceData, config, components, 
     return ZalgoPromise.try(() => {
         const { merchantID, personalization, fundingEligibility, buyerCountry } = serviceData;
         const { clientID, onClick, createOrder, env, vault, partnerAttributionID, userExperienceFlow, buttonSessionID, intent, currency,
-            clientAccessToken, createBillingAgreement, createSubscription, commit, disableFunding, disableCard, userIDToken, enableNativeCheckout  } = props;
+            clientAccessToken, createBillingAgreement, createSubscription, commit, disableFunding, disableCard, userIDToken, enableNativeCheckout, experience } = props;
         
         sendPersonalizationBeacons(personalization);
 
@@ -102,12 +102,25 @@ export function initiatePaymentFlow({ payment, serviceData, config, components, 
                 };
             })
             .track({
-                [FPTI_KEY.TRANSITION]:      FPTI_TRANSITION.BUTTON_CLICK,
-                [FPTI_KEY.CHOSEN_FI_TYPE]:  instrumentType,
-                [FPTI_KEY.PAYMENT_FLOW]:    name,
-                [FPTI_KEY.IS_VAULT]:        instrumentType ? '1' : '0',
-                [FPTI_CUSTOM_KEY.INFO_MSG]: enableNativeCheckout ? 'tester' : ''
+                [FPTI_KEY.TRANSITION]:        FPTI_TRANSITION.BUTTON_CLICK,
+                [FPTI_KEY.CHOSEN_FI_TYPE]:    instrumentType,
+                [FPTI_KEY.PAYMENT_FLOW]:      name,
+                [FPTI_KEY.IS_VAULT]:          instrumentType ? '1' : '0',
+                [FPTI_CUSTOM_KEY.INFO_MSG]:   enableNativeCheckout ? 'tester' : '',
+                [FPTI_CUSTOM_KEY.EXPERIENCE]: experience || ''
             }).flush();
+
+        const loggingPromise =  ZalgoPromise.try(() => {
+            return window.xprops.sessionState.get(`__confirm_${ fundingSource }_payload__`).then(confirmPayload => {
+                const fieldsSessionID = confirmPayload ? confirmPayload.payment_source[fundingSource].metadata.fieldsSessionID : '';
+                getLogger()
+                    .addTrackingBuilder(() => {
+                        return {
+                            [FPTI_KEY.FIELDS_COMPONENT_SESSION_ID]: fieldsSessionID
+                        };
+                    });
+            });
+        });
 
         const clickPromise = click ? ZalgoPromise.try(click) : ZalgoPromise.resolve();
         clickPromise.catch(noop);
@@ -171,6 +184,7 @@ export function initiatePaymentFlow({ payment, serviceData, config, components, 
             });
 
             return ZalgoPromise.all([
+                loggingPromise,
                 updateClientConfigPromise,
                 clickPromise,
                 vaultPromise,

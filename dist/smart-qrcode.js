@@ -704,7 +704,7 @@
             } else if ("o" === l[0] && "n" === l[1]) o = l !== (l = l.replace(/Capture$/, "")), 
             l = l.toLowerCase() in n ? l.toLowerCase().slice(2) : l.slice(2), n.l || (n.l = {}), 
             n.l[l + o] = u, u ? i || n.addEventListener(l, o ? T : I, o) : n.removeEventListener(l, o ? T : I, o); else if ("dangerouslySetInnerHTML" !== l) {
-                if (t) l = l.replace(/xlink[H:h]/, "h").replace(/sName$/, "s"); else if ("href" !== l && "list" !== l && "form" !== l && "tabIndex" !== l && "download" !== l && l in n) try {
+                if (t) l = l.replace(/xlink(H|:h)/, "h").replace(/sName$/, "s"); else if ("href" !== l && "list" !== l && "form" !== l && "tabIndex" !== l && "download" !== l && l in n) try {
                     n[l] = null == u ? "" : u;
                     break n;
                 } catch (n) {}
@@ -820,11 +820,11 @@
             return this.constructor(n, u);
         }
         n = c.slice, l = {
-            __e: function(n, l) {
-                for (var u, i, t; l = l.__; ) if ((u = l.__c) && !u.__) try {
-                    if ((i = u.constructor) && null != i.getDerivedStateFromError && (u.setState(i.getDerivedStateFromError(n)), 
-                    t = u.__d), null != u.componentDidCatch && (u.componentDidCatch(n), t = u.__d), 
-                    t) return u.__E = u;
+            __e: function(n, l, u, i) {
+                for (var t, o, r; l = l.__; ) if ((t = l.__c) && !t.__) try {
+                    if ((o = t.constructor) && null != o.getDerivedStateFromError && (t.setState(o.getDerivedStateFromError(n)), 
+                    r = t.__d), null != t.componentDidCatch && (t.componentDidCatch(n, i || {}), r = t.__d), 
+                    r) return t.__E = t;
                 } catch (l) {
                     n = l;
                 }
@@ -840,7 +840,7 @@
         }, _.prototype.render = d, preact_module_t = [], preact_module_o = "function" == typeof Promise ? Promise.prototype.then.bind(Promise.resolve()) : setTimeout, 
         g.__r = 0;
         var hooks_module_t, hooks_module_u, hooks_module_r, hooks_module_o = 0, hooks_module_i = [], hooks_module_c = l.__b, hooks_module_f = l.__r, hooks_module_e = l.diffed, hooks_module_a = l.__c, hooks_module_v = l.unmount;
-        function hooks_module_m(t, r) {
+        function hooks_module_l(t, r) {
             l.__h && l.__h(hooks_module_u, t, hooks_module_o || r), hooks_module_o = 0;
             var i = hooks_module_u.__H || (hooks_module_u.__H = {
                 __: [],
@@ -848,9 +848,9 @@
             });
             return t >= i.__.length && i.__.push({}), i.__[t];
         }
-        function hooks_module_l(n) {
+        function hooks_module_m(n) {
             return hooks_module_o = 1, function(n, r, o) {
-                var i = hooks_module_m(hooks_module_t++, 2);
+                var i = hooks_module_l(hooks_module_t++, 2);
                 return i.t = n, i.__c || (i.__ = [ hooks_module_w(void 0, r), function(n) {
                     var t = i.t(i.__[0], n);
                     i.__[0] !== t && (i.__ = [ t, i.__[1] ], i.__c.setState({}));
@@ -2894,17 +2894,6 @@
             tertiary: "#009EE3",
             quaternary: "#009EE3"
         };
-        var multiblanco_logo_LOGO_COLORS;
-        (multiblanco_logo_LOGO_COLORS = {}).default = {
-            primary: "#373535",
-            secondary: "#1866AB"
-        }, multiblanco_logo_LOGO_COLORS.white = {
-            primary: "#ffffff",
-            secondary: "#ffffff"
-        }, multiblanco_logo_LOGO_COLORS.black = {
-            primary: "#373535",
-            secondary: "#1866AB"
-        };
         var multibanco_logo_LOGO_COLORS;
         (multibanco_logo_LOGO_COLORS = {}).default = {
             primary: "#373535",
@@ -3165,7 +3154,7 @@
             logger.addTrackingBuilder((function() {
                 var _ref2;
                 return (_ref2 = {}).state_name = "smart_button", _ref2.context_type = "EC-Token", 
-                _ref2.context_id = orderID, _ref2.button_session_id = buttonSessionID, _ref2.button_version = "5.0.88", 
+                _ref2.context_id = orderID, _ref2.button_session_id = buttonSessionID, _ref2.button_version = "5.0.96", 
                 _ref2.user_id = buttonSessionID, _ref2;
             }));
             (function() {
@@ -3286,12 +3275,12 @@
         function QRCard(_ref) {
             var svgString = _ref.svgString;
             var _useXProps = function() {
-                var _useState = hooks_module_l(window.xprops), xprops = _useState[0], setXProps = _useState[1];
+                var _useState = hooks_module_m(window.xprops), xprops = _useState[0], setXProps = _useState[1];
                 r = function() {
                     return xprops.onProps((function(newProps) {
                         setXProps(_extends({}, newProps));
                     }));
-                }, o = [], i = hooks_module_m(hooks_module_t++, 3), !l.__s && function(n, t) {
+                }, o = [], i = hooks_module_l(hooks_module_t++, 3), !l.__s && function(n, t) {
                     return !n || n.length !== t.length || t.some((function(t, u) {
                         return t !== n[u];
                     }));
@@ -3306,7 +3295,7 @@
                 });
             }(), state = _useXProps.state, errorText = _useXProps.errorText, setState = _useXProps.setState, close = _useXProps.close, cancel = _useXProps.onCancel;
             var survey = function() {
-                var _useState = hooks_module_l({
+                var _useState = hooks_module_m({
                     isEnabled: !1,
                     reason: "prefer_not_to_say"
                 }), state = _useState[0], setState = _useState[1];
@@ -3445,7 +3434,7 @@
             }, "Credit/Debit card"));
             return v(d, null, v("style", {
                 nonce: window.xprops.cspNonce
-            }, " ", '\n    * {\n        box-sizing: border-box;\n        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;\n        text-transform: none;        \n    }\n    html, body {\n        display: flex;\n        position: fixed;\n        width: 100%;\n        height: 100%;\n        top: 0;\n        left: 0;\n        align-items: center;\n        justify-content: center;\n    }\n    body {\n        flex-direction: column;\n    }\n    #error-view {\n        width: 100%;\n        height: 100%;\n        padding: 1.5em;\n        justify-content: center;\n    }\n    #error-view .error-message,\n    #error-view .reset-button {\n        color: #FFFFFF;\n        text-align: center;        \n        line-height: 16px;\n    }\n    #error-view .error-message {\n        margin-bottom: 2em;\n        word-break: break-word;\n    }\n    #error-view .reset-button {\n        cursor: pointer;\n        border: 0; \n        border-radius: 24px;\n        padding: 12px;\n        background: #3D93CE;\n        line-height: 24px;\n        font-weight: 700;\n        width: 300px;\n    }\n    .card, \n    #error-view {\n        display: inline-flex;\n        align-items: center;\n        flex-direction: column;\n    }\n    .card {\n        border-radius: 8px;\n        min-width: 280px;\n        min-height: 320px;\n        backface-visibility: hidden;\n        -webkit-backface-visibility: hidden;\n        transition: transform 1s;\n        transform-style: preserve-3d;\n    }\n    .card * {\n        box-sizing: content-box;\n    }\n    #view-boxes {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100%;\n        width: 100%;\n    }\n    #view-boxes.qr_scanned #front-view,\n    #view-boxes.qr_authorized #front-view {\n        transform: rotateY(180deg);\n        position: absolute;\n    }\n    #view-boxes #back-view {width: 320px;}\n    #view-boxes.qr_scanned #back-view,\n    #view-boxes.qr_authorized #back-view {\n        transform: rotateY(0deg);\n        position: relative;\n    }\n    #view-boxes #back-view #success-mark,\n    #view-boxes #back-view .success-message {\n        opacity: 0;\n    }\n    #view-boxes.qr_authorized #back-view #success-mark,\n    #view-boxes.qr_authorized #back-view .success-message {\n        opacity: 1;\n    }\n    #view-boxes.qr_authorized #back-view #success-mark {\n        transform: rotate(720deg);\n    }\n    #view-boxes.qr_authorized #back-view .auth-message {\n        opacity: 0;\n    }\n    #front-view {\n        background-color: white;\n        border: 1px solid #888C94;\n        z-index: 2;\n        transform: rotateY(0deg);\n        justify-content: flex-end;\n        width: 462px;\n    }\n    #front-view > svg,\n    #front-view > img {\n        padding: 16px 16px 0px;\n    }\n    #front-view > img + img { \n        padding-top: 12px;\n        padding-bottom: 32px; \n    }\n    #qr-code {\n        min-width: 160px;\n        min-height: 160px;\n        width: calc(100% - 32px);\n        max-width: 325px;\n    }\n    #instructions {\n        background-color: #FFFF;\n        border-top-left-radius: 8px;\n        border-top-right-radius: 8px;\n        box-sizing: border-box;\n        margin-top: 16px;\n        display: flex;\n        align-items: center;\n        font-size: 14px;\n        line-height: 16px;\n        max-width: 250px;\n        width: 100%;\n    }\n    .instruction-icon {\n        min-width: 68px;\n        min-height: 46px;\n        margin-right: 16px;\n    }\n    #fee-disclaimer{\n        margin: 0;\n        padding-top: 32px;\n        padding-left: 16px;\n        padding-right: 16px;\n        font-size: 20px;\n        color: #2F3033;\n    }\n    #back-view {\n        position: absolute;\n        transform: rotateY(-180deg);\n        background-color: #3D93CE;\n        justify-content: center;\n        font-size: 18px;\n        line-height: 16px;\n        text-align: center;\n        color: #FFFFFF;\n    }    \n    #back-view .auth-message,\n    #back-view .success-message {\n        position: absolute;\n        bottom: -30px;\n        white-space: nowrap;\n        transition: opacity 500ms;\n    }\n    #back-view .mark {\n        position: relative ;\n    }\n    #venmo-mark{\n        width: 50%;\n    }\n    #success-mark {\n        position: absolute;\n        left: 50%;\n        bottom: -10%;\n        transition: transform 500ms, opacity 500ms;\n        transition-delay: 350ms;\n    }\n    #close {\n        position: absolute;\n        right: 16px;\n        top: 16px;\n        width: 16px;\n        height: 16px;\n        opacity: 0.6;\n        z-index: 10;\n    }\n    #close:hover {\n        opacity: 1;\n    }\n    #close:before, #close:after {\n        position: absolute;\n        left: 8px;\n        content: \' \';\n        height: 20px;\n        width: 2px;\n        background-color: #FFF;\n    }\n    #close:before {\n        transform: rotate(45deg);\n    }\n    #close:after {\n        transform: rotate(-45deg);\n    }\n    #survey {\n        background: #FFFFFF;\n        height: 542px;\n        width: 500px;\n        border-radius: 8px;\n    }\n    #survey h1 {\n        width: 423px;\n        font-weight: 500;\n        font-size: 24px;\n        line-height: 32px;\n        text-align: center;\n        margin: auto;\n        margin-top: 30px;\n    }\n    #survey button {\n        display: block;\n        margin: auto;\n        border: none;\n        font-family: sans-serif;\n        cursor: pointer;\n        font-weight: bold;\n    }\n    #survey button.continue-button {\n        margin-top: 40px;\n        min-height: 48px;\n        width:  335px;\n        background: #0074DE;\n        height: 24px;\n        font-size: 18px;\n        line-height: 24px;\n        text-align: center;\n        color: #FFFFFF;\n        border-radius: 24px;\n        display: block;\n    }\n    #survey button.leave-button {\n        margin-top: 10px;\n        height: 48px;\n        width:  335px;\n        color: #0074DE;\n        background: none;\n        font-size: 18px;\n        line-height: 24px;\n        text-align: center;\n        display: block;\n    }\n    #survey .message {\n        width: 333px;\n        font-family: sans-serif;\n        font-size: 16px;\n        line-height: 20px;\n        text-align: center;\n        margin: auto;\n        margin-top: 8px;\n    }\n    \n    #survey .answers {\n        width: 400px;\n        font-size: 16px;\n        line-height: 20px;\n        margin: auto;\n        cursor: pointer;\n    }\n    #survey .answers .answer {\n        margin-top: 28px;\n        display: flex;\n        align-items: center;\n    }\n    #survey label {\n        font-family: sans-serif;\n        font-size: 16px;\n        cursor: pointer;\n        display: flex;\n        align-items: center;\n    }\n    #survey .answers svg{\n        margin-right: 8px;\n        min-width: 40px;\n    }\n    #survey .answers input{\n        display: none;\n    }\n    #survey .answers input:focus::after {\n        content: "";\n        min-width: 44px;\n        height: 44px;\n        position: absolute;\n        top: -2px;\n        left: -2px;\n        border: solid 1px black;\n        border-radius: 50%;\n    }\n    .escape-path {    \n        background-color: white;\n        color: #2F3033;\n        width: 100%;\n        text-align: center;\n        padding: 1rem;\n        margin: 0;\n        border-bottom-left-radius: 16px;\n        border-bottom-right-radius: 16px;\n    }\n    .escape-path__link {\n        font-weight: 600;\n        color: #008CFF;\n    }\n    .escape-path__link:hover {\n        cursor: pointer;\n    }\n    ', " "), v("a", {
+            }, " ", '\n    * {\n        box-sizing: border-box;\n        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;\n        text-transform: none;\n    }\n    html, body {\n        display: flex;\n        position: fixed;\n        width: 100%;\n        height: 100%;\n        top: 0;\n        left: 0;\n        align-items: center;\n        justify-content: center;\n    }\n    body {\n        flex-direction: column;\n    }\n    #error-view {\n        width: 100%;\n        height: 100%;\n        padding: 1.5em;\n        justify-content: center;\n    }\n    #error-view .error-message,\n    #error-view .reset-button {\n        color: #FFFFFF;\n        text-align: center;\n        line-height: 16px;\n    }\n    #error-view .error-message {\n        margin-bottom: 2em;\n        word-break: break-word;\n    }\n    #error-view .reset-button {\n        cursor: pointer;\n        border: 0;\n        border-radius: 24px;\n        padding: 12px;\n        background: #3D93CE;\n        line-height: 24px;\n        font-weight: 700;\n        width: 300px;\n    }\n    .card,\n    #error-view {\n        display: inline-flex;\n        align-items: center;\n        flex-direction: column;\n    }\n    .card {\n        border-radius: 8px;\n        min-width: 280px;\n        min-height: 320px;\n        backface-visibility: hidden;\n        -webkit-backface-visibility: hidden;\n        transition: transform 1s;\n        transform-style: preserve-3d;\n    }\n    .card * {\n        box-sizing: content-box;\n    }\n    #view-boxes {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100%;\n        width: 100%;\n    }\n    #view-boxes.qr_scanned #front-view,\n    #view-boxes.qr_authorized #front-view {\n        transform: rotateY(180deg);\n        position: absolute;\n    }\n    #view-boxes #back-view {width: 320px;}\n    #view-boxes.qr_scanned #back-view,\n    #view-boxes.qr_authorized #back-view {\n        transform: rotateY(0deg);\n        position: relative;\n    }\n    #view-boxes #back-view #success-mark,\n    #view-boxes #back-view .success-message {\n        opacity: 0;\n    }\n    #view-boxes.qr_authorized #back-view #success-mark,\n    #view-boxes.qr_authorized #back-view .success-message {\n        opacity: 1;\n    }\n    #view-boxes.qr_authorized #back-view #success-mark {\n        transform: rotate(720deg);\n    }\n    #view-boxes.qr_authorized #back-view .auth-message {\n        opacity: 0;\n    }\n    #front-view {\n        background-color: white;\n        border: 1px solid #888C94;\n        z-index: 2;\n        transform: rotateY(0deg);\n        justify-content: flex-end;\n        width: 462px;\n    }\n    #front-view > svg,\n    #front-view > img {\n        padding: 16px 16px 0px;\n    }\n    #front-view > img + img {\n        padding-top: 12px;\n        padding-bottom: 32px;\n    }\n    #qr-code {\n        min-width: 160px;\n        min-height: 160px;\n        width: calc(100% - 32px);\n        max-width: 325px;\n    }\n    #instructions {\n        background-color: #FFFF;\n        border-top-left-radius: 8px;\n        border-top-right-radius: 8px;\n        box-sizing: border-box;\n        margin-top: 16px;\n        display: flex;\n        align-items: center;\n        font-size: 14px;\n        line-height: 16px;\n        max-width: 250px;\n        width: 100%;\n    }\n    .instruction-icon {\n        min-width: 68px;\n        min-height: 46px;\n        margin-right: 16px;\n    }\n    #fee-disclaimer{\n        margin: 0;\n        padding-top: 32px;\n        padding-left: 16px;\n        padding-right: 16px;\n        font-size: 20px;\n        color: #2F3033;\n    }\n    #back-view {\n        position: absolute;\n        transform: rotateY(-180deg);\n        background-color: #3D93CE;\n        justify-content: center;\n        font-size: 18px;\n        line-height: 16px;\n        text-align: center;\n        color: #FFFFFF;\n    }\n    #back-view .auth-message,\n    #back-view .success-message {\n        position: absolute;\n        bottom: -30px;\n        white-space: nowrap;\n        transition: opacity 500ms;\n    }\n    #back-view .mark {\n        position: relative ;\n    }\n    #venmo-mark{\n        width: 50%;\n    }\n    #success-mark {\n        position: absolute;\n        left: 50%;\n        bottom: -10%;\n        transition: transform 500ms, opacity 500ms;\n        transition-delay: 350ms;\n    }\n    #close {\n        position: absolute;\n        right: 16px;\n        top: 16px;\n        width: 16px;\n        height: 16px;\n        opacity: 0.6;\n        z-index: 10;\n    }\n    #close:hover {\n        opacity: 1;\n    }\n    #close:before, #close:after {\n        position: absolute;\n        left: 8px;\n        content: \' \';\n        height: 20px;\n        width: 2px;\n        background-color: #FFF;\n    }\n    #close:before {\n        transform: rotate(45deg);\n    }\n    #close:after {\n        transform: rotate(-45deg);\n    }\n    #survey {\n        background: #FFFFFF;\n        height: 542px;\n        width: 500px;\n        border-radius: 8px;\n    }\n    #survey h1 {\n        width: 423px;\n        font-weight: 500;\n        font-size: 24px;\n        line-height: 32px;\n        text-align: center;\n        margin: auto;\n        margin-top: 30px;\n    }\n    #survey button {\n        display: block;\n        margin: auto;\n        border: none;\n        font-family: sans-serif;\n        cursor: pointer;\n        font-weight: bold;\n    }\n    #survey button.continue-button {\n        margin-top: 40px;\n        min-height: 48px;\n        width:  335px;\n        background: #0074DE;\n        height: 24px;\n        font-size: 18px;\n        line-height: 24px;\n        text-align: center;\n        color: #FFFFFF;\n        border-radius: 24px;\n        display: block;\n    }\n    #survey button.leave-button {\n        margin-top: 10px;\n        height: 48px;\n        width:  335px;\n        color: #0074DE;\n        background: none;\n        font-size: 18px;\n        line-height: 24px;\n        text-align: center;\n        display: block;\n    }\n    #survey .message {\n        width: 333px;\n        font-family: sans-serif;\n        font-size: 16px;\n        line-height: 20px;\n        text-align: center;\n        margin: auto;\n        margin-top: 8px;\n    }\n\n    #survey .answers {\n        width: 400px;\n        font-size: 16px;\n        line-height: 20px;\n        margin: auto;\n        cursor: pointer;\n    }\n    #survey .answers .answer {\n        margin-top: 28px;\n        display: flex;\n        align-items: center;\n    }\n    #survey label {\n        font-family: sans-serif;\n        font-size: 16px;\n        cursor: pointer;\n        display: flex;\n        align-items: center;\n    }\n    #survey .answers svg{\n        margin-right: 8px;\n        min-width: 40px;\n    }\n    #survey .answers input{\n        display: none;\n    }\n    #survey .answers input:focus::after {\n        content: "";\n        min-width: 44px;\n        height: 44px;\n        position: absolute;\n        top: -2px;\n        left: -2px;\n        border: solid 1px black;\n        border-radius: 50%;\n    }\n    .escape-path {\n        background-color: white;\n        color: #2F3033;\n        width: 100%;\n        text-align: center;\n        padding: 1rem;\n        margin: 0;\n        border-bottom-left-radius: 16px;\n        border-bottom-right-radius: 16px;\n    }\n    .escape-path__link {\n        font-weight: 600;\n        color: #008CFF;\n    }\n    .escape-path__link:hover {\n        cursor: pointer;\n    }\n    ', " "), v("a", {
                 href: "#",
                 id: "close",
                 "aria-label": "close",

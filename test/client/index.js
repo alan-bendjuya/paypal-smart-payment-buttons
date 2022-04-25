@@ -17,6 +17,7 @@ import './vault';
 import './clientConfig';
 import './popupBridge';
 import './card';
+import './inlinexo';
 import './native';
 import './native-qrcode';
 import './nativePopup';
@@ -29,6 +30,8 @@ import './applepay';
 import './applepay-utils';
 import './exports';
 import './card-fields';
+import './data';
+import './menu';
 
 beforeEach(() => {
     setupMocks();

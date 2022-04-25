@@ -1,8 +1,9 @@
 /* @flow */
 
-import type { CrossDomainWindowType } from 'cross-domain-utils/src';
+import type { CrossDomainWindowType } from '@krakenjs/cross-domain-utils/src';
 import { ENV, INTENT, COUNTRY, FUNDING, CARD, PLATFORM, CURRENCY } from '@paypal/sdk-constants/src';
-import { ZalgoPromise } from 'zalgo-promise/src';
+import { EXPERIENCE } from '@paypal/checkout-components/src/constants/button';
+import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
 
 import type { LocaleType, ProxyWindow, Wallet, ConnectOptions } from '../types';
 import type { XApplePaySessionConfigRequest } from '../payment-flows/types';
@@ -11,6 +12,7 @@ import { getStorageID, isStorageStateFresh } from '../lib';
 import { getOnInit } from './onInit';
 import { getCreateOrder } from './createOrder';
 import { getOnApprove } from './onApprove';
+import { getOnComplete } from './onComplete';
 import { getOnCancel } from './onCancel';
 import { getOnShippingChange } from './onShippingChange';
 import { getOnClick } from './onClick';
@@ -20,7 +22,7 @@ import { getOnAuth } from './onAuth';
 import { getOnError } from './onError';
 
 import type { CreateOrder, XCreateOrder, CreateBillingAgreement, XCreateBillingAgreement, OnInit,
-    XOnInit, OnApprove, XOnApprove, OnCancel, XOnCancel, OnClick, XOnClick, OnShippingChange, XOnShippingChange, XOnError,
+    XOnInit, OnApprove, XOnApprove, OnComplete, XOnComplete, OnCancel, XOnCancel, OnClick, XOnClick, OnShippingChange, XOnShippingChange, XOnError,
     OnError, XGetPopupBridge, GetPopupBridge, XCreateSubscription, RememberFunding, GetPageURL, OnAuth, GetQueriedEligibleFunding
 } from '.';
 
@@ -65,6 +67,7 @@ export type XProps = {|
     enableThreeDomainSecure : boolean,
     enableNativeCheckout : boolean | void,
     enableVaultInstallments : boolean,
+    experience : $Values<typeof EXPERIENCE>,
     getParentDomain : () => string,
     getPageUrl : GetPageURL,
     getParent : () => CrossDomainWindowType,
@@ -85,6 +88,7 @@ export type XProps = {|
 
     onInit : XOnInit,
     onApprove : ?XOnApprove,
+    onComplete? : ?XOnComplete,
     onCancel : XOnCancel,
     onClick : XOnClick,
     onError : XOnError,
@@ -126,6 +130,7 @@ export type Props = {|
     enableThreeDomainSecure : boolean,
     enableNativeCheckout : boolean,
     enableVaultInstallments : boolean,
+    experience : string,
     merchantDomain : string,
     getPageUrl : GetPageURL,
     getParent : () => CrossDomainWindowType,
@@ -155,6 +160,7 @@ export type Props = {|
     createSubscription : ?XCreateSubscription,
 
     onApprove : OnApprove,
+    onComplete : OnComplete,
 
     onCancel : OnCancel,
     onShippingChange : ?OnShippingChange,
@@ -169,7 +175,7 @@ export type Props = {|
     allowBillingPayments : boolean
 |};
 
-export function getProps({ facilitatorAccessToken, branded } : {| facilitatorAccessToken : string, branded : boolean | null |}) : Props {
+export function getProps({ facilitatorAccessToken, branded, paymentSource } : {| facilitatorAccessToken : string, branded : boolean | null, paymentSource : $Values<typeof FUNDING> | null |}) : Props {
     const xprops : XProps = window.xprops;
 
     let {
@@ -193,6 +199,7 @@ export function getProps({ facilitatorAccessToken, branded } : {| facilitatorAcc
         enableThreeDomainSecure,
         enableVaultInstallments,
         enableNativeCheckout = false,
+        experience = '',
         remember: rememberFunding,
         stageHost,
         apiStageHost,
@@ -230,13 +237,14 @@ export function getProps({ facilitatorAccessToken, branded } : {| facilitatorAcc
         ? storageID
         : getStorageID();
 
-    const createBillingAgreement = getCreateBillingAgreement({ createBillingAgreement: xprops.createBillingAgreement });
-    const createSubscription = getCreateSubscription({ createSubscription: xprops.createSubscription, partnerAttributionID, merchantID, clientID }, { facilitatorAccessToken });
+    const createBillingAgreement = getCreateBillingAgreement({ createBillingAgreement: xprops.createBillingAgreement, paymentSource });
+    const createSubscription = getCreateSubscription({ createSubscription: xprops.createSubscription, partnerAttributionID, merchantID, clientID, paymentSource }, { facilitatorAccessToken });
 
-    const createOrder = getCreateOrder({ createOrder: xprops.createOrder, currency, intent, merchantID, partnerAttributionID }, { facilitatorAccessToken, createBillingAgreement, createSubscription });
+    const createOrder = getCreateOrder({ createOrder: xprops.createOrder, currency, intent, merchantID, partnerAttributionID, paymentSource }, { facilitatorAccessToken, createBillingAgreement, createSubscription });
 
     const onError = getOnError({ onError: xprops.onError });
-    const onApprove = getOnApprove({ onApprove: xprops.onApprove, createBillingAgreement, createSubscription, intent, onError, partnerAttributionID, clientAccessToken, vault, clientID, facilitatorAccessToken, branded, createOrder });
+    const onApprove = getOnApprove({ onApprove: xprops.onApprove, createBillingAgreement, createSubscription, intent, onError, partnerAttributionID, clientAccessToken, vault, clientID, facilitatorAccessToken, branded, createOrder, paymentSource });
+    const onComplete = getOnComplete({ createOrder, onComplete: xprops.onComplete, onError: xprops.onError });
     const onCancel = getOnCancel({ onCancel: xprops.onCancel, onError }, { createOrder });
     const onShippingChange = getOnShippingChange({ onShippingChange: xprops.onShippingChange, partnerAttributionID, clientID }, { facilitatorAccessToken, createOrder });
     const onAuth = getOnAuth({ facilitatorAccessToken, createOrder, createSubscription, clientID });
@@ -282,6 +290,7 @@ export function getProps({ facilitatorAccessToken, branded } : {| facilitatorAcc
         enableThreeDomainSecure,
         enableNativeCheckout,
         enableVaultInstallments,
+        experience,
 
         onClick,
         onInit,
@@ -293,6 +302,7 @@ export function getProps({ facilitatorAccessToken, branded } : {| facilitatorAcc
         createBillingAgreement,
         createSubscription,
         onApprove,
+        onComplete,
         onCancel,
         onShippingChange,
 

@@ -1,9 +1,9 @@
 /* @flow */
 
-import { ZalgoPromise } from 'zalgo-promise/src';
-import { memoize, noop, supportsPopups, stringifyError, extendUrl, PopupOpenError } from 'belter/src';
+import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
+import { memoize, noop, supportsPopups, stringifyError, extendUrl, PopupOpenError } from '@krakenjs/belter/src';
 import { FUNDING, FPTI_KEY } from '@paypal/sdk-constants/src';
-import { getParent, getTop, type CrossDomainWindowType } from 'cross-domain-utils/src';
+import { getParent, getTop, type CrossDomainWindowType } from '@krakenjs/cross-domain-utils/src';
 
 import type { ProxyWindow, ConnectOptions } from '../types';
 import { type CreateBillingAgreement, type CreateSubscription } from '../props';
@@ -26,6 +26,7 @@ export const CHECKOUT_APM_POPUP_DIMENSIONS = {
 };
 
 let canRenderTop = false;
+let inline = false;
 
 function getRenderWindow() : Object {
     const top = getTop(window);
@@ -123,16 +124,18 @@ function getDimensions(fundingSource : string) : {| width : number, height : num
 
 function initCheckout({ props, components, serviceData, payment, config, restart: fullRestart } : InitOptions) : PaymentFlowInstance {
     const { Checkout } = components;
-    const { sessionID, buttonSessionID, createOrder, onApprove, onCancel,
+    const { sessionID, buttonSessionID, createOrder, onApprove, onComplete, onCancel,
         onShippingChange, locale, commit, onError, vault, clientAccessToken,
         createBillingAgreement, createSubscription, onClick, amount,
         clientID, connect, clientMetadataID: cmid, onAuth, userIDToken, env,
         currency, enableFunding, stickinessID,
-        standaloneFundingSource, branded, paymentMethodToken, allowBillingPayments, merchantRequestedPopupsDisabled } = props;
+        standaloneFundingSource, branded, paymentMethodToken, allowBillingPayments, merchantRequestedPopupsDisabled, inlinexo } = props;
     let { button, win, fundingSource, card, isClick, buyerAccessToken = serviceData.buyerAccessToken,
         venmoPayloadID, buyerIntent } = payment;
     const { buyerCountry, sdkMeta, merchantID } = serviceData;
     const { cspNonce } = config;
+
+    inline = inlinexo && fundingSource === FUNDING.CARD;
 
     let context = getContext({ win, isClick, merchantRequestedPopupsDisabled });
     const connectEligible = isConnectEligible({ connect, createBillingAgreement, createSubscription, vault, fundingSource });
@@ -143,12 +146,13 @@ function initCheckout({ props, components, serviceData, payment, config, restart
 
     const init = () => {
         return Checkout({
-            window: win,
+            window:   win,
             sessionID,
             buttonSessionID,
             stickinessID,
             clientAccessToken,
             venmoPayloadID,
+            inlinexo: inline,
 
             createAuthCode: () => {
                 return ZalgoPromise.try(() => {
@@ -231,6 +235,13 @@ function initCheckout({ props, components, serviceData, payment, config, restart
 
                 // eslint-disable-next-line no-use-before-define
                 return onApprove({ payerID, paymentID, billingToken, subscriptionID, buyerAccessToken, authCode }, { restart })
+                    // eslint-disable-next-line no-use-before-define
+                    .finally(() => close().then(noop))
+                    .catch(noop);
+            },
+
+            onComplete: () => {
+                return onComplete()
                     // eslint-disable-next-line no-use-before-define
                     .finally(() => close().then(noop))
                     .catch(noop);
@@ -320,7 +331,9 @@ function initCheckout({ props, components, serviceData, payment, config, restart
 
     const click = () => {
         return ZalgoPromise.try(() => {
-            if (!merchantRequestedPopupsDisabled && !win && supportsPopups()) {
+            if (inline) {
+                context = CONTEXT.IFRAME;
+            } else if (!merchantRequestedPopupsDisabled && !win && supportsPopups()) {
                 try {
                     const { width, height } = getDimensions(fundingSource);
                     win = openPopup({ width, height });
@@ -356,7 +369,7 @@ function initCheckout({ props, components, serviceData, payment, config, restart
 function updateCheckoutClientConfig({ orderID, payment, userExperienceFlow }) : ZalgoPromise<void> {
     return ZalgoPromise.try(() => {
         const { buyerIntent, fundingSource } = payment;
-        const updateClientConfigPromise = updateButtonClientConfig({ fundingSource, orderID, inline: false, userExperienceFlow });
+        const updateClientConfigPromise = updateButtonClientConfig({ fundingSource, orderID, inline, userExperienceFlow });
 
         // Block
         if (buyerIntent === BUYER_INTENT.PAY_WITH_DIFFERENT_FUNDING_SHIPPING) {
