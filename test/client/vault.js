@@ -32,52 +32,7 @@ describe('vault cases', () => {
                         return;
                     }
 
-                    enableVaultCalled = true;
-                    return {};
-                })
-            }).expectCalls();
-
-            window.xprops.onApprove = mockAsyncProp(expect('onApprove', async () => {
-                gqlMock.done();
-
-                if (!enableVaultCalled) {
-                    throw new Error(`Expected graphql call with enableVault mutation`);
-                }
-            }));
-
-            const fundingEligibility = {
-                [FUNDING.PAYPAL]: {
-                    eligible:  true,
-                    vaultable: true
-                }
-            };
-
-            createButtonHTML({ fundingEligibility });
-            await mockSetupButton({ merchantID: [ 'XYZ12345' ], fundingEligibility });
-
-            await clickButton(FUNDING.PAYPAL);
-        });
-    });
-
-    it('should set up a new forced-vaulted funding source and should send all CCO values', async () => {
-        return await wrapPromise(async ({ expect }) => {
-
-            window.xprops.vault = true;
-            window.xprops.clientAccessToken = 'abc-123';
-
-            const orderID = generateOrderID();
-
-            window.xprops.createOrder = mockAsyncProp(expect('createOrder', async () => {
-                return orderID;
-            }));
-
-            let enableVaultCalled = false;
-
-            const gqlMock = getGraphQLApiMock({
-                extraHandler: expect('graphqlCall', ({ data }) => {
-                    if (!data.query.includes('mutation EnableVault')) {
-                        return;
-                    }
+                    // CCO Data on enable vault
                     if (!data.variables.productFlow ||
                         !data.variables.fundingSource ||
                         !data.variables.integrationArtifact ||
@@ -98,6 +53,7 @@ describe('vault cases', () => {
                 if (!enableVaultCalled) {
                     throw new Error(`Expected graphql call with enableVault mutation`);
                 }
+                
             }));
 
             const fundingEligibility = {
