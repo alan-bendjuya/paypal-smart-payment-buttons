@@ -10,6 +10,7 @@ import {
     clickButton, getGraphQLApiMock, generateOrderID, mockMenu, clickMenu, getMockWindowOpen
 } from './mocks';
 
+
 describe('vault cases', () => {
 
     it('should set up a new forced-vaulted funding source', async () => {
@@ -39,7 +40,7 @@ describe('vault cases', () => {
                         !data.variables.userExperienceFlow ||
                         !data.variables.productFlow ||
                         !data.variables.buttonSessionID) {
-                        return;
+                        return {};
                     }
 
                     enableVaultCalled = true;
@@ -53,7 +54,7 @@ describe('vault cases', () => {
                 if (!enableVaultCalled) {
                     throw new Error(`Expected graphql call with enableVault mutation`);
                 }
-                
+
             }));
 
             const fundingEligibility = {
@@ -69,6 +70,7 @@ describe('vault cases', () => {
             await clickButton(FUNDING.PAYPAL);
         });
     });
+    
 
     it('should set up a new forced-vaulted funding source, and work even if paypal is not vaultable', async () => {
         return await wrapPromise(async ({ expect, avoid }) => {
@@ -1451,6 +1453,46 @@ describe('vault cases', () => {
             await mockSetupButton({ merchantID: [ 'XYZ12345' ], fundingEligibility, content });
 
             await clickMenu(FUNDING.PAYPAL);
+        });
+    });
+
+    it('Enable Vault graphql call should fail', async () => {
+        return await wrapPromise(async ({ expect, avoid }) => {
+
+
+            window.xprops.vault = true;
+            window.xprops.clientAccessToken = 'abc-123';
+
+            const orderID = generateOrderID();
+
+            window.xprops.createOrder = mockAsyncProp(expect('createOrder', async () => {
+                return orderID;
+            }));
+
+            const gqlMock = getGraphQLApiMock({
+                extraHandler: ({ data }) => {
+                    if (data.query.includes('mutation EnableVault')) {
+                        throw new Error(`Not today`);
+                    }
+                }
+            }).expectCalls();
+ 
+            //window.xprops.onApprove = mockAsyncProp(avoid('onApprove'));
+            window.xprops.onApprove = mockAsyncProp(expect('onApprove', async () => {
+                gqlMock.done();
+            }));
+
+            const fundingEligibility = {
+                [FUNDING.PAYPAL]: {
+                    eligible:  true,
+                    vaultable: true
+                }
+            };
+
+            createButtonHTML({ fundingEligibility });
+            await mockSetupButton({ merchantID: [ 'XYZ12345' ], fundingEligibility });
+
+            await clickButton(FUNDING.PAYPAL).catch(expect('clickCatch'));
         });
     });
 });
