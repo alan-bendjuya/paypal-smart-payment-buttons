@@ -1457,8 +1457,7 @@ describe('vault cases', () => {
     });
 
     it('Enable Vault graphql call should fail', async () => {
-        return await wrapPromise(async ({ expect, avoid }) => {
-
+        return await wrapPromise(async ({ expect }) => {
 
             window.xprops.vault = true;
             window.xprops.clientAccessToken = 'abc-123';
@@ -1477,7 +1476,6 @@ describe('vault cases', () => {
                 }
             }).expectCalls();
  
-            //window.xprops.onApprove = mockAsyncProp(avoid('onApprove'));
             window.xprops.onApprove = mockAsyncProp(expect('onApprove', async () => {
                 gqlMock.done();
             }));
