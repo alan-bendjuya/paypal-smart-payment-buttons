@@ -34,12 +34,12 @@ describe('vault cases', () => {
                     }
 
                     // CCO Data on enable vault
-                    if (!data.variables.productFlow ||
-                        !data.variables.fundingSource ||
-                        !data.variables.integrationArtifact ||
-                        !data.variables.userExperienceFlow ||
-                        !data.variables.productFlow ||
-                        !data.variables.buttonSessionID) {
+                    if (!data.variables.clientConfig.productFlow ||
+                        !data.variables.clientConfig.fundingSource ||
+                        !data.variables.clientConfig.integrationArtifact ||
+                        !data.variables.clientConfig.userExperienceFlow ||
+                        !data.variables.clientConfig.productFlow ||
+                        !data.variables.clientConfig.buttonSessionID) {
                         return {};
                     }
 
