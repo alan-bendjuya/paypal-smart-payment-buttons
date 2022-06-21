@@ -6,10 +6,9 @@ import { FUNDING, INTENT } from '@paypal/sdk-constants/src';
 import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
 
 import {
-    mockSetupButton, mockAsyncProp, createButtonHTML, getValidatePaymentMethodApiMock,
+    mockSetupButton, mockAsyncProp, createButtonHTML, getValidatePaymentMethodApiMock, getConfirmOrderApiMock,
     clickButton, getGraphQLApiMock, generateOrderID, mockMenu, clickMenu, getMockWindowOpen
 } from './mocks';
-
 
 describe('vault cases', () => {
 
@@ -324,6 +323,7 @@ describe('vault cases', () => {
             }));
 
             const vpmCall = getValidatePaymentMethodApiMock().expectCalls();
+            const confirmCall = getConfirmOrderApiMock().expectCalls();
 
             window.xprops.onApprove = mockAsyncProp(expect('onApprove', async (data) => {
                 if (data.orderID !== orderID) {
@@ -331,6 +331,7 @@ describe('vault cases', () => {
                 }
 
                 vpmCall.done();
+                confirmCall.done();
             }));
 
             const fundingEligibility = {
@@ -405,6 +406,7 @@ describe('vault cases', () => {
             }));
 
             const vpmCall = getValidatePaymentMethodApiMock().expectCalls();
+            const confirmCall = getConfirmOrderApiMock().expectCalls();
 
             window.xprops.onApprove = mockAsyncProp(expect('onApprove', async (data) => {
                 if (data.orderID !== orderID) {
@@ -412,6 +414,7 @@ describe('vault cases', () => {
                 }
 
                 vpmCall.done();
+                confirmCall.done();
             }));
 
             const fundingEligibility = {
@@ -443,6 +446,7 @@ describe('vault cases', () => {
 
             await clickButton(FUNDING.CARD);
             gqlMock.done();
+            confirmCall.done();
         });
     });
 
@@ -496,6 +500,7 @@ describe('vault cases', () => {
             }));
 
             const vpmCall = getValidatePaymentMethodApiMock().expectCalls();
+            const confirmCall = getConfirmOrderApiMock().expectCalls();
 
             window.xprops.onApprove = mockAsyncProp(expect('onApprove', async (data) => {
                 if (data.orderID !== orderID) {
@@ -503,6 +508,7 @@ describe('vault cases', () => {
                 }
 
                 vpmCall.done();
+                confirmCall.done();
             }));
 
             const fundingEligibility = {
@@ -536,6 +542,7 @@ describe('vault cases', () => {
             await clickButton(FUNDING.CARD);
             gqlMock.done();
             vpmCall.done();
+            confirmCall.done();
         });
     });
 
@@ -589,12 +596,14 @@ describe('vault cases', () => {
             }));
 
             const vpmCall = getValidatePaymentMethodApiMock().expectCalls();
+            const confirmCall = getConfirmOrderApiMock().expectCalls();
 
             window.xprops.onApprove = mockAsyncProp(expect('onApprove', async (data) => {
                 if (data.orderID !== orderID) {
                     throw new Error(`Expected orderID to be ${ orderID }, got ${ data.orderID }`);
                 }
 
+                confirmCall.done();
                 vpmCall.done();
             }));
 
@@ -670,6 +679,7 @@ describe('vault cases', () => {
             }));
 
             const vpmCall = getValidatePaymentMethodApiMock().expectCalls();
+            const confirmCall = getConfirmOrderApiMock().expectCalls();
 
             window.xprops.onApprove = mockAsyncProp(expect('onApprove', async (data) => {
                 if (data.orderID !== orderID) {
@@ -677,6 +687,7 @@ describe('vault cases', () => {
                 }
 
                 vpmCall.done();
+                confirmCall.done();
             }));
 
             const fundingEligibility = {

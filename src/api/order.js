@@ -245,9 +245,7 @@ export function authorizeOrder(orderID : string, { facilitatorAccessToken, buyer
     });
 }
 
-type PatchData = {|
-
-|};
+type PatchData = mixed;
 
 export function patchOrder(orderID : string, data : PatchData, { facilitatorAccessToken, buyerAccessToken, partnerAttributionID, forceRestAPI = false } : OrderAPIOptions) : ZalgoPromise<OrderResponse> {
     getLogger().info(`patch_order_lsat_upgrade_${ getLsatUpgradeCalled() ? 'called' : 'not_called' }`);
@@ -303,17 +301,26 @@ export function patchOrder(orderID : string, data : PatchData, { facilitatorAcce
         return patchData;
     });
 }
+type ConfirmPaymentSource = {|
+    [$Values<typeof FUNDING>] : {|
+        country_code? : string | null,
+        name? : string | null,
+        email? : string | null,
+        bic? : string | null,
+        bank_id? : string | null,
+        type?: string | 'NONCE',
+        id?: string
+    |}
+|}
+type LimitedNonceSource = {|
+    token : {|
+        id : string,
+        type : 'NONCE'
+    |},
+|}
 
 export type ConfirmData = {|
-    payment_source : {
-        [$Values<typeof FUNDING>] : {|
-            country_code? : string | null,
-            name? : string | null,
-            email? : string | null,
-            bic? : string | null,
-            bank_id? : string | null
-        |}
-      }
+    payment_source : ConfirmPaymentSource | LimitedNonceSource
 |};
 
 export function confirmOrderAPI(orderID : string, data : ConfirmData, { facilitatorAccessToken, partnerAttributionID } : OrderAPIOptions) : ZalgoPromise<OrderConfirmResponse> {
@@ -358,6 +365,17 @@ export type ValidatePaymentMethodResponse = {|
         description? : string
     |}>
 |};
+
+
+export function buildPaymentSource(tokenID: string): LimitedNonceSource {
+    const paymentSource = {
+        token: {
+            id:   tokenID,
+            type: 'NONCE'
+        }
+    };
+    return paymentSource;
+}
 
 type PaymentSource = {|
     token : {|

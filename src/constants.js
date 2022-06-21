@@ -29,16 +29,17 @@ export const HEADERS = {
 };
 
 export const DATA_ATTRIBUTES = {
-    FUNDING_SOURCE:    'data-funding-source',
-    CARD:              'data-card',
-    PAYMENT_METHOD_ID: 'data-payment-method-id',
-    INSTRUMENT_ID:     'data-instrument-id',
-    INSTRUMENT_TYPE:   'data-instrument-type',
-    MENU:              'data-menu',
-    NONCE:             'data-nonce',
-    RENDER_VERSION:    'data-render-version',
-    CLIENT_VERSION:    'data-client-version',
-    PAY_NOW:           'data-pay-now'
+    FUNDING_SOURCE:      'data-funding-source',
+    CARD:                'data-card',
+    PAYMENT_METHOD_ID:   'data-payment-method-id',
+    INSTRUMENT_ID:       'data-instrument-id',
+    INSTRUMENT_TYPE:     'data-instrument-type',
+    MENU:                'data-menu',
+    NONCE:               'data-nonce',
+    RENDER_VERSION:      'data-render-version',
+    CLIENT_VERSION:      'data-client-version',
+    PAY_NOW:             'data-pay-now',
+    RESPONSE_START_TIME: 'data-response-start-time'
 };
 
 export const CLASS = {
@@ -111,11 +112,13 @@ export const FPTI_TRANSITION = {
     RECEIVE_ORDER:            ('process_receive_order' : 'process_receive_order'),
     CREATE_PAYMENT:           ('process_create_payment' : 'process_create_payment'),
 
-    CHECKOUT_SHIPPING_CHANGE: ('process_checkout_shipping_change' : 'process_checkout_shipping_change'),
-    CHECKOUT_APPROVE:         ('process_checkout_approve' : 'process_checkout_approve'),
-    CHECKOUT_COMPLETE:        ('process_checkout_complete' : 'process_checkout_complete'),
-    CHECKOUT_CANCEL:          ('process_checkout_cancel' : 'process_checkout_cancel'),
-    CHECKOUT_ERROR:           ('process_checkout_error' : 'process_checkout_error'),
+    CHECKOUT_SHIPPING_CHANGE:         ('process_checkout_shipping_change' : 'process_checkout_shipping_change'),
+    CHECKOUT_SHIPPING_ADDRESS_CHANGE: ('process_checkout_shipping_address_change' : 'process_checkout_shipping_address_change'),
+    CHECKOUT_SHIPPING_OPTIONS_CHANGE: ('process_checkout_shipping_options_change' : 'process_checkout_shipping_options_change'),
+    CHECKOUT_APPROVE:                 ('process_checkout_approve' : 'process_checkout_approve'),
+    CHECKOUT_COMPLETE:                ('process_checkout_complete' : 'process_checkout_complete'),
+    CHECKOUT_CANCEL:                  ('process_checkout_cancel' : 'process_checkout_cancel'),
+    CHECKOUT_ERROR:                   ('process_checkout_error' : 'process_checkout_error'),
 
     TOKENIZE_APPROVE:         ('process_tokenize_approve' : 'process_tokenize_approve'),
 

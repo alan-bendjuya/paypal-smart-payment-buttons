@@ -2,7 +2,7 @@
 
 import { ZalgoPromise } from '@krakenjs/zalgo-promise/src';
 import { FUNDING, CARD } from '@paypal/sdk-constants/src';
-import { memoize, querySelectorAll, debounce, noop } from '@krakenjs/belter/src';
+import { memoize, querySelectorAll, debounce, noop, isCrossSiteTrackingEnabled } from '@krakenjs/belter/src';
 import { EXPERIENCE } from '@paypal/checkout-components/src/constants/button';
 
 import { DATA_ATTRIBUTES } from '../constants';
@@ -18,10 +18,10 @@ function setupCardForm() {
 let cardFormOpen = false;
 
 function isCardFormEligible({ props, serviceData } : IsEligibleOptions) : boolean {
-    const { vault, onShippingChange, experience } = props;
+    const { vault, onShippingChange, onShippingAddressChange, onShippingOptionsChange, experience } = props;
     const { eligibility } = serviceData;
 
-    if (experience === EXPERIENCE.INLINE) {
+    if (experience === EXPERIENCE.INLINE && !isCrossSiteTrackingEnabled('enforce_policy')) {
         return false;
     }
 
@@ -29,7 +29,7 @@ function isCardFormEligible({ props, serviceData } : IsEligibleOptions) : boolea
         return false;
     }
 
-    if (onShippingChange) {
+    if (onShippingChange || onShippingAddressChange || onShippingOptionsChange) {
         return false;
     }
 
